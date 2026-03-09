@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Roadmap Tecnologico 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#f4f6fa;--surface:#fff;--border:rgba(0,0,0,0.08);
+  --text:#111827;--muted:#6b7280;
+  --op:#3ec87a;--inn:#2eb8e6;--plat:#8dc63f;--risk:#9b59d0;
+  --op-bg:rgba(62,200,122,0.09);--inn-bg:rgba(46,184,230,0.09);
+  --plat-bg:rgba(141,198,63,0.09);--risk-bg:rgba(155,89,208,0.09);
+  --fh:'Syne',sans-serif;--fb:'DM Sans',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg)!important;background-color:var(--bg)!important;font-family:var(--fb);font-size:14px;line-height:1.6;color:var(--text);min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(rgba(0,0,0,0.04) 1px,transparent 1px);background-size:26px 26px;pointer-events:none;z-index:0}
+/* SCROLL PROGRESS */
+.scprog{position:fixed;top:0;left:0;height:3px;z-index:300;width:0%;background:linear-gradient(90deg,var(--op),var(--inn),var(--plat),var(--risk));transition:width .1s linear}
+/* STICKY NAV */
+.snav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);box-shadow:0 2px 16px rgba(0,0,0,0.07);transform:translateY(-110%);transition:transform .35s ease}
+.snav.on{transform:translateY(0)}
+.snav-inner{max-width:100%;margin:0;padding:0 14px;display:flex;gap:2px;align-items:center;overflow-x:auto;scrollbar-width:none}
+.snav-inner::-webkit-scrollbar{display:none}
+.snav a{font-family:var(--fh);font-size:11px;font-weight:700;padding:13px 12px;text-decoration:none;color:var(--muted);white-space:nowrap;border-bottom:3px solid transparent;transition:color .2s,border-color .2s;display:flex;align-items:center;gap:5px;letter-spacing:.03em}
+.snav .a-op:hover,.snav .a-op.act{border-color:var(--op);color:var(--op)}
+.snav .a-inn:hover,.snav .a-inn.act{border-color:var(--inn);color:var(--inn)}
+.snav .a-plat:hover,.snav .a-plat.act{border-color:var(--plat);color:var(--plat)}
+.snav .a-risk:hover,.snav .a-risk.act{border-color:var(--risk);color:var(--risk)}
+.snav .a-tl:hover,.snav .a-tl.act{border-color:#e07b00;color:#e07b00}
+/* WRAP */
+.wrap{position:relative;z-index:1;max-width:100%;margin:0;padding:20px 14px 48px}
+/* ANIMATIONS */
+.fi{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.fi.on{opacity:1;transform:translateY(0)}
+.fi:nth-child(2){transition-delay:.07s}.fi:nth-child(3){transition-delay:.14s}
+.fi:nth-child(4){transition-delay:.21s}.fi:nth-child(5){transition-delay:.28s}.fi:nth-child(6){transition-delay:.35s}
+/* HEADER */
+.hdr{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px;padding-bottom:20px;border-bottom:2px solid var(--border)}
+.badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#e07b00;background:rgba(224,123,0,0.08);border:1px solid rgba(224,123,0,0.25);padding:4px 12px;border-radius:2px;margin-bottom:12px}
+.badge::before{content:'';width:6px;height:6px;background:#e07b00;border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── FUSION DIAGRAM ── */
+.fusion-section{margin-bottom:36px}
+.fusion-title{font-family:var(--fh);font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.fusion-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+.fusion-diagram{
+  display:grid;
+  grid-template-columns:1fr 32px 1fr 32px 1fr 32px 1fr 32px 1fr;
+  align-items:center;
+  gap:0;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px 20px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+  position:relative;
+  overflow:hidden;
+}
+.fusion-diagram::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 50% 50%, rgba(62,200,122,0.03) 0%, rgba(46,184,230,0.03) 40%, rgba(141,198,63,0.03) 80%, transparent 100%);
+  pointer-events:none;
+}
+
+.fd-node{
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  padding:10px 8px;border-radius:12px;
+  transition:transform .25s;cursor:default;
+  position:relative;
+}
+.fd-node:hover{transform:translateY(-4px)}
+
+.fd-icon{
+  width:64px;height:64px;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;position:relative;
+}
+.fd-icon::after{
+  content:'';position:absolute;inset:-4px;border-radius:18px;
+  border:1.5px dashed;opacity:0;
+  transition:opacity .25s,transform .25s;
+  transform:scale(.9);
+}
+.fd-node:hover .fd-icon::after{opacity:.5;transform:scale(1)}
+
+.fd-node.nd-infra .fd-icon{background:rgba(62,200,122,0.1);color:var(--op);}
+.fd-node.nd-infra .fd-icon::after{border-color:var(--op)}
+.fd-node.nd-plat  .fd-icon{background:rgba(46,184,230,0.1);color:var(--inn);}
+.fd-node.nd-plat  .fd-icon::after{border-color:var(--inn)}
+.fd-node.nd-proc  .fd-icon{background:rgba(245,158,11,0.1);color:#e07b00;}
+.fd-node.nd-proc  .fd-icon::after{border-color:#e07b00}
+.fd-node.nd-auto  .fd-icon{background:rgba(141,198,63,0.1);color:var(--plat);}
+.fd-node.nd-auto  .fd-icon::after{border-color:var(--plat)}
+.fd-node.nd-result .fd-icon{background:rgba(155,89,208,0.1);color:var(--risk);}
+.fd-node.nd-result .fd-icon::after{border-color:var(--risk)}
+
+.fd-name{
+  font-family:var(--fh);font-size:12px;font-weight:800;
+  text-align:center;line-height:1.2;
+}
+.fd-node.nd-infra .fd-name{color:var(--op)}
+.fd-node.nd-plat  .fd-name{color:var(--inn)}
+.fd-node.nd-proc  .fd-name{color:#e07b00}
+.fd-node.nd-auto  .fd-name{color:var(--plat)}
+.fd-node.nd-result .fd-name{color:var(--risk)}
+
+.fd-tags{display:flex;flex-direction:column;align-items:center;gap:3px;margin-top:2px}
+.fd-tag{font-size:9.5px;color:var(--muted);font-weight:500;text-align:center;line-height:1.3}
+
+.fd-arrow{
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:var(--muted);opacity:.4;
+  flex-shrink:0;
+}
+
+/* Highlight bar under each node */
+.fd-bar{
+  position:absolute;bottom:0;left:50%;
+  transform:translateX(-50%);
+  height:3px;border-radius:2px 2px 0 0;
+  width:0%;transition:width .4s ease;
+}
+.fd-node:hover .fd-bar{width:60%}
+.nd-infra  .fd-bar{background:var(--op)}
+.nd-plat   .fd-bar{background:var(--inn)}
+.nd-proc   .fd-bar{background:#e07b00}
+.nd-auto   .fd-bar{background:var(--plat)}
+.nd-result .fd-bar{background:var(--risk)}
+
+/* Result node special */
+.fd-node.nd-result .fd-icon{
+  width:72px;height:72px;border-radius:50%;
+  box-shadow:0 0 0 6px rgba(155,89,208,0.08), 0 0 0 12px rgba(155,89,208,0.04);
+}
+
+/* Bottom tagline */
+.fusion-tagline{
+  text-align:center;margin-top:16px;
+  font-size:11.5px;color:var(--muted);
+  font-style:italic;
+}
+.fusion-tagline strong{color:var(--text);font-style:normal}
+
+@media(max-width:680px){
+  .fusion-diagram{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:auto;
+    gap:16px;
+  }
+  .fd-arrow{display:none}
+  .fd-node.nd-result{grid-column:1/-1}
+}
+
+h1{font-family:var(--fh);font-size:clamp(22px,3vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin-bottom:8px}
+h1 em{font-style:normal;color:#e07b00}
+.sub{color:var(--muted);font-size:13.5px;max-width:480px}
+.kpis{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start}
+.kpi{background:var(--surface);border:1px solid var(--border);box-shadow:0 1px 5px rgba(0,0,0,0.06);padding:12px 18px;border-radius:8px;display:flex;flex-direction:column;gap:1px;min-width:110px;transition:box-shadow .2s,transform .2s;cursor:default}
+.kpi:hover{box-shadow:0 5px 14px rgba(0,0,0,0.1);transform:translateY(-3px)}
+.kpi .n{font-family:var(--fh);font-size:24px;font-weight:800;line-height:1}
+.kpi .l{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+/* SEC LABEL */
+.sec{font-family:var(--fh);font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px;margin-bottom:20px;scroll-margin-top:60px}
+.sec::after{content:'';flex:1;height:1px;background:var(--border)}
+/* TIMELINE */
+.tl{display:grid;grid-template-columns:190px repeat(4,1fr);margin-bottom:52px;border-radius:8px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.07)}
+.tlc{background:#eef1f7;border:1px solid var(--border)}
+.tlh{background:#eef1f7;border:1px solid var(--border);padding:10px 14px;font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center}
+.tlh.now{color:#e07b00;background:rgba(224,123,0,0.07);border-color:rgba(224,123,0,0.22)}
+.tll{background:#f8f9fc;border:1px solid var(--border);border-top:none;display:flex;align-items:center;padding:0 10px 0 12px;font-size:11px;font-weight:700;gap:7px;min-height:52px}
+.dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.tc{border:1px solid var(--border);border-top:none;border-left:none;padding:6px;min-height:52px;background:var(--surface)}
+.tc.fc{border-left:1px solid var(--border)}
+.bar{border-radius:4px;padding:4px 7px;font-size:10.5px;font-weight:500;line-height:1.3;margin-bottom:3px;display:block}
+.bar.op{background:var(--op-bg);border-left:3px solid var(--op);color:#1a7a45}
+.bar.inn{background:var(--inn-bg);border-left:3px solid var(--inn);color:#0d6e94}
+.bar.plat{background:var(--plat-bg);border-left:3px solid var(--plat);color:#4a6e10}
+.bar.risk{background:var(--risk-bg);border-left:3px solid var(--risk);color:#5a2e90}
+.leg{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:14px}
+.legi{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:500}
+.legdot{width:10px;height:10px;border-radius:50%}
+/* NEXT STEPS */
+.nsgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:36px}
+.nsc{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 18px 14px;box-shadow:0 1px 5px rgba(0,0,0,0.05);transition:box-shadow .2s,transform .2s;position:relative;overflow:hidden}
+.nsc:hover{box-shadow:0 6px 18px rgba(0,0,0,0.1);transform:translateY(-3px)}
+.nsc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.nsc.op::before{background:var(--op)}.nsc.inn::before{background:var(--inn)}
+.nsc.plat::before{background:var(--plat)}.nsc.risk::before{background:var(--risk)}
+.nstop{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.nsico{font-size:18px}.nsname{font-family:var(--fh);font-size:13px;font-weight:800}
+.nslist{list-style:none;display:flex;flex-direction:column;gap:8px}
+.nslist li{font-size:12.5px;color:var(--text);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.nslist li:last-child{border-bottom:none;padding-bottom:0}
+.nsw{font-size:10.5px;font-weight:700;white-space:nowrap;padding:2px 7px;border-radius:3px;flex-shrink:0}
+.nsc.op .nsw{background:var(--op-bg);color:#1a7a45}
+.nsc.inn .nsw{background:var(--inn-bg);color:#0d6e94}
+.nsc.plat .nsw{background:var(--plat-bg);color:#4a6e10}
+.nsc.risk .nsw{background:var(--risk-bg);color:#5a2e90}
+/* PILLAR */
+.psec{margin-bottom:32px;scroll-margin-top:60px}
+.phead{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding:10px 16px;border-radius:6px}
+.phead.op{background:var(--op-bg);border-left:4px solid var(--op)}
+.phead.inn{background:var(--inn-bg);border-left:4px solid var(--inn)}
+.phead.plat{background:var(--plat-bg);border-left:4px solid var(--plat)}
+.phead.risk{background:var(--risk-bg);border-left:4px solid var(--risk)}
+.phico{font-size:18px}.phname{font-family:var(--fh);font-size:14px;font-weight:800}
+.phtag{font-size:11px;color:var(--muted);margin-left:auto;font-weight:500}
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 16px 13px;box-shadow:0 1px 5px rgba(0,0,0,0.05);transition:box-shadow .2s,transform .2s;position:relative;overflow:hidden}
+.card:hover{box-shadow:0 6px 18px rgba(0,0,0,0.1);transform:translateY(-3px)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.card.op::before{background:var(--op)}.card.inn::before{background:var(--inn)}
+.card.plat::before{background:var(--plat)}.card.risk::before{background:var(--risk)}
+.ctop{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:7px}
+.ctitle{font-family:var(--fh);font-size:13px;font-weight:700;line-height:1.3}
+.chip{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:3px;white-space:nowrap;flex-shrink:0}
+.done{background:rgba(62,200,122,0.12);color:#1a7a45;border:1px solid rgba(62,200,122,0.3)}
+.on{background:rgba(46,184,230,0.1);color:#0d6e94;border:1px solid rgba(46,184,230,0.25)}
+.plan{background:rgba(224,123,0,0.09);color:#a05500;border:1px solid rgba(224,123,0,0.25)}
+.cdesc{color:var(--muted);font-size:12px;margin-bottom:10px}
+.cmeta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:9px}
+.cm{font-size:11px;color:var(--muted)}.cm strong{color:var(--text);font-weight:500}
+.plbl{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px}
+.pbar{height:5px;background:#e9edf5;border-radius:4px;overflow:hidden}
+.pfill{height:100%;border-radius:4px;width:0%;transition:width 1.3s cubic-bezier(.4,0,.2,1)}
+.pf-op{background:var(--op)}.pf-inn{background:var(--inn)}.pf-plat{background:var(--plat)}.pf-risk{background:var(--risk)}
+/* HISTORY */
+.hist{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;box-shadow:0 1px 5px rgba(0,0,0,0.05);margin-bottom:14px;position:relative;overflow:hidden}
+.hist::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--op)}
+.histitle{font-family:var(--fh);font-size:13.5px;font-weight:800;margin-bottom:18px}
+.htitem{display:flex;gap:0;margin-bottom:18px}
+.htitem:last-child{margin-bottom:0}
+.htmo{min-width:68px;text-align:center;font-family:var(--fh);font-size:11px;font-weight:800;color:#1a7a45;background:var(--op-bg);border:1px solid rgba(62,200,122,0.25);border-radius:6px;padding:8px 6px;margin-right:16px;height:fit-content;flex-shrink:0;line-height:1.3}
+.htbody{flex:1}
+.hthead{font-family:var(--fh);font-size:13px;font-weight:700;margin-bottom:8px}
+.htrows{display:flex;flex-direction:column;gap:7px}
+.htrow{display:flex;gap:8px;font-size:12.5px}
+.htdot{width:7px;height:7px;border-radius:50%;background:var(--op);flex-shrink:0;margin-top:5px}
+/* TABLES */
+.pw{overflow-x:auto;margin-top:14px}
+.ptbl,.atbl{width:100%;border-collapse:collapse;font-size:12px}
+.ptbl th,.atbl th{background:#f0f4f9;padding:8px 12px;text-align:left;font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--border)}
+.ptbl td,.atbl td{padding:7px 12px;border-bottom:1px solid var(--border)}
+.ptbl tr:hover td,.atbl tr:hover td{background:#f8faff}
+.pid{font-family:var(--fh);font-size:11px;font-weight:700;color:var(--muted)}
+.aid{font-family:var(--fh);font-size:11px;font-weight:700;color:var(--plat)}
+.sd{color:#1a7a45;font-weight:600}.so{color:#0d6e94;font-weight:600}.sp{color:#a05500;font-weight:600}
+.mo{font-size:11px;color:var(--muted)}
+/* RISK TIMELINE */
+.rtl{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.rti{display:flex;align-items:flex-start;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;box-shadow:0 1px 4px rgba(0,0,0,0.04);transition:box-shadow .2s,transform .2s}
+.rti:hover{box-shadow:0 4px 14px rgba(0,0,0,0.09);transform:translateY(-2px)}
+.rtmo{background:var(--risk-bg);color:#5a2e90;font-family:var(--fh);font-size:11px;font-weight:800;padding:4px 10px;border-radius:4px;white-space:nowrap;border:1px solid rgba(155,89,208,0.2);flex-shrink:0;min-width:60px;text-align:center}
+.rttitle{font-family:var(--fh);font-size:13px;font-weight:700;margin-bottom:3px}
+.rtdesc{font-size:12px;color:var(--muted)}
+/* FOOTER */
+.footer{border-top:1px solid var(--border);padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:11px}
+.footer strong{color:var(--text)}
+
+/* COLLAPSIBLE SECTIONS */
+.collapsible { margin-bottom: 48px; scroll-margin-top: 60px; }
+.coll-header {
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer; user-select: none; padding: 14px 18px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  transition: box-shadow .2s, background .2s;
+  margin-bottom: 0;
+}
+.coll-header:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.09); background: #f9fafb; }
+.coll-header.open { border-radius: 10px 10px 0 0; border-bottom-color: transparent; }
+.coll-left { display: flex; align-items: center; gap: 12px; }
+.coll-icon { font-size: 18px; }
+.coll-title { font-family: var(--fh); font-size: 14px; font-weight: 800; }
+.coll-sub { font-size: 11px; color: var(--muted); margin-left: 4px; font-weight: 400; }
+.coll-arrow {
+  font-size: 13px; color: var(--muted); transition: transform .3s ease;
+  background: #f0f4f9; width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.coll-header.open .coll-arrow { transform: rotate(180deg); }
+.coll-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height .5s cubic-bezier(.4,0,.2,1);
+  background: var(--surface); border: 1px solid var(--border);
+  border-top: none; border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.coll-body.open { max-height: 9999px; }
+.coll-inner { padding: 20px; }
+.coll-stripe-op { border-top: 3px solid var(--op); }
+.coll-stripe-inn { border-top: 3px solid var(--inn); }
+.coll-stripe-plat { border-top: 3px solid var(--plat); }
+.coll-stripe-risk { border-top: 3px solid var(--risk); }
+.coll-stripe-kpi { border-top: 3px solid #e07b00; }
+
+/* KPI SECTION */
+.kpi-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px;
+}
+.kpi-card {
+  background: #f8faff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 16px; position: relative; overflow: hidden;
+}
+.kpi-card::before { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 4px; }
+.kpi-card.kc-op::before { background: var(--op); }
+.kpi-card.kc-inn::before { background: var(--inn); }
+.kpi-card.kc-plat::before { background: var(--plat); }
+.kpi-card.kc-risk::before { background: var(--risk); }
+.kpi-card-title { font-family: var(--fh); font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px; padding-left: 8px; }
+.kpi-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 8px; border-bottom: 1px solid var(--border); gap: 10px; }
+.kpi-row:last-child { border-bottom: none; }
+.kpi-label { font-size: 12.5px; color: var(--text); flex: 1; }
+.kpi-val { font-family: var(--fh); font-size: 13px; font-weight: 800; white-space: nowrap; }
+.kpi-bar-wrap { margin-top: 5px; height: 4px; background: #e9edf5; border-radius: 4px; overflow: hidden; }
+.kpi-bar-fill { height: 100%; border-radius: 4px; width: 0%; transition: width 1.3s cubic-bezier(.4,0,.2,1); }
+.kf-op { background: var(--op); } .kf-inn { background: var(--inn); }
+.kf-plat { background: var(--plat); } .kf-risk { background: var(--risk); }
+.kpi-note { font-size: 10.5px; color: var(--muted); margin-top: 3px; }
+
+
+/* KPI SEMAFORO */
+.kpi-sem-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px;
+}
+.ks-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 18px 18px 14px; position: relative; overflow: hidden;
+  transition: box-shadow .2s, transform .2s; cursor: default;
+}
+.ks-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); transform: translateY(-3px); }
+.ks-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.ks-card.kc-op::before { background: var(--op); }
+.ks-card.kc-inn::before { background: var(--inn); }
+.ks-card.kc-plat::before { background: var(--plat); }
+.ks-card.kc-risk::before { background: var(--risk); }
+.ks-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.ks-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); max-width: 140px; line-height: 1.4; }
+.ks-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; margin-top: 2px; box-shadow: 0 0 0 3px rgba(0,0,0,0.06); }
+.ks-dot.verde  { background: #22c55e; box-shadow: 0 0 8px rgba(34,197,94,0.4); }
+.ks-dot.amarillo { background: #f59e0b; box-shadow: 0 0 8px rgba(245,158,11,0.4); }
+.ks-dot.rojo   { background: #ef4444; box-shadow: 0 0 8px rgba(239,68,68,0.4); }
+.ks-num { font-family: var(--fh); font-size: 32px; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+.ks-num.verde  { color: #16a34a; }
+.ks-num.amarillo { color: #d97706; }
+.ks-num.rojo   { color: #dc2626; }
+.ks-delta { display: inline-flex; align-items: center; gap: 4px; font-family: var(--fh); font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-bottom: 8px; }
+.ks-delta.up   { background: rgba(34,197,94,0.1);  color: #16a34a; }
+.ks-delta.down { background: rgba(239,68,68,0.1);  color: #dc2626; }
+.ks-delta.flat { background: rgba(245,158,11,0.1); color: #d97706; }
+.ks-meta { font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 8px; margin-top: 4px; }
+.ks-meta strong { color: var(--text); }
+.ks-pilar-label { font-family: var(--fh); font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+.ks-pilar-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+
+/* KANBAN */
+.kanban-wrap {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 12px; margin-top: 14px;
+}
+.kanban-col { border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 7px; }
+.kanban-done { background: rgba(62,200,122,0.07); border: 1px solid rgba(62,200,122,0.2); }
+.kanban-on   { background: rgba(46,184,230,0.07); border: 1px solid rgba(46,184,230,0.2); }
+.kanban-pend { background: rgba(0,0,0,0.03);      border: 1px solid var(--border); }
+.kanban-head {
+  font-family: var(--fh); font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .1em;
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 8px; border-bottom: 2px solid rgba(0,0,0,0.07);
+  margin-bottom: 4px;
+}
+.kanban-done .kanban-head { color: #1a7a45; }
+.kanban-on   .kanban-head { color: #0d6e94; }
+.kanban-pend .kanban-head { color: var(--muted); }
+.kanban-count {
+  font-family: var(--fh); font-size: 13px; font-weight: 800;
+  background: rgba(0,0,0,0.06); border-radius: 20px;
+  padding: 1px 8px;
+}
+.kcard {
+  background: var(--surface); border-radius: 6px; padding: 8px 10px;
+  border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: box-shadow .18s, transform .18s;
+}
+.kcard:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.kcard-id   { font-family: var(--fh); font-size: 9px; font-weight: 700; color: var(--plat); letter-spacing: .08em; margin-bottom: 2px; }
+.kcard-name { font-size: 12px; font-weight: 500; color: var(--text); line-height: 1.3; margin-bottom: 4px; }
+.kcard-who  { font-size: 10.5px; color: var(--muted); }
+@media(max-width:750px){ .kanban-wrap { grid-template-columns: 1fr; } }
+
+
+/* ── RING KPI ── */
+.ring-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+.ring-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 16px 16px;
+  display: flex; flex-direction: column; align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: box-shadow .25s, transform .25s;
+  position: relative; overflow: hidden;
+  cursor: default;
+}
+.ring-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12); transform: translateY(-4px); }
+.ring-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.ring-card.rc-op::before  { background: var(--op); }
+.ring-card.rc-inn::before { background: var(--inn); }
+.ring-card.rc-plat::before{ background: var(--plat); }
+.ring-card.rc-risk::before{ background: var(--risk); }
+
+.ring-svg-wrap { position: relative; width: 110px; height: 110px; margin-bottom: 12px; }
+.ring-svg { transform: rotate(-90deg); }
+.ring-bg { fill: none; stroke: #e9edf5; stroke-width: 8; }
+.ring-fill {
+  fill: none; stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transition: stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1);
+}
+.ring-fill.rc-op   { stroke: var(--op); }
+.ring-fill.rc-inn  { stroke: var(--inn); }
+.ring-fill.rc-plat { stroke: var(--plat); }
+.ring-fill.rc-risk { stroke: var(--risk); }
+
+.ring-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  line-height: 1;
+}
+.ring-num {
+  font-family: var(--fh); font-size: 22px; font-weight: 800;
+}
+.ring-denom { font-size: 11px; color: var(--muted); font-weight: 500; }
+
+.ring-label {
+  font-family: var(--fh); font-size: 11.5px; font-weight: 700;
+  text-align: center; line-height: 1.3; margin-bottom: 6px;
+  color: var(--text);
+}
+.ring-meta { font-size: 10.5px; color: var(--muted); text-align: center; line-height: 1.4; }
+.ring-delta {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-family: var(--fh); font-size: 10.5px; font-weight: 700;
+  padding: 2px 8px; border-radius: 20px; margin-bottom: 6px;
+}
+.ring-delta.up   { background: rgba(34,197,94,0.1);  color: #16a34a; }
+.ring-delta.down { background: rgba(239,68,68,0.1);  color: #dc2626; }
+.ring-delta.flat { background: rgba(245,158,11,0.1); color: #d97706; }
+
+.ring-pilar {
+  font-family: var(--fh); font-size: 9.5px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); text-align: center;
+  margin-bottom: 14px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--border); width: 100%;
+}
+
+@media(max-width:750px){.tl{display:none}.hdr{flex-direction:column}.kanban-wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="scprog" id="scprog"></div>
+
+<nav class="snav" id="snav">
+  <div class="snav-inner">
+    <a href="#tl" class="a-tl">&#128197; Linea de tiempo</a>
+    <a href="#ns" class="a-tl">&#127919; Proximos pasos</a>
+    <a href="#sec-op"   class="a-op">&#9881;&#65039; Operaciones/Continuidad</a>
+    <a href="#sec-inn"  class="a-inn">&#128640; Innovacion/Cultura Digital</a>
+    <a href="#sec-plat" class="a-plat">&#128279; Plataformas/Automatizaciones</a>
+    <a href="#sec-risk" class="a-risk">&#128737;&#65039; Riesgo y Gobernanza</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header class="hdr">
+    <div class="fi">
+      <div class="badge">Area de Tecnologia · Roadmap Estrategico 2026</div>
+      <h1>Que hace <em>Tecnologia</em>?<br>Y hacia donde vamos.</h1>
+      <p class="sub">Avances y proyectos organizados por los 4 pilares del area. Actualizado: <strong>Marzo 2026</strong></p>
+    </div>
+    <div class="kpis">
+      <div class="kpi fi"><span class="n" style="color:var(--op)">7</span><span class="l">Operaciones</span></div>
+      <div class="kpi fi"><span class="n" style="color:var(--inn)">6</span><span class="l">Innovacion</span></div>
+      <div class="kpi fi"><span class="n" style="color:var(--plat)">11</span><span class="l">Plataformas</span></div>
+      <div class="kpi fi"><span class="n" style="color:var(--risk)">5</span><span class="l">Riesgo</span></div>
+    </div>
+  </header>
+
+
+  <!-- FUSION DIAGRAM -->
+  <div class="fusion-section fi">
+    <p class="fusion-title">&#128161; Como funciona el area</p>
+    <div class="fusion-diagram">
+
+      <div class="fd-node nd-infra">
+        <div class="fd-bar"></div>
+        <div class="fd-icon">&#127760;</div>
+        <div class="fd-name">Infraestructura</div>
+        <div class="fd-tags">
+          <span class="fd-tag">Red y conectividad</span>
+          <span class="fd-tag">Equipos y servidores</span>
+          <span class="fd-tag">Seguridad fisica</span>
+        </div>
+      </div>
+
+      <div class="fd-arrow">&#8594;</div>
+
+      <div class="fd-node nd-plat">
+        <div class="fd-bar"></div>
+        <div class="fd-icon">&#9729;&#65039;</div>
+        <div class="fd-name">Plataformas Digitales</div>
+        <div class="fd-tags">
+          <span class="fd-tag">Microsoft 365</span>
+          <span class="fd-tag">SharePoint · Teams</span>
+          <span class="fd-tag">Azure Cloud + IA</span>
+        </div>
+      </div>
+
+      <div class="fd-arrow">&#8594;</div>
+
+      <div class="fd-node nd-proc">
+        <div class="fd-bar"></div>
+        <div class="fd-icon">&#128202;</div>
+        <div class="fd-name">Procesos Disenados</div>
+        <div class="fd-tags">
+          <span class="fd-tag">Flujo estandar</span>
+          <span class="fd-tag">Documentacion</span>
+          <span class="fd-tag">Digitalizacion</span>
+        </div>
+      </div>
+
+      <div class="fd-arrow">&#8594;</div>
+
+      <div class="fd-node nd-auto">
+        <div class="fd-bar"></div>
+        <div class="fd-icon">&#9889;</div>
+        <div class="fd-name">Automatizacion</div>
+        <div class="fd-tags">
+          <span class="fd-tag">Power Automate</span>
+          <span class="fd-tag">Copilot Studio</span>
+          <span class="fd-tag">Flujos inteligentes</span>
+        </div>
+      </div>
+
+      <div class="fd-arrow">&#8594;</div>
+
+      <div class="fd-node nd-result">
+        <div class="fd-bar"></div>
+        <div class="fd-icon">&#128100;</div>
+        <div class="fd-name">Personas con<br>mas valor</div>
+        <div class="fd-tags">
+          <span class="fd-tag">Menos tareas manuales</span>
+          <span class="fd-tag">Mejor informacion</span>
+          <span class="fd-tag">Mayor impacto</span>
+        </div>
+      </div>
+
+    </div>
+    <p class="fusion-tagline">La <strong>infraestructura</strong> habilita las <strong>plataformas</strong>, las plataformas estructuran los <strong>procesos</strong>, los procesos se <strong>automatizan</strong> y todo libera tiempo para que las <strong>personas generen mas valor</strong>.</p>
+  </div>
+
+  <!-- TIMELINE -->
+  <p class="sec" id="tl">Linea de tiempo 2026</p>
+  <div class="leg">
+    <div class="legi"><div class="legdot" style="background:var(--op)"></div>Operaciones/Continuidad</div>
+    <div class="legi"><div class="legdot" style="background:var(--inn)"></div>Innovacion/Cultura Digital</div>
+    <div class="legi"><div class="legdot" style="background:var(--plat)"></div>Plataformas/Automatizaciones</div>
+    <div class="legi"><div class="legdot" style="background:var(--risk)"></div>Riesgo y Gobernanza</div>
+  </div>
+  <div class="tl">
+    <div class="tlc"></div>
+    <div class="tlh now">Q1 Ene-Mar</div>
+    <div class="tlh">Q2 Abr-Jun</div>
+    <div class="tlh">Q3 Jul-Sep</div>
+    <div class="tlh">Q4 Oct-Dic</div>
+
+    <div class="tll"><div class="dot" style="background:var(--op)"></div>Operaciones</div>
+    <div class="tc fc"><span class="bar op">Seguridad y red ✓</span><span class="bar op">Backups 1,500 GB ✓</span><span class="bar op">Impresoras Ricoh ✓</span><span class="bar op">Reordenamiento →</span></div>
+    <div class="tc"><span class="bar op">Nueva infra. internet</span><span class="bar op">Salas de reuniones</span></div>
+    <div class="tc"><span class="bar op">Mantenimiento equipos</span></div>
+    <div class="tc"><span class="bar op">Mantenimiento equipos</span></div>
+
+    <div class="tll"><div class="dot" style="background:var(--inn)"></div>Innovacion</div>
+    <div class="tc fc"><span class="bar inn">Sitio SP socios ✓</span><span class="bar inn">Mesa de ayuda ✓</span><span class="bar inn">Cap. SharePoint ✓</span><span class="bar inn">Cap. Teams/OneDrive ✓</span></div>
+    <div class="tc"><span class="bar inn">Cap. Tipos de IA</span><span class="bar inn">Azure Cloud + AI →</span></div>
+    <div class="tc"><span class="bar inn">Cap. Copilot 365</span><span class="bar inn">Azure Cloud + AI →</span></div>
+    <div class="tc"><span class="bar inn">Azure Cloud + AI</span></div>
+
+    <div class="tll"><div class="dot" style="background:var(--plat)"></div>Plataformas</div>
+    <div class="tc fc"><span class="bar plat">Priorizacion procesos ✓</span><span class="bar plat">4 procesos finalizados ✓</span><span class="bar plat">AUT-003/004 ✓</span><span class="bar plat">3 procesos en curso →</span></div>
+    <div class="tc"><span class="bar plat">AUT-005/006</span><span class="bar plat">11 procesos Mar-Abr</span></div>
+    <div class="tc"><span class="bar plat">AUT-007 a 009</span><span class="bar plat">9 procesos May-Jun</span></div>
+    <div class="tc"><span class="bar plat">AUT-010/011</span><span class="bar plat">9 procesos finales</span></div>
+
+    <div class="tll"><div class="dot" style="background:var(--risk)"></div>Riesgo</div>
+    <div class="tc fc"><span class="bar risk">Politicas impresoras</span></div>
+    <div class="tc"><span class="bar risk">Gobernanza Microsoft</span><span class="bar risk">Gobernanza ERP</span></div>
+    <div class="tc"><span class="bar risk">Ciberseguridad</span><span class="bar risk">Gestion proveedores</span></div>
+    <div class="tc"><span class="bar risk">Consolidacion gobernanza</span></div>
+  </div>
+
+
+  <!-- KPI SECTION -->
+  <div class="collapsible fi" id="sec-kpi">
+    <div class="coll-header open" onclick="toggleSection(this)">
+      <div class="coll-left">
+        <span class="coll-icon">&#128200;</span>
+        <span class="coll-title">Indicadores Clave por Pilar</span>
+        <span class="coll-sub">Marzo 2026</span>
+      </div>
+      <div class="coll-arrow">&#9660;</div>
+    </div>
+    <div class="coll-body open coll-stripe-kpi">
+      <div class="coll-inner">
+        <div class="ring-grid">
+
+          <div class="ring-card rc-op fi">
+            <div class="ring-pilar">&#9881;&#65039; Operaciones/Continuidad</div>
+            <div class="ring-svg-wrap">
+              <svg class="ring-svg" width="110" height="110" viewBox="0 0 110 110">
+                <circle class="ring-bg" cx="55" cy="55" r="45"/>
+                <circle class="ring-fill rc-op" cx="55" cy="55" r="45" data-offset="121.7"/>
+              </svg>
+              <div class="ring-center">
+                <span class="ring-num" style="color:var(--op)">4</span>
+                <span class="ring-denom">de 7</span>
+              </div>
+            </div>
+            <div class="ring-label">Proyectos completados</div>
+            <div class="ring-delta up">&#8593; 57% avance</div>
+            <div class="ring-meta">Meta: <strong>7/7</strong> Jun 2026</div>
+          </div>
+
+          <div class="ring-card rc-op fi">
+            <div class="ring-pilar">&#9881;&#65039; Operaciones/Continuidad</div>
+            <div class="ring-svg-wrap">
+              <svg class="ring-svg" width="110" height="110" viewBox="0 0 110 110">
+                <circle class="ring-bg" cx="55" cy="55" r="45"/>
+                <circle class="ring-fill rc-op" cx="55" cy="55" r="45" data-offset="96.2"/>
+              </svg>
+              <div class="ring-center">
+                <span class="ring-num" style="color:var(--op)">33</span>
+                <span class="ring-denom">colab.</span>
+              </div>
+            </div>
+            <div class="ring-label">Con red estable</div>
+            <div class="ring-delta up">&#8593; Nueva infra. en curso</div>
+            <div class="ring-meta">Meta: <strong>100%</strong> colaboradores</div>
+          </div>
+
+          <div class="ring-card rc-inn fi">
+            <div class="ring-pilar">&#128640; Innovacion/Cultura Digital</div>
+            <div class="ring-svg-wrap">
+              <svg class="ring-svg" width="110" height="110" viewBox="0 0 110 110">
+                <circle class="ring-bg" cx="55" cy="55" r="45"/>
+                <circle class="ring-fill rc-inn" cx="55" cy="55" r="45" data-offset="93.4"/>
+              </svg>
+              <div class="ring-center">
+                <span class="ring-num" style="color:var(--inn)">4</span>
+                <span class="ring-denom">de 6</span>
+              </div>
+            </div>
+            <div class="ring-label">Capacitaciones completadas</div>
+            <div class="ring-delta flat">&#8594; Faltan IA y Copilot</div>
+            <div class="ring-meta">Meta: <strong>6/6</strong> Sep 2026</div>
+          </div>
+
+          <div class="ring-card rc-inn fi">
+            <div class="ring-pilar">&#128640; Innovacion/Cultura Digital</div>
+            <div class="ring-svg-wrap">
+              <svg class="ring-svg" width="110" height="110" viewBox="0 0 110 110">
+                <circle class="ring-bg" cx="55" cy="55" r="45"/>
+                <circle class="ring-fill rc-inn" cx="55" cy="55" r="45" data-offset="183.95"/>
+              </svg>
+              <div class="ring-center">
+                <span class="ring-num" style="color:var(--inn)">79</span>
+                <span class="ring-denom">equipos</span>
+              </div>
+            </div>
+            <div class="ring-label">Equipos Teams reducidos</div>
+            <div class="ring-delta up">&#8595; 38 eliminados de 117</div>
+            <div class="ring-meta">Meta final: <strong>10 equipos</strong></div>
+          </div>
+
+          <div class="ring-card rc-plat fi">
+            <div class="ring-pilar">&#128279; Plataformas/Automatizaciones</div>
+            <div class="ring-svg-wrap">
+              <svg class="ring-svg" width="110" height="110" viewBox="0 0 110 110">
+                <circle class="ring-bg" cx="55" cy="55" r="45"/>
+                <circle class="ring-fill rc-plat" cx="55" cy="55" r="45" data-offset="251.9"/>
+              </svg>
+              <div class="ring-center">
+                <span class="ring-num" style="color:var(--plat)">4</span>
+                <span class="ring-denom">de 36</span>
+              </div>
+            </div>
+            <div class="ring-label">Procesos terminados</div>
+            <div class="ring-delta flat">&#8594; 3 en proceso ahora</div>
+            <div class="ring-meta">Meta Mar: <strong>12/36</strong></div>
+          </div>
+
+          <div class="ring-card rc-plat fi">
+            <div class="ring-pilar">&#128279; Plataformas/Automatizaciones</div>
+            <div class="ring-svg-wrap">
+              <svg class="ring-svg" width="110" height="110" viewBox="0 0 110 110">
+                <circle class="ring-bg" cx="55" cy="55" r="45"/>
+                <circle class="ring-fill rc-plat" cx="55" cy="55" r="45" data-offset="220.7"/>
+              </svg>
+              <div class="ring-center">
+                <span class="ring-num" style="color:var(--plat)">2</span>
+                <span class="ring-denom">de 9</span>
+              </div>
+            </div>
+            <div class="ring-label">Flujos automatizados</div>
+            <div class="ring-delta up">&#8593; AUT-003 y AUT-004</div>
+            <div class="ring-meta">Meta: <strong>9/9</strong> Ago 2026</div>
+          </div>
+
+          <div class="ring-card rc-risk fi">
+            <div class="ring-pilar">&#128737;&#65039; Riesgo y Gobernanza</div>
+            <div class="ring-svg-wrap">
+              <svg class="ring-svg" width="110" height="110" viewBox="0 0 110 110">
+                <circle class="ring-bg" cx="55" cy="55" r="45"/>
+                <circle class="ring-fill rc-risk" cx="55" cy="55" r="45" data-offset="283"/>
+              </svg>
+              <div class="ring-center">
+                <span class="ring-num" style="color:var(--risk)">0</span>
+                <span class="ring-denom">de 5</span>
+              </div>
+            </div>
+            <div class="ring-label">Politicas publicadas</div>
+            <div class="ring-delta flat">&#8594; Primera en Mar 2026</div>
+            <div class="ring-meta">Meta: <strong>5/5</strong> Q3 2026</div>
+          </div>
+
+          <div class="ring-card rc-risk fi">
+            <div class="ring-pilar">&#128737;&#65039; Riesgo y Gobernanza</div>
+            <div class="ring-svg-wrap">
+              <svg class="ring-svg" width="110" height="110" viewBox="0 0 110 110">
+                <circle class="ring-bg" cx="55" cy="55" r="45"/>
+                <circle class="ring-fill rc-risk" cx="55" cy="55" r="45" data-offset="283"/>
+              </svg>
+              <div class="ring-center">
+                <span class="ring-num" style="color:var(--risk)">0</span>
+                <span class="ring-denom">de 5</span>
+              </div>
+            </div>
+            <div class="ring-label">Iniciativas gobernanza</div>
+            <div class="ring-delta flat">&#8594; Todo inicia Q2 2026</div>
+            <div class="ring-meta">Meta: <strong>5/5</strong> Q3 2026</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROXIMOS PASOS -->
+  <div class="collapsible fi" id="ns">
+    <div class="coll-header open" onclick="toggleSection(this)">
+      <div class="coll-left">
+        <span class="coll-icon">&#127919;</span>
+        <span class="coll-title">Proximos Pasos</span>
+        <span class="coll-sub">Q2–Q3 2026</span>
+      </div>
+      <div class="coll-arrow">&#9660;</div>
+    </div>
+    <div class="coll-body open coll-stripe-kpi">
+      <div class="coll-inner">
+  <div class="nsgrid">
+    <div class="nsc op fi">
+      <div class="nstop"><div class="nsico">&#9881;&#65039;</div><div class="nsname">Operaciones/Continuidad</div></div>
+      <ul class="nslist">
+        <li>Instalacion nueva infraestructura de internet<span class="nsw">Abr-Jun 2026</span></li>
+        <li>Optimizacion tecnologica salas de reuniones<span class="nsw">Abr-Jun 2026</span></li>
+        <li>Cierre reordenamiento de equipos y canales<span class="nsw">Jun 2026</span></li>
+      </ul>
+    </div>
+    <div class="nsc inn fi">
+      <div class="nstop"><div class="nsico">&#128640;</div><div class="nsname">Innovacion/Cultura Digital</div></div>
+      <ul class="nslist">
+        <li>Capacitacion Tipos y Usos de IA<span class="nsw">Abr-Jun 2026</span></li>
+        <li>Capacitacion Copilot en Office 365<span class="nsw">Jul-Sep 2026</span></li>
+      </ul>
+    </div>
+    <div class="nsc plat fi">
+      <div class="nstop"><div class="nsico">&#128279;</div><div class="nsname">Plataformas/Automatizaciones</div></div>
+      <ul class="nslist">
+        <li>5 procesos pendientes de digitalizar<span class="nsw">Mar 2026</span></li>
+        <li>AUT-005 y AUT-006 - Finanzas<span class="nsw">Abr-May 2026</span></li>
+        <li>AUT-007 a AUT-009 - Talento Humano<span class="nsw">May-Jul 2026</span></li>
+        <li>AUT-010 y AUT-011 - Cierre<span class="nsw">Jul-Ago 2026</span></li>
+      </ul>
+    </div>
+    <div class="nsc risk fi">
+      <div class="nstop"><div class="nsico">&#128737;&#65039;</div><div class="nsname">Riesgo y Gobernanza</div></div>
+      <ul class="nslist">
+        <li>Gobernanza entorno Microsoft (Teams y SP)<span class="nsw">Abr 2026</span></li>
+        <li>Gobernanza ERP<span class="nsw">May 2026</span></li>
+        <li>Cotizacion y adquisicion de proveedores<span class="nsw">May-Jun 2026</span></li>
+        <li>Estrategia de Ciberseguridad<span class="nsw">Jun-Q3 2026</span></li>
+      </ul>
+    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILAR 1: OPERACIONES -->
+  <div class="collapsible fi" id="sec-op">
+    <div class="coll-header open" onclick="toggleSection(this)" style="border-left:4px solid var(--op)">
+      <div class="coll-left">
+        <span class="coll-icon">&#9881;&#65039;</span>
+        <span class="coll-title">Operaciones/Continuidad</span>
+        <span class="coll-sub">Operacional · 4/7 completados</span>
+      </div>
+      <div class="coll-arrow">&#9660;</div>
+    </div>
+    <div class="coll-body open coll-stripe-op">
+      <div class="coll-inner">
+
+    <div class="hist fi">
+      <div class="histitle">&#128203; Historial de Avances - Nov 2025 a Mar 2026</div>
+      <div class="htitem">
+        <div class="htmo">Nov-Dic<br>2025</div>
+        <div class="htbody">
+          <div class="hthead">Seguridad y Orden de la Red</div>
+          <div class="htrows">
+            <div class="htrow"><span class="htdot"></span><div><strong>Reinicio y limpieza del sistema de seguridad:</strong> Se configuro desde cero la seguridad de la red, eliminando configuraciones antiguas y garantizando un entorno mas seguro.</div></div>
+            <div class="htrow"><span class="htdot"></span><div><strong>Redes separadas por tipo de usuario:</strong> Se crearon redes diferenciadas para colaboradores, dispositivos personales e invitados, mejorando el control de acceso.</div></div>
+            <div class="htrow"><span class="htdot"></span><div><strong>Verificacion completa de dispositivos:</strong> Se reviso cada equipo conectado a la red, garantizando que solo dispositivos autorizados tienen acceso.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="htitem">
+        <div class="htmo">Ene<br>2026</div>
+        <div class="htbody">
+          <div class="hthead">Mejor Conectividad para el Equipo</div>
+          <div class="htrows">
+            <div class="htrow"><span class="htdot"></span><div><strong>Conexion estable para areas criticas:</strong> Contabilidad y TI ahora tienen conexion directa y confiable, evitando interrupciones en procesos financieros y operativos.</div></div>
+            <div class="htrow"><span class="htdot"></span><div><strong>Mejora en la senal inalambrica:</strong> Se optimizo la red Wi-Fi de la oficina, resultando en mayor velocidad y estabilidad para todos los usuarios.</div></div>
+            <div class="htrow"><span class="htdot"></span><div><strong>Modernizacion de equipos de trabajo:</strong> Se adquirieron accesorios que permiten conectar carga, pantalla y red en un solo punto desde las laptops.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="htitem">
+        <div class="htmo">Feb<br>2026</div>
+        <div class="htbody">
+          <div class="hthead">Expansion de Conectividad y Renovacion de Impresion</div>
+          <div class="htrows">
+            <div class="htrow"><span class="htdot"></span><div><strong>Planificacion de nueva infraestructura de internet:</strong> Se definio la arquitectura para la nueva red de alta velocidad que se instalara en los proximos meses.</div></div>
+            <div class="htrow"><span class="htdot"></span><div><strong>Contrato de impresion Ricoh (36 meses):</strong> Nuevo servicio integrado con OneDrive y Google Drive para digitalizar documentos directamente desde la fotocopiadora.</div></div>
+            <div class="htrow"><span class="htdot"></span><div><strong>Conexion estable para 33 colaboradores:</strong> Se amplio la conexion directa a las areas Tecnica, Nuevos Negocios y Gerencia, mejorando la productividad.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="htitem">
+        <div class="htmo">Mar<br>2026</div>
+        <div class="htbody">
+          <div class="hthead">Mejoras en Equipamiento y Seleccion de Proveedor</div>
+          <div class="htrows">
+            <div class="htrow"><span class="htdot"></span><div><strong>Upgrade de equipo de impresion sin costo adicional:</strong> Se negocio un modelo Ricoh de mayor velocidad y rendimiento al mismo precio contratado.</div></div>
+            <div class="htrow"><span class="htdot"></span><div><strong>Puesta en marcha de impresion:</strong> Instalacion del nuevo equipo programada para la segunda semana de marzo.</div></div>
+            <div class="htrow"><span class="htdot"></span><div><strong>Seleccion de proveedor de nueva red:</strong> Se adjudico la instalacion de nueva red de alta velocidad con cobertura mejorada para toda la oficina.</div></div>
+            <div class="htrow"><span class="htdot"></span><div><strong>Control de costos de impresion:</strong> Se configuro impresion en blanco y negro por defecto para todos los usuarios, optimizando el consumo de insumos.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards" style="margin-top:14px">
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">&#128274; Saneamiento y Seguridad de Red</div><span class="chip done">Completado</span></div>
+        <p class="cdesc">Reinicio completo del sistema de seguridad, separacion de accesos por tipo de usuario y verificacion total de dispositivos.</p>
+        <div class="cmeta"><div class="cm"><strong>Entrega:</strong> Nov-Dic 2025</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-op" data-w="100%"></div></div>
+      </div>
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">&#128268; Migracion a Red Cableada</div><span class="chip done">Completado</span></div>
+        <p class="cdesc">Conexion directa y estable para 33 colaboradores en Contabilidad, TI, Tecnica, Nuevos Negocios y Gerencia.</p>
+        <div class="cmeta"><div class="cm"><strong>Entrega:</strong> Ene-Feb 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-op" data-w="100%"></div></div>
+      </div>
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">&#128190; Resguardo de Backups</div><span class="chip done">Completado</span></div>
+        <p class="cdesc">Descarga y verificacion de 1,500 GB de informacion del area comercial. Resguardo corporativo completo.</p>
+        <div class="cmeta"><div class="cm"><strong>Entrega:</strong> Ene-Feb 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-op" data-w="100%"></div></div>
+      </div>
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">&#128424;&#65039; Renovacion de Impresion Ricoh</div><span class="chip done">Completado</span></div>
+        <p class="cdesc">Contrato 36 meses con equipo de mayor rendimiento negociado sin costo adicional. Integrado con OneDrive y Google Drive. Impresion B&amp;N por defecto para optimizar costos.</p>
+        <div class="cmeta"><div class="cm"><strong>Entrega:</strong> Feb-Mar 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-op" data-w="100%"></div></div>
+      </div>
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">&#128225; Nueva Infraestructura de Internet</div><span class="chip on">En curso</span></div>
+        <p class="cdesc">Proveedor seleccionado para instalacion de nueva red de alta velocidad con cobertura mejorada para toda la oficina.</p>
+        <div class="cmeta"><div class="cm"><strong>Plazo:</strong> Abr-Jun 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>25%</span></div>
+        <div class="pbar"><div class="pfill pf-op" data-w="25%"></div></div>
+      </div>
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">&#128268; Reordenamiento de Equipos y Canales</div><span class="chip on">En curso</span></div>
+        <p class="cdesc">Reorganizacion fisica y logica del cableado, equipos y canales de comunicacion internos.</p>
+        <div class="cmeta"><div class="cm"><strong>Inicio:</strong> Ene 2026</div><div class="cm"><strong>Plazo:</strong> Jun 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>40%</span></div>
+        <div class="pbar"><div class="pfill pf-op" data-w="40%"></div></div>
+      </div>
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">&#128250; Optimizacion Salas de Reuniones</div><span class="chip plan">Proximo</span></div>
+        <p class="cdesc">Actualizacion y optimizacion de recursos tecnologicos en todas las salas de reuniones.</p>
+        <div class="cmeta"><div class="cm"><strong>Plazo:</strong> Abr-Jun 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>0%</span></div>
+        <div class="pbar"><div class="pfill pf-op" data-w="0%"></div></div>
+      </div>
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">&#128187; Mantenimiento de Computadoras</div><span class="chip plan">Proximo</span></div>
+        <p class="cdesc">Mantenimiento preventivo y correctivo de equipos de computo de toda la organizacion para garantizar su correcto funcionamiento.</p>
+        <div class="cmeta"><div class="cm"><strong>Plazo:</strong> Jul-Sep y Oct-Dic 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>0%</span></div>
+        <div class="pbar"><div class="pfill pf-op" data-w="0%"></div></div>
+      </div>
+    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILAR 2: INNOVACION -->
+  <div class="collapsible fi" id="sec-inn">
+    <div class="coll-header open" onclick="toggleSection(this)" style="border-left:4px solid var(--inn)">
+      <div class="coll-left">
+        <span class="coll-icon">&#128640;</span>
+        <span class="coll-title">Innovacion/Cultura Digital</span>
+        <span class="coll-sub">Estrategico · 4/6 completados</span>
+      </div>
+      <div class="coll-arrow">&#9660;</div>
+    </div>
+    <div class="coll-body open coll-stripe-inn">
+      <div class="coll-inner">
+    <div class="cards">
+      <div class="card inn fi">
+        <div class="ctop"><div class="ctitle">&#127970; Sitio SharePoint Socios</div><span class="chip done">Completado</span></div>
+        <p class="cdesc">Sitios SharePoint creados para socios de Montecarmelo y Desarrollos Santa Elena.</p>
+        <div class="cmeta"><div class="cm"><strong>Entrega:</strong> Ene 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-inn" data-w="100%"></div></div>
+      </div>
+      <div class="card inn fi">
+        <div class="ctop"><div class="ctitle">&#127911; Mesa de Ayuda Tecnologia</div><span class="chip done">Completado</span></div>
+        <p class="cdesc">Creacion y puesta en marcha de la mesa de ayuda del area. Capacitaciones de uso iniciadas en marzo.</p>
+        <div class="cmeta"><div class="cm"><strong>Creacion:</strong> Ene-Feb 2026</div><div class="cm"><strong>Go-live:</strong> Mar 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-inn" data-w="100%"></div></div>
+      </div>
+      <div class="card inn fi">
+        <div class="ctop"><div class="ctitle">&#128218; Capacitacion SharePoint Basica</div><span class="chip done">Completado</span></div>
+        <p class="cdesc">Capacitacion corporativa de uso basico de SharePoint para todos los colaboradores.</p>
+        <div class="cmeta"><div class="cm"><strong>Entrega:</strong> Ene 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-inn" data-w="100%"></div></div>
+      </div>
+      <div class="card inn fi">
+        <div class="ctop"><div class="ctitle">&#128218; Capacitacion Teams y OneDrive</div><span class="chip done">Completado</span></div>
+        <p class="cdesc">Capacitacion basica de uso de Microsoft Teams y OneDrive para toda la organizacion.</p>
+        <div class="cmeta"><div class="cm"><strong>Entrega:</strong> Feb 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-inn" data-w="100%"></div></div>
+      </div>
+      <div class="card inn fi">
+        <div class="ctop"><div class="ctitle">&#129504; Capacitacion Tipos y Usos de IA</div><span class="chip plan">Proximo</span></div>
+        <p class="cdesc">Capacitacion sobre tipos de inteligencia artificial, sus aplicaciones y como aprovecharlos en el trabajo diario.</p>
+        <div class="cmeta"><div class="cm"><strong>Plazo:</strong> Abr-Jun 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>0%</span></div>
+        <div class="pbar"><div class="pfill pf-inn" data-w="0%"></div></div>
+      </div>
+      <div class="card inn fi">
+        <div class="ctop"><div class="ctitle">&#129302; Capacitacion Copilot en Office 365</div><span class="chip plan">Proximo</span></div>
+        <p class="cdesc">Capacitacion del uso correcto y eficiente de Microsoft Copilot integrado en Office 365.</p>
+        <div class="cmeta"><div class="cm"><strong>Plazo:</strong> Jul-Sep 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>0%</span></div>
+        <div class="pbar"><div class="pfill pf-inn" data-w="0%"></div></div>
+      </div>
+      <div class="card inn fi">
+        <div class="ctop"><div class="ctitle">&#9925; Integracion Azure Cloud y Azure AI</div><span class="chip plan">Proximo</span></div>
+        <p class="cdesc">Integracion de Azure Cloud y Azure AI con Copilot Studio para potenciar capacidades de inteligencia artificial en los procesos internos de la organizacion.</p>
+        <div class="cmeta"><div class="cm"><strong>Plazo:</strong> Jun-Dic 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>0%</span></div>
+        <div class="pbar"><div class="pfill pf-inn" data-w="0%"></div></div>
+      </div>
+    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILAR 3: PLATAFORMAS -->
+  <div class="collapsible fi" id="sec-plat">
+    <div class="coll-header open" onclick="toggleSection(this)" style="border-left:4px solid var(--plat)">
+      <div class="coll-left">
+        <span class="coll-icon">&#128279;</span>
+        <span class="coll-title">Plataformas/Automatizaciones</span>
+        <span class="coll-sub">Operacional · 4/36 procesos · 2/9 automatizaciones</span>
+      </div>
+      <div class="coll-arrow">&#9660;</div>
+    </div>
+    <div class="coll-body open coll-stripe-plat">
+      <div class="coll-inner">
+
+    <div class="card plat fi" style="margin-bottom:14px">
+      <div class="ctop"><div class="ctitle">&#128202; Creacion y Diseno de Procesos Corporativos</div><span class="chip on">En curso</span></div>
+      <p class="cdesc">Creacion y diseno de 36 procesos corporativos. Reuniones de priorizacion realizadas en Ene-Feb 2026.</p>
+      <div class="kanban-wrap">
+        <div class="kanban-col kanban-done">
+          <div class="kanban-head">&#9989; Completados <span class="kanban-count">4</span></div>
+          <div class="kcard">
+            <div class="kcard-id">PR12</div>
+            <div class="kcard-name">Gestion de Cobros</div>
+            <div class="kcard-who">Miguel Marroquin · Feb</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-id">PR06</div>
+            <div class="kcard-name">Gestion del Conocimiento</div>
+            <div class="kcard-who">Judith Rivas · Feb</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-id">PR05</div>
+            <div class="kcard-name">Indicadores de Desempeno</div>
+            <div class="kcard-who">Judith Rivas · Feb</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-id">PR02</div>
+            <div class="kcard-name">Onboarding e Integracion</div>
+            <div class="kcard-who">Cecilia de Jovel · Feb</div>
+          </div>
+        </div>
+        <div class="kanban-col kanban-on">
+          <div class="kanban-head">&#128260; En Proceso <span class="kanban-count">3</span></div>
+          <div class="kcard">
+            <div class="kcard-id">PR03</div>
+            <div class="kcard-name">Gestion financiera y de recursos</div>
+            <div class="kcard-who">Miguel Marroquin · Mar</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-id">PR02</div>
+            <div class="kcard-name">Control gastos rentista</div>
+            <div class="kcard-who">Alejandro Portal · Mar</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-id">PR01</div>
+            <div class="kcard-name">Reclutamiento y Seleccion</div>
+            <div class="kcard-who">Cecilia de Jovel · Mar</div>
+          </div>
+        </div>
+        <div class="kanban-col kanban-pend">
+          <div class="kanban-head">&#128197; Pendientes <span class="kanban-count">29</span></div>
+          <div class="kcard"><div class="kcard-name">Mystery Shopping</div><div class="kcard-who">Judith Rivas · Mar</div></div>
+          <div class="kcard"><div class="kcard-name">Preventa</div><div class="kcard-who">Hector Delgado · Mar</div></div>
+          <div class="kcard"><div class="kcard-name">Supervision adm. tecnica</div><div class="kcard-who">Carlos Flores · Mar</div></div>
+          <div class="kcard"><div class="kcard-name">Ronda con inversionistas</div><div class="kcard-who">Miguel Marroquin · Mar</div></div>
+          <div class="kcard"><div class="kcard-name">Resultados y reporteria P&amp;L</div><div class="kcard-who">Alejandro Portal · Mar</div></div>
+          <div class="kcard"><div class="kcard-name">Monitoreo y control calidad</div><div class="kcard-who">Carlos Flores · Abr</div></div>
+          <div class="kcard"><div class="kcard-name">Marketing rentista</div><div class="kcard-who">Hector/Alejandro · Abr</div></div>
+          <div class="kcard"><div class="kcard-name">Desarrollo productos y servicios</div><div class="kcard-who">Judith Rivas · Abr</div></div>
+          <div class="kcard"><div class="kcard-name">Atencion cliente pre/postventa</div><div class="kcard-who">Carlos Flores · Abr</div></div>
+          <div class="kcard"><div class="kcard-name">Gestion de ventas</div><div class="kcard-who">Hector Delgado · Abr</div></div>
+          <div class="kcard"><div class="kcard-name">Conciliaciones Bancarias</div><div class="kcard-who">Miguel Marroquin · Abr</div></div>
+          <div class="kcard"><div class="kcard-name">Gestion del Desempeno</div><div class="kcard-who">Cecilia de Jovel · Abr</div></div>
+          <div class="kcard"><div class="kcard-name">Ciclo de Vida Colaborador</div><div class="kcard-who">Cecilia de Jovel · Abr</div></div>
+          <div class="kcard"><div class="kcard-name">Facturacion e ingresos</div><div class="kcard-who">Miguel Marroquin · Abr</div></div>
+          <div class="kcard"><div class="kcard-name">Gestion clientes (captacion)</div><div class="kcard-who">Hector Delgado · May</div></div>
+          <div class="kcard"><div class="kcard-name">Gestion de garantias</div><div class="kcard-who">Carlos Flores · May</div></div>
+          <div class="kcard"><div class="kcard-name">Formacion y Carrera</div><div class="kcard-who">Cecilia de Jovel · May</div></div>
+          <div class="kcard"><div class="kcard-name">Riesgos y Control Gestion</div><div class="kcard-who">Cecilia de Jovel · May</div></div>
+          <div class="kcard"><div class="kcard-name">Estudio de viabilidad</div><div class="kcard-who">Judith Rivas · May</div></div>
+          <div class="kcard"><div class="kcard-name">Evaluacion compras adm.</div><div class="kcard-who">Miguel Marroquin · May</div></div>
+          <div class="kcard"><div class="kcard-name">Liquidacion de inversion</div><div class="kcard-who">Miguel Marroquin · May</div></div>
+          <div class="kcard"><div class="kcard-name">Tramites institucionales</div><div class="kcard-who">Carlos Flores · May</div></div>
+          <div class="kcard"><div class="kcard-name">Identificacion oportunidades</div><div class="kcard-who">Judith/Hector · Jun</div></div>
+          <div class="kcard"><div class="kcard-name">Gastos y subcontratos</div><div class="kcard-who">Alejandro Portal · Jun</div></div>
+          <div class="kcard"><div class="kcard-name">Comercializacion activos rentistas</div><div class="kcard-who">Alejandro Portal · Jun</div></div>
+          <div class="kcard"><div class="kcard-name">Servicio postventa</div><div class="kcard-who">Hector/Carlos · Jun</div></div>
+          <div class="kcard"><div class="kcard-name">Construccion</div><div class="kcard-who">Carlos Flores · Jun</div></div>
+          <div class="kcard"><div class="kcard-name">Personalizacion del proyecto</div><div class="kcard-who">Carlos Flores · Jun</div></div>
+          <div class="kcard"><div class="kcard-name">Nomina y Compensacion</div><div class="kcard-who">Cecilia de Jovel · Jun</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card plat fi">
+      <div class="ctop"><div class="ctitle">&#9889; Automatizaciones</div><span class="chip on">En curso</span></div>
+      <p class="cdesc">Automatizacion de flujos de trabajo por area. Implementacion progresiva a lo largo del ano.</p>
+      <div class="kanban-wrap">
+
+        <div class="kanban-col kanban-done">
+          <div class="kanban-head">&#9989; Completados <span class="kanban-count">2</span></div>
+          <div class="kcard">
+            <div class="kcard-id">AUT-003</div>
+            <div class="kcard-name">Gestion de Incidentes y Solicitudes</div>
+            <div class="kcard-who">Nuevos Negocios · Dic 2025–Feb 2026</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-id">AUT-004</div>
+            <div class="kcard-name">Formularios Tarjetas de Credito</div>
+            <div class="kcard-who">Nuevos Negocios · Ene 2026</div>
+          </div>
+        </div>
+
+        <div class="kanban-col kanban-on">
+          <div class="kanban-head">&#128260; En Proceso <span class="kanban-count">0</span></div>
+          <div style="font-size:12px;color:var(--muted);padding:10px 0;text-align:center;">Proximas en Abr 2026</div>
+        </div>
+
+        <div class="kanban-col kanban-pend">
+          <div class="kanban-head">&#128197; Pendientes <span class="kanban-count">7</span></div>
+          <div class="kcard">
+            <div class="kcard-id">AUT-005</div>
+            <div class="kcard-name">Redaccion y validacion de cartas</div>
+            <div class="kcard-who">Finanzas e Inversiones · Abr 2026</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-id">AUT-006</div>
+            <div class="kcard-name">Consultas de pagos realizados</div>
+            <div class="kcard-who">Finanzas e Inversiones · Abr–May 2026</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-id">AUT-007</div>
+            <div class="kcard-name">Migracion: Hunter</div>
+            <div class="kcard-who">Talento Humano · May–Jun 2026</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-id">AUT-008</div>
+            <div class="kcard-name">Migracion: Growie</div>
+            <div class="kcard-who">Talento Humano · Jun 2026</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-id">AUT-009</div>
+            <div class="kcard-name">Migracion: Tommy</div>
+            <div class="kcard-who">Talento Humano · Jun–Jul 2026</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-id">AUT-010</div>
+            <div class="kcard-name">Migracion: Vera</div>
+            <div class="kcard-who">Talento Humano · Jul–Ago 2026</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-id">AUT-011</div>
+            <div class="kcard-name">Seguimiento de renovaciones</div>
+            <div class="kcard-who">Activos Rentistas · Ago 2026</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILAR 4: RIESGO -->
+  <div class="collapsible fi" id="sec-risk">
+    <div class="coll-header open" onclick="toggleSection(this)" style="border-left:4px solid var(--risk)">
+      <div class="coll-left">
+        <span class="coll-icon">&#128737;&#65039;</span>
+        <span class="coll-title">Riesgo y Gobernanza</span>
+        <span class="coll-sub">Estrategico · Todo inicia Q2 2026</span>
+      </div>
+      <div class="coll-arrow">&#9660;</div>
+    </div>
+    <div class="coll-body open coll-stripe-risk">
+      <div class="coll-inner">
+    <div class="rtl">
+      <div class="rti fi"><div class="rtmo">Mar 2026</div><div><div class="rttitle">Politicas de Uso de Impresoras</div><div class="rtdesc">Establecimiento de politicas corporativas y reglas automaticas para optimizar el uso de impresoras en toda la organizacion.</div></div></div>
+      <div class="rti fi"><div class="rtmo">Abr 2026</div><div><div class="rttitle">Gobernanza del Entorno Microsoft</div><div class="rtdesc">Inicio de definicion de politicas, permisos y lineamientos de uso para Teams y SharePoint a nivel corporativo.</div></div></div>
+      <div class="rti fi"><div class="rtmo">May 2026</div><div><div class="rttitle">Gobernanza para ERP</div><div class="rtdesc">Definicion de roles, accesos, flujos de aprobacion y politicas de uso del sistema ERP corporativo.</div></div></div>
+      <div class="rti fi"><div class="rtmo">May-Jun 2026</div><div><div class="rttitle">Cotizacion y Adquisicion de Proveedores</div><div class="rtdesc">Establecimiento de proceso formal y gobernanza para cotizacion, evaluacion y adquisicion de proveedores tecnologicos.</div></div></div>
+      <div class="rti fi"><div class="rtmo">Jun-Q3 2026</div><div><div class="rttitle">Estrategia de Ciberseguridad</div><div class="rtdesc">Evaluacion del estado actual, identificacion de riesgos y definicion de hoja de ruta de ciberseguridad para la organizacion.</div></div></div>
+    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Area de <strong>Tecnologia y Eficiencia</strong> · Roadmap 2026</span>
+    <span>Contacto: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ee898b9c8b808d878fc09a87ae8c818287988f9c8dc08d8183">[email&#160;protected]</a></strong></span>
+    <span>Ultima actualizacion: <strong>Marzo 2026</strong></span>
+  </div>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function toggleSection(header) {
+  header.classList.toggle('open');
+  var body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+(function(){
+  function showAll(){ document.querySelectorAll('.fi').forEach(function(el){ el.classList.add('on'); }); }
+
+  var sp=document.getElementById('scprog');
+  var sn=document.getElementById('snav');
+
+  window.addEventListener('scroll',function(){
+    var st=window.pageYOffset;
+    var dh=document.documentElement.scrollHeight-window.innerHeight;
+    if(sp&&dh>0) sp.style.width=(st/dh*100)+'%';
+    if(sn) sn.classList.toggle('on',st>180);
+  },{passive:true});
+
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); } });
+    },{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
+    document.querySelectorAll('.fi').forEach(function(el){ obs.observe(el); });
+    setTimeout(showAll,2000);
+
+    var bo=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var w=e.target.getAttribute('data-w');
+          if(w) setTimeout(function(){ e.target.style.width=w; },200);
+          bo.unobserve(e.target);
+        }
+      });
+    },{threshold:0.3});
+    document.querySelectorAll('.pfill[data-w]').forEach(function(el){ bo.observe(el); });
+    document.querySelectorAll('.kpi-bar-fill[data-w]').forEach(function(el){ bo.observe(el); });
+
+    var secs=[
+      {id:'tl',cls:'.a-tl'},{id:'ns',cls:'.a-tl'},
+      {id:'sec-op',cls:'.a-op'},{id:'sec-inn',cls:'.a-inn'},
+      {id:'sec-plat',cls:'.a-plat'},{id:'sec-risk',cls:'.a-risk'}
+    ];
+    var so=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var m=secs.find(function(s){ return s.id===e.target.id; });
+        if(!m) return;
+        document.querySelectorAll('.snav a').forEach(function(a){ a.classList.remove('act'); });
+        var na=document.querySelector(m.cls);
+        if(na) na.classList.add('act');
+      });
+    },{threshold:0.2,rootMargin:'-60px 0px -50% 0px'});
+    secs.forEach(function(s){ var el=document.getElementById(s.id); if(el) so.observe(el); });
+  } else { showAll(); }
+
+  document.querySelectorAll('.snav a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var t=document.querySelector(this.getAttribute('href'));
+      if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+
+  // ── Ring chart animation on scroll
+  if('IntersectionObserver' in window){
+    var ro = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var offset = e.target.getAttribute('data-offset');
+          if(offset !== null) e.target.style.strokeDashoffset = offset;
+          ro.unobserve(e.target);
+        }
+      });
+    },{threshold:0.3});
+    document.querySelectorAll('.ring-fill[data-offset]').forEach(function(el){ ro.observe(el); });
+  } else {
+    document.querySelectorAll('.ring-fill[data-offset]').forEach(function(el){
+      el.style.strokeDashoffset = el.getAttribute('data-offset');
+    });
+  }
+})();
+</script>
+</body>
+</html>
