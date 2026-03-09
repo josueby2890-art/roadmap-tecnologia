@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Roadmap Tecnológico 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg:      #f4f6fa;
+    --surface: #ffffff;
+    --border:  rgba(0,0,0,0.08);
+    --text:    #111827;
+    --muted:   #6b7280;
+    --op:      #3ec87a;
+    --inn:     #2eb8e6;
+    --plat:    #8dc63f;
+    --risk:    #9b59d0;
+    --op-bg:   rgba(62,200,122,0.09);
+    --inn-bg:  rgba(46,184,230,0.09);
+    --plat-bg: rgba(141,198,63,0.09);
+    --risk-bg: rgba(155,89,208,0.09);
+    --font-h: 'Syne', sans-serif;
+    --font-b: 'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg) !important;
+    background-color: var(--bg) !important;
+    font-family: var(--font-b); font-size: 14px;
+    line-height: 1.6; color: var(--text); min-height: 100vh;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: radial-gradient(rgba(0,0,0,0.045) 1px, transparent 1px);
+    background-size: 26px 26px; pointer-events: none; z-index: 0;
+  }
+  .wrap { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; padding: 36px 24px 72px; }
+
+  /* ─── HEADER ─── */
+  .header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap; margin-bottom: 48px; padding-bottom: 32px;
+    border-bottom: 2px solid var(--border);
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--font-h); font-size: 10px; font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase;
+    color: #e07b00; background: rgba(224,123,0,0.08);
+    border: 1px solid rgba(224,123,0,0.25);
+    padding: 4px 12px; border-radius: 2px; margin-bottom: 12px;
+  }
+  .badge::before { content:''; width:6px; height:6px; background:#e07b00; border-radius:50%; animation: blink 2s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+  h1 { font-family: var(--font-h); font-size: clamp(26px,4vw,42px); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; margin-bottom: 8px; }
+  h1 em { font-style: normal; color: #e07b00; }
+  .subtitle { color: var(--muted); font-size: 13.5px; max-width: 480px; }
+  .kpis { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
+  .kpi {
+    background: var(--surface); border: 1px solid var(--border);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.06);
+    padding: 12px 18px; border-radius: 8px;
+    display: flex; flex-direction: column; gap: 1px; min-width: 105px;
+  }
+  .kpi .n { font-family: var(--font-h); font-size: 24px; font-weight: 800; line-height: 1; }
+  .kpi .l { font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+
+  /* ─── SECTION LABEL ─── */
+  .sec {
+    font-family: var(--font-h); font-size: 10.5px; font-weight: 700;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--muted);
+    display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
+  }
+  .sec::after { content:''; flex:1; height:1px; background: var(--border); }
+
+  /* ─── TIMELINE ─── */
+  .tl {
+    display: grid; grid-template-columns: 180px repeat(4,1fr);
+    margin-bottom: 52px; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+  }
+  .tl-corner { background: #eef1f7; border: 1px solid var(--border); }
+  .tl-head {
+    background: #eef1f7; border: 1px solid var(--border);
+    padding: 10px 14px; font-family: var(--font-h); font-size: 11px; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-align: center;
+  }
+  .tl-head.now { color: #e07b00; background: rgba(224,123,0,0.07); border-color: rgba(224,123,0,0.22); }
+  .tl-lane {
+    background: #f8f9fc; border: 1px solid var(--border); border-top: none;
+    display: flex; align-items: center; padding: 0 10px 0 12px;
+    font-size: 11.5px; font-weight: 700; gap: 7px; min-height: 52px;
+  }
+  .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .tl-cell {
+    border: 1px solid var(--border); border-top: none; border-left: none;
+    padding: 6px; min-height: 52px; background: var(--surface); vertical-align: top;
+  }
+  .tl-cell.fcol { border-left: 1px solid var(--border); }
+  .bar {
+    border-radius: 4px; padding: 4px 7px; font-size: 10.5px; font-weight: 500;
+    line-height: 1.3; margin-bottom: 3px; cursor: default; display: block;
+  }
+  .bar.op   { background: var(--op-bg);   border-left: 3px solid var(--op);   color: #1a7a45; }
+  .bar.inn  { background: var(--inn-bg);  border-left: 3px solid var(--inn);  color: #0d6e94; }
+  .bar.plat { background: var(--plat-bg); border-left: 3px solid var(--plat); color: #4a6e10; }
+  .bar.risk { background: var(--risk-bg); border-left: 3px solid var(--risk); color: #5a2e90; }
+
+  /* legend */
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 14px; }
+  .leg { display: flex; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 500; }
+  .leg-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  /* ─── PILLAR SECTION ─── */
+  .psec { margin-bottom: 48px; }
+  .phead {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+    padding: 10px 16px; border-radius: 6px;
+  }
+  .phead.op   { background: var(--op-bg);   border-left: 4px solid var(--op); }
+  .phead.inn  { background: var(--inn-bg);  border-left: 4px solid var(--inn); }
+  .phead.plat { background: var(--plat-bg); border-left: 4px solid var(--plat); }
+  .phead.risk { background: var(--risk-bg); border-left: 4px solid var(--risk); }
+  .phead .ph-icon { font-size: 18px; }
+  .phead .ph-name { font-family: var(--font-h); font-size: 14px; font-weight: 800; }
+  .phead .ph-tag  { font-size: 11px; color: var(--muted); margin-left: auto; font-weight: 500; }
+
+  /* ─── CARDS ─── */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px,1fr)); gap: 14px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 16px 13px; box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    transition: box-shadow .2s, transform .2s; position: relative; overflow: hidden;
+  }
+  .card:hover { box-shadow: 0 5px 16px rgba(0,0,0,0.09); transform: translateY(-2px); }
+  .card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+  .card.op::before   { background: var(--op); }
+  .card.inn::before  { background: var(--inn); }
+  .card.plat::before { background: var(--plat); }
+  .card.risk::before { background: var(--risk); }
+
+  .ctop { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; margin-bottom:7px; }
+  .ctitle { font-family: var(--font-h); font-size: 13px; font-weight: 700; line-height: 1.3; }
+  .chip { font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; white-space: nowrap; flex-shrink: 0; }
+  .ch-done { background: rgba(62,200,122,0.12); color: #1a7a45; border: 1px solid rgba(62,200,122,0.3); }
+  .ch-on   { background: rgba(46,184,230,0.10); color: #0d6e94; border: 1px solid rgba(46,184,230,0.25); }
+  .ch-plan { background: rgba(224,123,0,0.09);  color: #a05500; border: 1px solid rgba(224,123,0,0.25); }
+
+  .cdesc { color: var(--muted); font-size: 12px; margin-bottom: 10px; }
+  .cmeta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 9px; }
+  .cm { font-size: 11px; color: var(--muted); }
+  .cm strong { color: var(--text); font-weight: 500; }
+  .plbl { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-bottom:4px; }
+  .pbar { height:5px; background:#e9edf5; border-radius:4px; overflow:hidden; }
+  .pfill { height:100%; border-radius:4px; }
+  .pf-op   { background: var(--op); }
+  .pf-inn  { background: var(--inn); }
+  .pf-plat { background: var(--plat); }
+  .pf-risk { background: var(--risk); }
+
+  /* ─── PROCESS TABLE ─── */
+  .proc-wrap { margin-top: 16px; overflow-x: auto; }
+  .proc-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .proc-table th {
+    background: #f0f4f9; padding: 8px 12px; text-align: left;
+    font-family: var(--font-h); font-size: 10px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+    border-bottom: 2px solid var(--border);
+  }
+  .proc-table td { padding: 7px 12px; border-bottom: 1px solid var(--border); color: var(--text); }
+  .proc-table tr:hover td { background: #f8faff; }
+  .proc-table .pid { font-family: var(--font-h); font-size: 11px; font-weight: 700; color: var(--muted); }
+  .st-done { color: #1a7a45; font-weight: 600; }
+  .st-on   { color: #0d6e94; font-weight: 600; }
+  .st-plan { color: #a05500; font-weight: 600; }
+  .mo { font-size: 11px; color: var(--muted); }
+
+  /* ─── AUT TABLE ─── */
+  .aut-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 16px; }
+  .aut-table th {
+    background: #f0f4f9; padding: 8px 12px; text-align: left;
+    font-family: var(--font-h); font-size: 10px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+    border-bottom: 2px solid var(--border);
+  }
+  .aut-table td { padding: 7px 12px; border-bottom: 1px solid var(--border); }
+  .aut-table tr:hover td { background: #f8faff; }
+  .aid { font-family: var(--font-h); font-size: 11px; font-weight: 700; color: var(--plat); }
+
+  /* ─── RISK TIMELINE ─── */
+  .risk-timeline { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+  .rt-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .rt-month {
+    background: var(--risk-bg); color: #5a2e90;
+    font-family: var(--font-h); font-size: 11px; font-weight: 800;
+    padding: 4px 10px; border-radius: 4px; white-space: nowrap;
+    border: 1px solid rgba(155,89,208,0.2); flex-shrink: 0; min-width: 60px; text-align: center;
+  }
+  .rt-content { flex: 1; }
+  .rt-title { font-family: var(--font-h); font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+  .rt-desc { font-size: 12px; color: var(--muted); }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    border-top: 1px solid var(--border); padding-top: 18px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px; color: var(--muted); font-size: 11px;
+  }
+  .footer strong { color: var(--text); }
+
+  /* ANIMATIONS */
+  .fi { opacity:0; transform:translateY(12px); animation:fu .45s forwards; }
+  .fi:nth-child(1){animation-delay:.04s} .fi:nth-child(2){animation-delay:.09s}
+  .fi:nth-child(3){animation-delay:.14s} .fi:nth-child(4){animation-delay:.19s}
+  .fi:nth-child(5){animation-delay:.24s} .fi:nth-child(6){animation-delay:.29s}
+  @keyframes fu { to { opacity:1; transform:translateY(0); } }
+
+  /* ─── HISTORY TIMELINE ─── */
+  .hist-block {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 20px 16px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05); margin-bottom: 14px;
+    position: relative; overflow: hidden;
+  }
+  .hist-block::before { content:""; position:absolute; top:0; left:0; right:0; height:3px; background: var(--op); }
+  .hist-title { font-family: var(--font-h); font-size: 13.5px; font-weight: 800; margin-bottom: 18px; color: var(--text); }
+  .hist-timeline { display: flex; flex-direction: column; gap: 0; }
+  .ht-item { display: flex; gap: 0; position: relative; }
+  .ht-item:not(:last-child) .ht-month::after {
+    content:""; position:absolute; bottom:-1px; left:50%; transform:translateX(-50%);
+    width:2px; height:100%; background: rgba(62,200,122,0.2); z-index:0;
+  }
+  .ht-month {
+    min-width: 64px; text-align: center;
+    font-family: var(--font-h); font-size: 11px; font-weight: 800;
+    color: #1a7a45; background: var(--op-bg);
+    border: 1px solid rgba(62,200,122,0.25); border-radius: 6px;
+    padding: 8px 6px; margin-right: 16px; height: fit-content;
+    flex-shrink: 0; line-height: 1.3; position: relative;
+  }
+  .ht-body { flex: 1; padding-bottom: 20px; }
+  .ht-item:last-child .ht-body { padding-bottom: 0; }
+  .ht-head { font-family: var(--font-h); font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+  .ht-items { display: flex; flex-direction: column; gap: 8px; }
+  .ht-row { display: flex; gap: 8px; font-size: 12.5px; color: var(--text); }
+  .ht-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--op); flex-shrink: 0; margin-top: 5px;
+  }
+
+  /* ─── NEXT STEPS ─── */
+  .next-steps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 16px; margin-bottom: 52px; }
+  .ns-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px 18px 14px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    transition: box-shadow .2s, transform .2s;
+    position: relative; overflow: hidden;
+  }
+  .ns-card:hover { box-shadow: 0 5px 16px rgba(0,0,0,0.09); transform: translateY(-2px); }
+  .ns-card::before { content:""; position:absolute; top:0; left:0; right:0; height:3px; }
+  .ns-op::before   { background: var(--op); }
+  .ns-inn::before  { background: var(--inn); }
+  .ns-plat::before { background: var(--plat); }
+  .ns-risk::before { background: var(--risk); }
+  .ns-top { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .ns-icon { font-size: 18px; }
+  .ns-pilar { font-family: var(--font-h); font-size: 13px; font-weight: 800; }
+  .ns-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ns-list li {
+    font-size: 12.5px; color: var(--text);
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
+  }
+  .ns-list li:last-child { border-bottom: none; padding-bottom: 0; }
+  .ns-when {
+    font-size: 10.5px; font-weight: 700; white-space: nowrap;
+    padding: 2px 7px; border-radius: 3px; flex-shrink: 0;
+  }
+  .ns-op   .ns-when { background: var(--op-bg);   color: #1a7a45; }
+  .ns-inn  .ns-when { background: var(--inn-bg);  color: #0d6e94; }
+  .ns-plat .ns-when { background: var(--plat-bg); color: #4a6e10; }
+  .ns-risk .ns-when { background: var(--risk-bg); color: #5a2e90; }
+
+  @media(max-width:750px) { .tl { display:none; } .header { flex-direction:column; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="fi">
+      <div class="badge">Área de Tecnología · Roadmap Estratégico</div>
+      <h1>¿Qué hace <em>Tecnología</em>?<br>Y hacia dónde vamos.</h1>
+      <p class="subtitle">Avances y proyectos organizados por los 4 pilares del área. Actualizado: <strong>Marzo 2026</strong></p>
+    </div>
+    <div class="kpis">
+      <div class="kpi fi"><span class="n" style="color:var(--op)">7</span><span class="l">Ops. & Continuidad</span></div>
+      <div class="kpi fi"><span class="n" style="color:var(--inn)">6</span><span class="l">Innovación Digital</span></div>
+      <div class="kpi fi"><span class="n" style="color:var(--plat)">11</span><span class="l">Plataformas</span></div>
+      <div class="kpi fi"><span class="n" style="color:var(--risk)">5</span><span class="l">Riesgo & Gobernanza</span></div>
+    </div>
+  </header>
+
+  <!-- TIMELINE -->
+  <p class="sec">Línea de tiempo — 2026</p>
+  <div class="legend">
+    <div class="leg"><div class="leg-dot" style="background:var(--op)"></div>Operaciones y Continuidad</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--inn)"></div>Innovación y Exp. Digital</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--plat)"></div>Plataformas y Procesos</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--risk)"></div>Riesgo y Gobernanza</div>
+  </div>
+  <div class="tl">
+    <div class="tl-corner"></div>
+    <div class="tl-head now">Q1 · Ene–Mar ▶</div>
+    <div class="tl-head">Q2 · Abr–Jun</div>
+    <div class="tl-head">Q3 · Jul–Sep</div>
+    <div class="tl-head">Q4 · Oct–Dic</div>
+
+    <!-- Operaciones -->
+    <div class="tl-lane"><div class="dot" style="background:var(--op)"></div>Operaciones</div>
+    <div class="tl-cell fcol">
+      <span class="bar op">Reinicio internet/firewall ✓</span>
+      <span class="bar op">Búsqueda proveedor internet ✓</span>
+      <span class="bar op">Backups 1,500 GB ✓</span>
+      <span class="bar op">Cambio impresoras ✓</span>
+      <span class="bar op">Reordenamiento equipos →</span>
+    </div>
+    <div class="tl-cell">
+      <span class="bar op">Nueva infraestructura internet</span>
+      <span class="bar op">Optimización salas reuniones</span>
+      <span class="bar op">Reordenamiento equipos</span>
+    </div>
+    <div class="tl-cell"></div>
+    <div class="tl-cell"></div>
+
+    <!-- Innovación -->
+    <div class="tl-lane"><div class="dot" style="background:var(--inn)"></div>Innovación</div>
+    <div class="tl-cell fcol">
+      <span class="bar inn">Sitio SP Montecarmelo ✓</span>
+      <span class="bar inn">Mesa de ayuda ✓</span>
+      <span class="bar inn">Cap. SharePoint ✓</span>
+      <span class="bar inn">Cap. Teams/OneDrive ✓</span>
+      <span class="bar inn">Puesta en marcha mesa →</span>
+    </div>
+    <div class="tl-cell">
+      
+      <span class="bar inn">Cap. Tipos de IA</span>
+    </div>
+    <div class="tl-cell"><span class="bar inn">Cap. Copilot 365</span></div>
+    <div class="tl-cell"></div>
+
+    <!-- Plataformas -->
+    <div class="tl-lane"><div class="dot" style="background:var(--plat)"></div>Plataformas</div>
+    <div class="tl-cell fcol">
+      <span class="bar plat">Priorización procesos ✓</span>
+      <span class="bar plat">4 procesos finalizados ✓</span>
+      <span class="bar plat">AUT-003 / AUT-004 ✓</span>
+      <span class="bar plat">3 procesos en curso →</span>
+    </div>
+    <div class="tl-cell">
+      <span class="bar plat">AUT-005 / AUT-006</span>
+      <span class="bar plat">11 procesos Mar–Abr</span>
+    </div>
+    <div class="tl-cell">
+      <span class="bar plat">AUT-007 a AUT-009</span>
+      <span class="bar plat">9 procesos May–Jun</span>
+    </div>
+    <div class="tl-cell">
+      <span class="bar plat">AUT-010 / AUT-011</span>
+      <span class="bar plat">9 procesos finales</span>
+    </div>
+
+    <!-- Riesgo -->
+    <div class="tl-lane"><div class="dot" style="background:var(--risk)"></div>Riesgo & Gobernanza</div>
+    <div class="tl-cell fcol">
+      <span class="bar risk">Políticas impresoras</span>
+    </div>
+    <div class="tl-cell">
+      <span class="bar risk">Gobernanza ERP</span>
+      <span class="bar risk">Gobernanza Microsoft</span>
+    </div>
+    <div class="tl-cell">
+      <span class="bar risk">Ciberseguridad</span>
+      <span class="bar risk">Gestión proveedores</span>
+    </div>
+    <div class="tl-cell">
+      <span class="bar risk">Consolidación gobernanza</span>
+    </div>
+  </div>
+
+  <!-- PRÓXIMOS PASOS -->
+  <p class="sec">Próximos pasos</p>
+  <div class="next-steps-grid">
+    <div class="ns-card ns-op fi">
+      <div class="ns-top"><div class="ns-icon">⚙️</div><div class="ns-pilar">Operaciones y Continuidad</div></div>
+      <ul class="ns-list">
+        <li>Instalación nueva infraestructura de internet <span class="ns-when">Abr–Jun 2026</span></li>
+        <li>Optimización tecnológica en salas de reuniones <span class="ns-when">Abr–Jun 2026</span></li>
+        <li>Cierre reordenamiento de equipos y canales <span class="ns-when">Jun 2026</span></li>
+      </ul>
+    </div>
+    <div class="ns-card ns-inn fi">
+      <div class="ns-top"><div class="ns-icon">🚀</div><div class="ns-pilar">Innovación y Exp. Digital</div></div>
+      <ul class="ns-list">
+        <li>Capacitación Tipos y Usos de IA <span class="ns-when">Abr–Jun 2026</span></li>
+        <li>Capacitación Copilot en Office 365 <span class="ns-when">Jul–Sep 2026</span></li>
+      </ul>
+    </div>
+    <div class="ns-card ns-plat fi">
+      <div class="ns-top"><div class="ns-icon">🔗</div><div class="ns-pilar">Plataformas y Procesos</div></div>
+      <ul class="ns-list">
+        <li>Digitalización de 5 procesos pendientes <span class="ns-when">Mar 2026</span></li>
+        <li>AUT-005 y AUT-006 — Finanzas e Inversiones <span class="ns-when">Abr–May 2026</span></li>
+        <li>AUT-007 a AUT-009 — Talento Humano <span class="ns-when">May–Jul 2026</span></li>
+        <li>AUT-010 y AUT-011 — Cierre automatizaciones <span class="ns-when">Jul–Ago 2026</span></li>
+      </ul>
+    </div>
+    <div class="ns-card ns-risk fi">
+      <div class="ns-top"><div class="ns-icon">🛡️</div><div class="ns-pilar">Riesgo y Gobernanza</div></div>
+      <ul class="ns-list">
+        <li>Gobernanza entorno Microsoft (Teams & SP) <span class="ns-when">Abr 2026</span></li>
+        <li>Gobernanza ERP <span class="ns-when">May 2026</span></li>
+        <li>Cotización y adquisición de proveedores <span class="ns-when">May–Jun 2026</span></li>
+        <li>Estrategia de Ciberseguridad <span class="ns-when">Jun–Q3 2026</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PILAR 1: OPERACIONES -->
+  <div class="psec">
+    <p class="sec">Proyectos por pilar</p>
+    <div class="phead op">
+      <span class="ph-icon">⚙️</span>
+      <span class="ph-name">Operaciones y Continuidad</span>
+      <span class="ph-tag">Operacional</span>
+    </div>
+
+    <!-- Historial de Avances -->
+    <div class="hist-block fi">
+      <div class="hist-title">📋 Historial de Avances — Nov 2025 a Mar 2026</div>
+      <div class="hist-timeline">
+
+        <div class="ht-item">
+          <div class="ht-month">Nov–Dic<br>2025</div>
+          <div class="ht-body">
+            <div class="ht-head">Seguridad y Orden de la Red</div>
+            <div class="ht-items">
+              <div class="ht-row"><span class="ht-dot"></span><div><strong>Reinicio y limpieza del sistema de seguridad:</strong> Se dejó desde cero la configuración de seguridad de la red para garantizar un entorno más seguro y sin problemas heredados.</div></div>
+              <div class="ht-row"><span class="ht-dot"></span><div><strong>Redes separadas por tipo de usuario:</strong> Se crearon redes diferenciadas para colaboradores, dispositivos personales e invitados, mejorando la seguridad y el control del acceso.</div></div>
+              <div class="ht-row"><span class="ht-dot"></span><div><strong>Verificación completa de dispositivos conectados:</strong> Se realizó una revisión exhaustiva de todos los equipos en la red, garantizando que solo dispositivos autorizados tengan acceso.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ht-item">
+          <div class="ht-month">Ene<br>2026</div>
+          <div class="ht-body">
+            <div class="ht-head">Mejor Conectividad para el Equipo</div>
+            <div class="ht-items">
+              <div class="ht-row"><span class="ht-dot"></span><div><strong>Conexión estable para áreas críticas:</strong> Contabilidad y TI ahora tienen conexión directa y más confiable, evitando interrupciones en procesos financieros y operativos clave.</div></div>
+              <div class="ht-row"><span class="ht-dot"></span><div><strong>Mejora en la señal inalámbrica:</strong> Se optimizó la red Wi-Fi de la oficina, resultando en mayor velocidad y estabilidad para todos los usuarios.</div></div>
+              <div class="ht-row"><span class="ht-dot"></span><div><strong>Modernización de equipos de trabajo:</strong> Se adquirieron accesorios que permiten a los colaboradores conectar carga, pantalla y red en un solo punto desde sus laptops.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ht-item">
+          <div class="ht-month">Feb<br>2026</div>
+          <div class="ht-body">
+            <div class="ht-head">Expansión de Conectividad y Renovación de Impresión</div>
+            <div class="ht-items">
+              <div class="ht-row"><span class="ht-dot"></span><div><strong>Planificación de nueva infraestructura de internet:</strong> Se definió la arquitectura para la nueva red de alta velocidad que se instalará en los próximos meses.</div></div>
+              <div class="ht-row"><span class="ht-dot"></span><div><strong>Contrato de impresión Ricoh (36 meses):</strong> Nuevo servicio de impresión integrado con OneDrive y Google Drive, facilitando la digitalización de documentos directamente desde la fotocopiadora.</div></div>
+              <div class="ht-row"><span class="ht-dot"></span><div><strong>Conexión estable para 33 colaboradores:</strong> Se amplió la conexión directa a las áreas Técnica, Nuevos Negocios y Gerencia, mejorando la productividad y reduciendo fallas de conectividad.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ht-item">
+          <div class="ht-month">Mar<br>2026</div>
+          <div class="ht-body">
+            <div class="ht-head">Mejoras en Equipamiento y Selección de Proveedor de Red</div>
+            <div class="ht-items">
+              <div class="ht-row"><span class="ht-dot"></span><div><strong>Upgrade de equipo de impresión sin costo adicional:</strong> Se negoció exitosamente un modelo Ricoh de mayor velocidad y rendimiento al mismo precio contratado.</div></div>
+              <div class="ht-row"><span class="ht-dot"></span><div><strong>Puesta en marcha de impresión:</strong> Instalación del nuevo equipo Ricoh programada para la segunda semana de marzo.</div></div>
+              <div class="ht-row"><span class="ht-dot"></span><div><strong>Selección de proveedor de nueva red:</strong> Se adjudicó la instalación de la nueva red de alta velocidad, con cobertura mejorada para toda la oficina.</div></div>
+              <div class="ht-row"><span class="ht-dot"></span><div><strong>Control de costos de impresión:</strong> Se configuró la impresión en blanco y negro por defecto para todos los usuarios, optimizando el consumo de tóner e insumos.</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Project Cards -->
+    <div class="cards" style="margin-top:16px;">
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">🔒 Saneamiento & Seguridad Perimetral</div><span class="chip ch-done">Completado</span></div>
+        <p class="cdesc">Reinicio completo del sistema de seguridad de red, separación de accesos por tipo de usuario y verificación total de dispositivos conectados.</p>
+        <div class="cmeta"><div class="cm"><strong>Entrega:</strong> Nov–Dic 2025</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-op" style="width:100%"></div></div>
+      </div>
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">🔌 Migración a Red Cableada</div><span class="chip ch-done">Completado</span></div>
+        <p class="cdesc">Conexión directa y estable para 33 colaboradores en las áreas de Contabilidad, TI, Técnica, Nuevos Negocios y Gerencia, reduciendo fallas de conectividad.</p>
+        <div class="cmeta"><div class="cm"><strong>Entrega:</strong> Ene–Feb 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-op" style="width:100%"></div></div>
+      </div>
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">💾 Resguardo de Backups</div><span class="chip ch-done">Completado</span></div>
+        <p class="cdesc">Descarga y verificación de 1,500 GB de información del área comercial (Ene–Dic). Resguardo corporativo completo.</p>
+        <div class="cmeta"><div class="cm"><strong>Entrega:</strong> Ene–Feb 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-op" style="width:100%"></div></div>
+      </div>
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">🖨️ Renovación de Impresión Ricoh</div><span class="chip ch-done">Completado</span></div>
+        <p class="cdesc">Nuevo servicio de impresión contratado a 36 meses, con integración a la nube (OneDrive y Google Drive). Se negoció un equipo de mayor rendimiento sin costo adicional. Impresión en B&N por defecto para optimizar costos.</p>
+        <div class="cmeta"><div class="cm"><strong>Entrega:</strong> Feb–Mar 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-op" style="width:100%"></div></div>
+      </div>
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">📡 Nueva Infraestructura de Internet</div><span class="chip ch-on">En curso</span></div>
+        <p class="cdesc">Proveedor seleccionado para la instalación de nueva infraestructura de internet de alta velocidad con cobertura mejorada para toda la oficina.</p>
+        <div class="cmeta"><div class="cm"><strong>Plazo:</strong> Abr–Jun 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>25%</span></div>
+        <div class="pbar"><div class="pfill pf-op" style="width:25%"></div></div>
+      </div>
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">🔌 Reordenamiento de Equipos y Canales</div><span class="chip ch-on">En curso</span></div>
+        <p class="cdesc">Reorganización física y lógica del cableado, equipos de red y canales de comunicación internos.</p>
+        <div class="cmeta"><div class="cm"><strong>Inicio:</strong> Ene 2026</div><div class="cm"><strong>Plazo:</strong> Jun 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>40%</span></div>
+        <div class="pbar"><div class="pfill pf-op" style="width:40%"></div></div>
+      </div>
+      <div class="card op fi">
+        <div class="ctop"><div class="ctitle">📺 Optimización Salas de Reuniones</div><span class="chip ch-plan">Próximo</span></div>
+        <p class="cdesc">Actualización y optimización de recursos tecnológicos en todas las salas de reuniones de la organización.</p>
+        <div class="cmeta"><div class="cm"><strong>Plazo:</strong> Abr–Jun 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>0%</span></div>
+        <div class="pbar"><div class="pfill pf-op" style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- PILAR 2: INNOVACIÓN -->
+  <div class="psec">
+    <div class="phead inn">
+      <span class="ph-icon">🚀</span>
+      <span class="ph-name">Innovación y Experiencia Digital</span>
+      <span class="ph-tag">Estratégico</span>
+    </div>
+    <div class="cards">
+      <div class="card inn fi">
+        <div class="ctop"><div class="ctitle">🏢 Sitio SharePoint Socios</div><span class="chip ch-done">Completado</span></div>
+        <p class="cdesc">Creación de sitios SharePoint para socios de Montecarmelo y Desarrollos Santa Elena.</p>
+        <div class="cmeta"><div class="cm"><strong>Entrega:</strong> Ene 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-inn" style="width:100%"></div></div>
+      </div>
+      <div class="card inn fi">
+        <div class="ctop"><div class="ctitle">🎧 Mesa de Ayuda Tecnología</div><span class="chip ch-done">Completado</span></div>
+        <p class="cdesc">Creación y puesta en marcha de la mesa de ayuda del área. Capacitaciones de uso iniciadas en marzo.</p>
+        <div class="cmeta"><div class="cm"><strong>Creación:</strong> Ene–Feb 2026</div><div class="cm"><strong>Go-live:</strong> Mar 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-inn" style="width:100%"></div></div>
+      </div>
+      <div class="card inn fi">
+        <div class="ctop"><div class="ctitle">📚 Capacitación SharePoint Básica</div><span class="chip ch-done">Completado</span></div>
+        <p class="cdesc">Capacitación corporativa de uso básico de SharePoint para colaboradores de la organización.</p>
+        <div class="cmeta"><div class="cm"><strong>Entrega:</strong> Ene 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-inn" style="width:100%"></div></div>
+      </div>
+      <div class="card inn fi">
+        <div class="ctop"><div class="ctitle">📚 Capacitación Teams & OneDrive</div><span class="chip ch-done">Completado</span></div>
+        <p class="cdesc">Capacitación básica de uso de Microsoft Teams y OneDrive para toda la organización.</p>
+        <div class="cmeta"><div class="cm"><strong>Entrega:</strong> Feb 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>100%</span></div>
+        <div class="pbar"><div class="pfill pf-inn" style="width:100%"></div></div>
+      </div>
+      <div class="card inn fi">
+        <div class="ctop"><div class="ctitle">🤖 Capacitación Copilot en Office 365</div><span class="chip ch-plan">Próximo</span></div>
+        <p class="cdesc">Capacitación del uso correcto y eficiente de Microsoft Copilot integrado en Office 365.</p>
+        <div class="cmeta"><div class="cm"><strong>Plazo:</strong> Jul–Sep 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>0%</span></div>
+        <div class="pbar"><div class="pfill pf-inn" style="width:0%"></div></div>
+      </div>
+      <div class="card inn fi">
+        <div class="ctop"><div class="ctitle">🧠 Tipos y Usos de IA</div><span class="chip ch-plan">Próximo</span></div>
+        <p class="cdesc">Capacitación sobre tipos de inteligencia artificial, sus aplicaciones y cómo aprovecharlos en el trabajo.</p>
+        <div class="cmeta"><div class="cm"><strong>Plazo:</strong> Abr–Jun 2026</div></div>
+        <div class="plbl"><span>Avance</span><span>0%</span></div>
+        <div class="pbar"><div class="pfill pf-inn" style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILAR 3: PLATAFORMAS -->
+  <div class="psec">
+    <div class="phead plat">
+      <span class="ph-icon">🔗</span>
+      <span class="ph-name">Plataformas y Procesos Internos</span>
+      <span class="ph-tag">Operacional</span>
+    </div>
+
+    <!-- Procesos -->
+    <div class="card plat fi" style="margin-bottom:14px;">
+      <div class="ctop"><div class="ctitle">🗂️ Digitalización de Procesos Corporativos</div><span class="chip ch-on">En curso</span></div>
+      <p class="cdesc">Levantamiento, documentación y digitalización de los procesos de todas las direcciones. Reuniones de priorización realizadas en Ene–Feb 2026.</p>
+      <div class="proc-wrap">
+        <table class="proc-table">
+          <thead>
+            <tr><th>ID</th><th>Proceso</th><th>Responsable</th><th>Estatus</th><th>Mes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="pid">PR12</td><td>Gestión de Cobros</td><td>Miguel Marroquín</td><td class="st-done">✅ Finalizado</td><td class="mo">Feb</td></tr>
+            <tr><td class="pid">PR06</td><td>Gestión del Conocimiento documentado</td><td>Judith Rivas</td><td class="st-done">✅ Finalizado</td><td class="mo">Feb</td></tr>
+            <tr><td class="pid">PR05</td><td>Gestión de indicadores de desempeño</td><td>Judith Rivas</td><td class="st-done">✅ Finalizado</td><td class="mo">Feb</td></tr>
+            <tr><td class="pid">PR02</td><td>Onboarding e Integración</td><td>Cecilia de Jovel</td><td class="st-done">✅ Finalizado</td><td class="mo">Feb</td></tr>
+            <tr><td class="pid">PR03</td><td>Gestión financiera y de recursos</td><td>Miguel Marroquín</td><td class="st-on">🔄 En Proceso</td><td class="mo">Mar</td></tr>
+            <tr><td class="pid">PR02</td><td>Control operativo de gastos rentista</td><td>Alejandro Portal</td><td class="st-on">🔄 En Proceso</td><td class="mo">Mar</td></tr>
+            <tr><td class="pid">PR01</td><td>Atracción, Reclutamiento y Selección</td><td>Cecilia de Jovel</td><td class="st-on">🔄 En Proceso</td><td class="mo">Mar</td></tr>
+            <tr><td class="pid">PR08</td><td>Investigación de mercado (Mystery Shopping)</td><td>Judith Rivas</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Mar</td></tr>
+            <tr><td class="pid">PR04</td><td>Preventa</td><td>Hector Delgado</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Mar</td></tr>
+            <tr><td class="pid">PR04</td><td>Supervisión administrativa técnica</td><td>Carlos Flores</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Mar</td></tr>
+            <tr><td class="pid">PR03</td><td>Ronda y levantamiento con inversionistas</td><td>Miguel Marroquín</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Mar</td></tr>
+            <tr><td class="pid">PR15</td><td>Resultados y reportería (P&L)</td><td>Alejandro Portal</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Mar</td></tr>
+            <tr><td class="pid">PR05</td><td>Monitoreo y control de calidad</td><td>Carlos Flores</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Abr</td></tr>
+            <tr><td class="pid">PR22</td><td>Planeación y ejecución de marketing rentista</td><td>Hector Delgado / Alejandro Portal</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Abr</td></tr>
+            <tr><td class="pid">PR04</td><td>Desarrollo de productos y servicios</td><td>Judith Rivas</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Abr</td></tr>
+            <tr><td class="pid">PR06</td><td>Proceso de atención cliente pre y postventa</td><td>Carlos Flores</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Abr</td></tr>
+            <tr><td class="pid">PR10</td><td>Gestión de ventas</td><td>Hector Delgado</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Abr</td></tr>
+            <tr><td class="pid">PR08</td><td>Conciliaciones Bancarias Bolívar y Afiliadas</td><td>Miguel Marroquín</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Abr</td></tr>
+            <tr><td class="pid">PR04</td><td>Gestión del Desempeño Individual</td><td>Cecilia de Jovel</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Abr</td></tr>
+            <tr><td class="pid">PR05</td><td>Administración del Ciclo de Vida del Colaborador</td><td>Cecilia de Jovel</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Abr</td></tr>
+            <tr><td class="pid">PR11</td><td>Facturación e ingresos</td><td>Miguel Marroquín</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Abr</td></tr>
+            <tr><td class="pid">PR05</td><td>Gestión de clientes (captación a cierre)</td><td>Hector Delgado</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">May</td></tr>
+            <tr><td class="pid">PR01</td><td>Gestión de garantías</td><td>Carlos Flores</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">May</td></tr>
+            <tr><td class="pid">PR06</td><td>Desarrollo y Aprendizaje (Formación + Carrera)</td><td>Cecilia de Jovel</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">May</td></tr>
+            <tr><td class="pid">PR07</td><td>Riesgos Organizacionales y Control de Gestión</td><td>Cecilia de Jovel</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">May</td></tr>
+            <tr><td class="pid">PR05</td><td>Estudio de viabilidad del proyecto</td><td>Judith Rivas</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">May</td></tr>
+            <tr><td class="pid">PR20</td><td>Evaluación de compras administrativas</td><td>Miguel Marroquín</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">May</td></tr>
+            <tr><td class="pid">PR05</td><td>Liquidación de inversión / Distribución de rendimientos</td><td>Miguel Marroquín</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">May</td></tr>
+            <tr><td class="pid">PR08</td><td>Trámites institucionales</td><td>Carlos Flores</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">May</td></tr>
+            <tr><td class="pid">PR02</td><td>Identificación de oportunidades</td><td>Judith Rivas / Hector Delgado</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Jun</td></tr>
+            <tr><td class="pid">PR12</td><td>Planificación y ejecución de gastos y subcontratos</td><td>Alejandro Portal</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Jun</td></tr>
+            <tr><td class="pid">PR14</td><td>Comercialización de activos rentistas</td><td>Alejandro Portal</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Jun</td></tr>
+            <tr><td class="pid">PR12</td><td>Servicio postventa</td><td>Hector Delgado / Carlos Flores</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Jun</td></tr>
+            <tr><td class="pid">PR03</td><td>Construcción</td><td>Carlos Flores</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Jun</td></tr>
+            <tr><td class="pid">PR06</td><td>Personalización del proyecto</td><td>Carlos Flores</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Jun</td></tr>
+            <tr><td class="pid">PR08</td><td>Nómina y Compensación Operativa</td><td>Cecilia de Jovel</td><td class="st-plan">📅 Sin Empezar</td><td class="mo">Jun</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Automatizaciones -->
+    <div class="card plat fi">
+      <div class="ctop"><div class="ctitle">⚡ Automatizaciones</div><span class="chip ch-on">En curso</span></div>
+      <p class="cdesc">Automatización de flujos de trabajo por área. Implementación progresiva a lo largo del año.</p>
+      <div class="proc-wrap">
+        <table class="aut-table">
+          <thead>
+            <tr><th>ID</th><th>Automatización</th><th>Área</th><th>Inicio</th><th>Fin</th><th>Estatus</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="aid">AUT-003</td><td>Gestión de Incidentes y Solicitudes</td><td>Nuevos Negocios</td><td>Dic 2025</td><td>Feb 2026</td><td class="st-done">✅ Completado</td></tr>
+            <tr><td class="aid">AUT-004</td><td>Formularios Tarjetas de Crédito</td><td>Nuevos Negocios</td><td>Ene 2026</td><td>Ene 2026</td><td class="st-done">✅ Completado</td></tr>
+            <tr><td class="aid">AUT-005</td><td>Redacción y validación de cartas</td><td>Finanzas e Inversiones</td><td>Abr 2026</td><td>Abr 2026</td><td class="st-plan">📅 Programado</td></tr>
+            <tr><td class="aid">AUT-006</td><td>Consultas de pagos realizados</td><td>Finanzas e Inversiones</td><td>Abr 2026</td><td>May 2026</td><td class="st-plan">📅 Programado</td></tr>
+            <tr><td class="aid">AUT-007</td><td>Migración: Hunter</td><td>Talento Humano</td><td>May 2026</td><td>Jun 2026</td><td class="st-plan">📅 Programado</td></tr>
+            <tr><td class="aid">AUT-008</td><td>Migración: Growie</td><td>Talento Humano</td><td>Jun 2026</td><td>Jun 2026</td><td class="st-plan">📅 Programado</td></tr>
+            <tr><td class="aid">AUT-009</td><td>Migración: Tommy</td><td>Talento Humano</td><td>Jun 2026</td><td>Jul 2026</td><td class="st-plan">📅 Programado</td></tr>
+            <tr><td class="aid">AUT-010</td><td>Migración: Vera</td><td>Talento Humano</td><td>Jul 2026</td><td>Ago 2026</td><td class="st-plan">📅 Programado</td></tr>
+            <tr><td class="aid">AUT-011</td><td>Seguimiento de renovaciones</td><td>Activos Rentistas</td><td>Ago 2026</td><td>Ago 2026</td><td class="st-plan">📅 Programado</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILAR 4: RIESGO -->
+  <div class="psec">
+    <div class="phead risk">
+      <span class="ph-icon">🛡️</span>
+      <span class="ph-name">Riesgo y Gobernanza</span>
+      <span class="ph-tag">Estratégico</span>
+    </div>
+    <div class="risk-timeline">
+      <div class="rt-item fi">
+        <div class="rt-month">Mar 2026</div>
+        <div class="rt-content">
+          <div class="rt-title">🖨️ Políticas de Uso de Impresoras</div>
+          <div class="rt-desc">Establecimiento de políticas corporativas de uso y reglas automáticas para eficientizar el uso de impresoras en toda la organización.</div>
+        </div>
+      </div>
+      <div class="rt-item fi">
+        <div class="rt-month">Abr 2026</div>
+        <div class="rt-content">
+          <div class="rt-title">🏢 Gobernanza del Entorno Microsoft</div>
+          <div class="rt-desc">Inicio de definición de políticas, permisos y lineamientos de uso para Teams y SharePoint a nivel corporativo.</div>
+        </div>
+      </div>
+      <div class="rt-item fi">
+        <div class="rt-month">May 2026</div>
+        <div class="rt-content">
+          <div class="rt-title">📦 Gobernanza para ERP</div>
+          <div class="rt-desc">Definición de roles, accesos, flujos de aprobación y políticas de uso del sistema ERP corporativo.</div>
+        </div>
+      </div>
+      <div class="rt-item fi">
+        <div class="rt-month">May–Jun 2026</div>
+        <div class="rt-content">
+          <div class="rt-title">🤝 Cotización y Adquisición de Proveedores</div>
+          <div class="rt-desc">Establecimiento de proceso formal y gobernanza para cotización, evaluación y adquisición de proveedores tecnológicos.</div>
+        </div>
+      </div>
+      <div class="rt-item fi">
+        <div class="rt-month">Jun–Q3 2026</div>
+        <div class="rt-content">
+          <div class="rt-title">🔐 Estrategia de Ciberseguridad</div>
+          <div class="rt-desc">Evaluación del estado actual de seguridad, identificación de riesgos y definición de hoja de ruta de ciberseguridad para la organización.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Área de <strong>Tecnología &amp; Eficiencia</strong> · Roadmap 2026</span>
+    <span>Contacto: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e4838196818a878d85ca908da481899496819785ca878b89">[email&#160;protect
