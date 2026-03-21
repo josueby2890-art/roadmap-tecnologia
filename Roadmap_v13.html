@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Roadmap de Eficiencia y Tecnología 2026 — Inversiones Bolívar</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#f4f6fa;--surface:#fff;--border:rgba(0,0,0,0.08);--text:#111827;--muted:#6b7280;--op:#3ec87a;--op-bg:rgba(62,200,122,0.09);--inn:#2eb8e6;--inn-bg:rgba(46,184,230,0.09);--plat:#8dc63f;--plat-bg:rgba(141,198,63,0.09);--risk:#9b59d0;--risk-bg:rgba(155,89,208,0.09);--cap:#e07b00;--cap-bg:rgba(224,123,0,0.09);--fh:'Syne',sans-serif;--fb:'DM Sans',sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:var(--fb);font-size:13px;color:var(--text);padding:24px 20px 60px}
+.hdr{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid var(--border)}
+.badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--cap);background:var(--cap-bg);border:1px solid rgba(224,123,0,0.25);padding:4px 12px;border-radius:2px;margin-bottom:8px}
+.badge::before{content:'';width:6px;height:6px;background:var(--cap);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-family:var(--fh);font-size:clamp(18px,2.5vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:6px}
+h1 em{font-style:normal;color:var(--cap)}
+.sub{color:var(--muted);font-size:12px}
+.kpis{display:flex;gap:8px;flex-wrap:wrap}
+.kpi{background:var(--surface);border:1px solid var(--border);padding:10px 14px;border-radius:8px;text-align:center;min-width:82px}
+.kpi .n{font-family:var(--fh);font-size:22px;font-weight:800;line-height:1}
+.kpi .l{font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:3px;line-height:1.3}
+.dev-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;align-items:center}
+.dev-legend-title{font-family:var(--fh);font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.dl-item{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600}
+.dl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.pilares-legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:10px;margin-bottom:18px}
+.pl-leg{border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px}
+.pl-leg.op{background:var(--op-bg);border:1px solid rgba(62,200,122,0.25)}.pl-leg.inn{background:var(--inn-bg);border:1px solid rgba(46,184,230,0.25)}.pl-leg.plat{background:var(--plat-bg);border:1px solid rgba(141,198,63,0.25)}.pl-leg.risk{background:var(--risk-bg);border:1px solid rgba(155,89,208,0.25)}.pl-leg.cap{background:var(--cap-bg);border:1px solid rgba(224,123,0,0.25)}
+.pl-leg-ico{font-size:18px}.pl-leg-name{font-family:var(--fh);font-size:11px;font-weight:800;line-height:1.2}.pl-leg-tag{font-size:9.5px;color:var(--muted);margin-top:2px}
+.pl-leg.op .pl-leg-name{color:#1a6e40}.pl-leg.inn .pl-leg-name{color:#0d5e80}.pl-leg.plat .pl-leg-name{color:#3d5e10}.pl-leg.risk .pl-leg-name{color:#4a1e7a}.pl-leg.cap .pl-leg-name{color:#7a3d00}
+.view-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.vtab{font-family:var(--fh);font-size:10.5px;font-weight:700;padding:7px 14px;border-radius:6px;border:1.5px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;transition:all .2s}
+.vtab:hover{border-color:var(--cap);color:var(--cap)}.vtab.act{background:#111827;border-color:#111827;color:#fff}
+.plat-filter{display:flex;gap:5px;flex-wrap:wrap;padding:7px 10px;background:rgba(141,198,63,0.05);border-bottom:1px solid var(--border);align-items:center}
+.pf-label{font-family:var(--fh);font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.pfbtn{font-family:var(--fh);font-size:9.5px;font-weight:700;padding:5px 12px;border-radius:5px;border:1.5px solid rgba(141,198,63,0.3);background:var(--surface);color:#3d5e10;cursor:pointer;transition:all .15s}
+.pfbtn:hover{border-color:var(--plat);background:var(--plat-bg)}.pfbtn.pf-act{background:#3d5e10;border-color:#3d5e10;color:#fff}.pfbtn.pf-act.aut{background:#2eb8e6;border-color:#2eb8e6;color:#fff}
+/* LEGACY BUTTON inside pilar */
+.legacy-inline-btn{display:inline-flex;align-items:center;gap:5px;font-family:var(--fh);font-size:8px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:5px;border:1.5px solid rgba(62,200,122,0.4);background:rgba(62,200,122,0.07);color:#1a6e40;cursor:pointer;transition:all .2s;margin-top:7px;white-space:nowrap}
+.legacy-inline-btn:hover{background:rgba(62,200,122,0.14)}
+.legacy-inline-btn .lc{font-size:8px;padding:1px 5px;border-radius:8px;background:rgba(62,200,122,0.2);color:#1a6e40;font-weight:800}
+/* PROCESS COUNTER BAR */
+.proc-counter-bar{display:none;background:rgba(155,89,208,0.05);border-bottom:1px solid rgba(155,89,208,0.15);padding:8px 12px}
+.proc-counter-bar.visible{display:block}
+.aut-progress-bar{display:none;background:rgba(46,184,230,0.05);border-bottom:1px solid rgba(46,184,230,0.18);padding:8px 12px}
+.aut-progress-bar.visible{display:block}
+.aut-prog-wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.aut-prog-left{flex:1;min-width:180px}
+.aut-prog-title{font-family:var(--fh);font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0d5e80;margin-bottom:6px}
+.aut-prog-track{height:10px;background:rgba(46,184,230,0.1);border-radius:100px;overflow:hidden;display:flex}
+.aut-prog-seg{height:100%;transition:width .4s ease}
+.aut-prog-seg.done{background:#3ec87a}
+.aut-prog-seg.monitor{background:#2eb8e6}
+.aut-prog-seg.blocked{background:#ef4444}
+.aut-prog-seg.plan{background:rgba(46,184,230,0.15)}
+.aut-prog-legend{display:flex;gap:10px;margin-top:5px;flex-wrap:wrap}
+.apl{display:flex;align-items:center;gap:4px;font-size:9.5px;color:var(--muted)}
+.apl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.apl-n{font-family:var(--fh);font-weight:800;color:#374151;margin-left:1px}
+.aut-prog-right{display:flex;gap:10px;flex-shrink:0}
+.aut-stat-box{text-align:center;padding:5px 10px;border-radius:6px;border:1px solid rgba(0,0,0,0.07)}
+.aut-stat-n{font-family:var(--fh);font-size:20px;font-weight:800;line-height:1}
+.aut-stat-l{font-size:8.5px;color:var(--muted);margin-top:2px;font-family:var(--fh);font-weight:700;letter-spacing:.04em}
+/* PROGRESS BAR */
+.proc-progress-wrap{margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed rgba(155,89,208,0.2)}
+.proc-progress-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.proc-progress-label{font-family:var(--fh);font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#4a1e7a}
+/* Barra grande estilo presentación */
+.sgp-wrap{padding:14px 16px 10px;background:#fafafa;border-bottom:1px solid var(--border)}
+.sgp-title{font-family:var(--fh);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#374151;margin-bottom:10px;text-align:center}
+.sgp-cards{display:flex;gap:12px;justify-content:center;margin-bottom:12px}
+.sgp-card{border-radius:10px;padding:10px 18px;text-align:center;min-width:100px;border-width:1.5px;border-style:solid}
+.sgp-card .sgp-n{font-family:var(--fh);font-size:36px;font-weight:800;line-height:1}
+.sgp-card .sgp-l{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+.sgp-bar-wrap{margin:0 8px 8px}
+.sgp-bar-track{height:28px;background:#f3f4f6;border-radius:100px;overflow:hidden;display:flex}
+.sgp-bar-seg{height:100%;transition:width .4s ease;display:flex;align-items:center;justify-content:center}
+.sgp-bar-seg span{font-family:var(--fh);font-size:11px;font-weight:800;color:white}
+.sgp-legend{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+.sgp-leg-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--muted)}
+.sgp-leg-dot{width:11px;height:11px;border-radius:3px;flex-shrink:0}
+.proc-progress-pct{font-family:var(--fh);font-size:20px;font-weight:800;color:#4a1e7a;line-height:1}
+.proc-progress-pct span{font-size:9px;font-weight:400;color:var(--muted);margin-left:3px}
+.proc-progress-track{height:10px;background:#f0e8ff;border-radius:100px;overflow:hidden;display:flex}
+.proc-progress-seg{height:100%;transition:width .4s ease}
+.proc-progress-seg.done{background:#3ec87a}
+.proc-progress-seg.inprog{background:#2eb8e6}
+.proc-progress-seg.pending{background:rgba(155,89,208,0.12)}
+.proc-progress-legend{display:flex;gap:12px;margin-top:5px;flex-wrap:wrap}
+.ppl{display:flex;align-items:center;gap:4px;font-size:9.5px;color:var(--muted)}
+.ppl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.ppl-n{font-family:var(--fh);font-weight:800;color:#374151;margin-left:1px}
+/* COUNTER GRID */
+.proc-counter-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.proc-counter-q{text-align:center;padding:5px 4px;border-right:1px solid rgba(155,89,208,0.15)}
+.proc-counter-q:last-child{border-right:none}
+.proc-counter-n{font-family:var(--fh);font-size:18px;font-weight:800;color:#5a2e90;line-height:1}
+.proc-counter-label{font-family:var(--fh);font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.proc-counter-sub{font-size:8.5px;color:#9b59d0;margin-top:1px}
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:1000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--surface);border-radius:14px;width:100%;max-width:820px;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,0.25);overflow:hidden}
+.modal-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);flex-shrink:0}
+.modal-title{font-family:var(--fh);font-size:14px;font-weight:800;color:#1a6e40;display:flex;align-items:center;gap:8px}
+.modal-close{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--border);background:var(--surface);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .15s}
+.modal-close:hover{background:#f3f4f6}
+.modal-body{overflow-y:auto;padding:14px 18px;flex:1}
+.modal-mp-group{margin-bottom:8px;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.modal-mp-head{display:flex;align-items:center;gap:8px;padding:9px 12px;cursor:pointer;background:#fafafa;border-bottom:1px solid transparent;transition:all .15s;user-select:none}
+.modal-mp-head:hover{background:#f0faf4}.modal-mp-head.open{background:rgba(62,200,122,0.06);border-bottom-color:var(--border)}
+.modal-mp-ico{font-size:14px}.modal-mp-code{font-family:var(--fh);font-size:9px;font-weight:800;letter-spacing:.08em;color:var(--muted)}.modal-mp-name{font-family:var(--fh);font-size:11px;font-weight:700;color:#1a6e40;flex:1}.modal-mp-badge{font-size:9px;padding:2px 7px;border-radius:10px;background:rgba(62,200,122,0.12);color:#1a6e40;font-family:var(--fh);font-weight:800}.modal-mp-arrow{font-size:11px;color:var(--muted);transition:transform .2s}
+.modal-mp-head.open .modal-mp-arrow{transform:rotate(180deg)}
+.modal-mp-body{display:none;padding:6px 10px 8px}.modal-mp-head.open+.modal-mp-body{display:block}
+.modal-proc-row{display:flex;align-items:flex-start;gap:8px;padding:5px 4px;border-bottom:1px dashed rgba(0,0,0,0.05);font-size:11px;line-height:1.4}.modal-proc-row:last-child{border-bottom:none}
+.modal-dot{width:6px;height:6px;border-radius:50%;background:rgba(62,200,122,0.5);flex-shrink:0;margin-top:5px}
+.modal-proc-meta{font-size:9.5px;color:var(--muted);margin-top:1px}
+.chip-2025{display:inline-block;font-size:8px;font-weight:800;padding:1px 5px;border-radius:3px;background:rgba(62,200,122,0.12);color:#1a6e40;font-style:italic}
+/* TABLE */
+.tl-wrap{overflow-x:auto}
+table.tl{width:100%;border-collapse:collapse;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.07)}
+thead th{padding:9px 12px;font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:center;border:1px solid var(--border)}
+.th-pilar{background:#eef1f7;min-width:155px;width:155px;text-align:left}.th-q{background:#eef1f7;color:var(--muted);min-width:165px}.th-q.now{color:var(--cap);background:rgba(224,123,0,0.07);border-color:rgba(224,123,0,0.22)}
+tbody td{vertical-align:top;border:1px solid var(--border);padding:0}
+.td-pilar{padding:10px 12px;display:flex;flex-direction:column;gap:4px}
+.td-pilar-top{display:flex;align-items:flex-start;gap:8px}
+.td-pilar .pname{font-family:var(--fh);font-size:10px;font-weight:800;line-height:1.3}.td-pilar .ptag{font-size:8.5px;color:var(--muted);font-weight:400;display:block;margin-top:1px}.td-pilar .pico{font-size:16px;flex-shrink:0;margin-top:2px}
+.pl-op{background:#f0faf4;border-left:4px solid var(--op)}.pl-op .pname{color:#1a6e40}.pl-inn{background:#f0f9fe;border-left:4px solid var(--inn)}.pl-inn .pname{color:#0d5e80}.pl-plat{background:#f4fae8;border-left:4px solid var(--plat)}.pl-plat .pname{color:#3d5e10}.pl-risk{background:#f7f0ff;border-left:4px solid var(--risk)}.pl-risk .pname{color:#4a1e7a}.pl-cap{background:#fff8f0;border-left:4px solid var(--cap)}.pl-cap .pname{color:#7a3d00}
+.td-q{padding:5px;background:var(--surface)}.tr-cap .td-q{background:#fffcf8}.td-plat-filter{padding:0;background:var(--surface)}
+.area-sep{font-family:var(--fh);font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:4px 2px 2px;border-bottom:1px dashed var(--border);margin-bottom:3px;margin-top:5px}.area-sep:first-child{margin-top:0}
+.td-q-inner{padding:5px}
+.bar{border-radius:4px;padding:4px 7px;font-size:10px;font-weight:500;line-height:1.35;margin-bottom:3px;display:flex;align-items:flex-start;gap:5px;flex-wrap:wrap}.bar:last-child{margin-bottom:0}
+.bar.op{background:var(--op-bg);border-left:3px solid var(--op);color:#1a7a45}.bar.inn{background:var(--inn-bg);border-left:3px solid var(--inn);color:#0d6e94}.bar.cap{background:var(--cap-bg);border-left:3px solid var(--cap);color:#7a3d00}.bar.plat{background:var(--plat-bg);border-left:3px solid var(--plat);color:#4a6e10}.bar.agente{background:rgba(46,184,230,0.08);border-left:3px solid #2eb8e6;color:#0d5e80}.bar.proc{background:rgba(155,89,208,0.07);border-left:3px solid #9b59d0;color:#4a1e7a}.bar.risk{background:var(--risk-bg);border-left:3px solid var(--risk);color:#5a2e90}
+.bar.has-tip{cursor:pointer}.bar.has-tip:hover{opacity:.85;transform:translateX(2px);transition:all .15s}
+.chip{display:inline-block;font-size:8.5px;font-weight:700;padding:1px 5px;border-radius:3px;flex-shrink:0}
+.c-done{background:rgba(62,200,122,0.18);color:#1a7a45}.c-mon{background:rgba(46,184,230,0.15);color:#0d6e94}.c-on{background:rgba(46,184,230,0.15);color:#0d6e94}.c-plan{background:rgba(141,198,63,0.15);color:#3d5e10}.c-block{background:rgba(239,68,68,0.12);color:#b91c1c}.c-pend{background:rgba(107,114,128,0.12);color:#4b5563}
+.new-b{display:inline-block;font-size:8px;font-weight:800;padding:1px 4px;border-radius:3px;background:rgba(155,89,208,0.15);color:#5a2e90;flex-shrink:0}
+.p1-b{font-size:8px;font-weight:800;padding:1px 5px;border-radius:3px;background:rgba(239,68,68,0.12);color:#b91c1c;flex-shrink:0;display:inline-block}
+.p2-b{font-size:8px;font-weight:800;padding:1px 5px;border-radius:3px;background:rgba(245,158,11,0.12);color:#b45309;flex-shrink:0;display:inline-block}
+.p3-b{font-size:8px;font-weight:800;padding:1px 5px;border-radius:3px;background:rgba(107,114,128,0.12);color:#374151;flex-shrink:0;display:inline-block}
+.dev-b{display:inline-block;font-size:8px;font-weight:700;padding:1px 5px;border-radius:3px;flex-shrink:0}
+.dev-andrea{background:rgba(46,184,230,0.15);color:#0d5e80}.dev-armando{background:rgba(62,200,122,0.18);color:#1a6e40}.dev-brenda{background:rgba(224,123,0,0.15);color:#7a3d00}.dev-josue{background:rgba(239,68,68,0.12);color:#991b1b}.dev-tbd{background:rgba(155,89,208,0.1);color:#4a1e7a}
+.dev-team{display:inline-flex;align-items:center;gap:3px;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;flex-shrink:0}
+.dev-team.armando-lead{background:rgba(62,200,122,0.15);border:1px solid rgba(62,200,122,0.3);color:#1a6e40}.dev-team.andrea-lead{background:rgba(46,184,230,0.12);border:1px solid rgba(46,184,230,0.25);color:#0d5e80}
+.dev-team .star{color:#e07b00;font-size:9px}.tip-i{font-size:8px;opacity:.5;flex-shrink:0}
+.ag-b{display:inline-block;font-size:7.5px;font-weight:800;padding:1px 4px;border-radius:3px;background:rgba(46,184,230,0.15);color:#0d5e80;flex-shrink:0}
+.fl-b{display:inline-block;font-size:7.5px;font-weight:800;padding:1px 4px;border-radius:3px;background:rgba(141,198,63,0.15);color:#3d5e10;flex-shrink:0}
+.pr-b{display:inline-block;font-size:7.5px;font-weight:800;padding:1px 4px;border-radius:3px;background:rgba(155,89,208,0.12);color:#4a1e7a;flex-shrink:0}
+.buffer-card{border-radius:6px;padding:8px 10px;background:rgba(107,114,128,0.06);border:1.5px dashed rgba(107,114,128,0.25);margin-top:4px}
+.buffer-title{font-family:var(--fh);font-size:10px;font-weight:800;color:#374151;margin-bottom:5px}
+.buffer-list{display:flex;flex-direction:column;gap:3px}
+.buffer-item{display:flex;align-items:flex-start;gap:5px;font-size:10px;color:var(--muted);line-height:1.4}
+.bd{width:4px;height:4px;border-radius:50%;background:#9ca3af;flex-shrink:0;margin-top:4px}
+/* ACCORDION */
+.proc-acc{margin-bottom:3px;border-radius:5px;overflow:hidden;border:1px solid rgba(155,89,208,0.18)}
+.proc-acc-head{display:flex;align-items:center;gap:6px;padding:5px 7px;cursor:pointer;background:rgba(155,89,208,0.05);font-family:var(--fh);font-size:8.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#4a1e7a;user-select:none;transition:background .15s}
+.proc-acc-head:hover{background:rgba(155,89,208,0.1)}.proc-acc-head.open{background:rgba(155,89,208,0.09)}
+.proc-acc-arrow{font-size:9px;transition:transform .2s;margin-left:auto}
+.proc-acc-head.open .proc-acc-arrow{transform:rotate(180deg)}
+.proc-acc-count{font-size:8px;padding:1px 5px;border-radius:8px;background:rgba(155,89,208,0.15);color:#5a2e90;font-weight:800}
+.proc-acc-body{display:none;padding:3px 5px 4px;background:rgba(155,89,208,0.03)}.proc-acc-head.open+.proc-acc-body{display:block}
+.proc-item{display:flex;align-items:flex-start;gap:5px;padding:3px 2px;border-bottom:1px dashed rgba(155,89,208,0.1);font-size:9.5px;color:#4a1e7a;line-height:1.35;cursor:pointer}.proc-item:last-child{border-bottom:none}.proc-item:hover{background:rgba(155,89,208,0.05);border-radius:3px}
+.proc-dot{width:5px;height:5px;border-radius:50%;background:#9b59d0;flex-shrink:0;margin-top:4px}
+/* TOOLTIP */
+#tt{display:none;position:fixed;z-index:9999;pointer-events:none;width:295px;font-size:11.5px;line-height:1.6;padding:13px 15px;border-radius:10px;box-shadow:0 10px 36px rgba(0,0,0,0.45)}
+#tt.plat-tt{background:#0f172a;color:#f8fafc}#tt.risk-tt{background:#1a0b30;color:#faf5ff}#tt.op-tt{background:#052e16;color:#f0fdf4}#tt.cap-tt{background:#431407;color:#fff7ed}#tt.proc-tt{background:#0d0a1e;color:#f5f3ff}
+#tt.cap-tt #tt-id{color:#fbbf24}
+#tt.cap-tt #tt-desc{color:#ffedd5}
+#tt-id{font-family:'Syne',sans-serif;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}
+#tt.plat-tt #tt-id{color:#8dc63f}#tt.risk-tt #tt-id{color:#c084fc}#tt.op-tt #tt-id{color:#6ee7a0}#tt.proc-tt #tt-id{color:#a78bfa}
+#tt-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;color:#fff;margin-bottom:6px;line-height:1.3}
+#tt-desc{font-size:11.5px;color:#f1f5f9;line-height:1.65;white-space:pre-line;font-weight:400}#tt.op-tt #tt-desc{color:#dcfce7}#tt.proc-tt #tt-desc{color:#ede9fe}#tt.cap-tt #tt-desc{color:#ffedd5}
+#tt-team{margin-top:6px;padding:7px 9px;background:rgba(255,255,255,0.1);border-radius:5px;font-size:11px;display:none}
+#tt-team-title{font-family:'Syne',sans-serif;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#e2e8f0;margin-bottom:4px}
+#tt-team-names{color:#e2e8f0;line-height:1.6;white-space:pre-line}
+#tt-footer{margin-top:6px;display:flex;justify-content:space-between;padding-top:6px;border-top:1px solid rgba(255,255,255,0.2);font-size:10px;color:#cbd5e1}
+/* CARDS */
+.pilares-list{display:flex;flex-direction:column;gap:14px}
+.pilar-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+.pc-head{display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid var(--border)}
+.pc-head .pico{font-size:18px}.pc-head-info .ptitle{font-family:var(--fh);font-size:13px;font-weight:800}.pc-head-info .psub{font-size:10.5px;color:var(--muted);margin-top:1px}.pc-head .pbadge{margin-left:auto;font-family:var(--fh);font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(0,0,0,0.05);color:var(--muted)}
+.ph-op{background:var(--op-bg)}.ph-op .ptitle{color:#1a6e40}.ph-inn{background:var(--inn-bg)}.ph-inn .ptitle{color:#0d5e80}.ph-plat{background:var(--plat-bg)}.ph-plat .ptitle{color:#3d5e10}.ph-risk{background:var(--risk-bg)}.ph-risk .ptitle{color:#4a1e7a}.ph-cap{background:var(--cap-bg)}.ph-cap .ptitle{color:#7a3d00}
+.q-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.q-col{padding:11px 13px;border-right:1px solid var(--border)}.q-col:last-child{border-right:none}
+.q-lbl{font-family:var(--fh);font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid var(--border)}
+.q-lbl.now{color:var(--cap)}.q-lbl.future{color:var(--muted)}
+.items{display:flex;flex-direction:column;gap:5px}
+.irow{display:flex;align-items:flex-start;gap:6px;font-size:11px;line-height:1.4}
+.idot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.irow.tip{cursor:pointer}.irow.tip:hover .iname{text-decoration:underline;text-decoration-style:dotted}
+.isep{font-family:var(--fh);font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px;margin-bottom:3px;padding-bottom:3px;border-bottom:1px dashed var(--border)}
+.buffer-card-sm{margin-top:6px;border-radius:6px;padding:7px 9px;background:rgba(107,114,128,0.06);border:1.5px dashed rgba(107,114,128,0.25)}
+.buffer-card-sm .bt{font-family:var(--fh);font-size:9px;font-weight:800;color:#374151;margin-bottom:4px}.buffer-card-sm .bi{font-size:10px;color:var(--muted);line-height:1.5}
+.hidden{display:none!important}
+/* COLLAPSIBLE TABLE ROWS */
+.td-pilar{cursor:pointer;transition:opacity .15s;position:relative}
+.td-pilar:hover{opacity:.85}
+.row-toggle-arrow{font-size:9px;color:var(--muted);transition:transform .25s;margin-top:5px;display:block;text-align:center;opacity:.6}
+.td-q-wrap{transition:all .25s ease;overflow:hidden}
+tr.row-collapsed .td-q-wrap{max-height:0!important;overflow:hidden}
+tr.row-collapsed .td-q{padding:0!important;background:rgba(0,0,0,0.015)!important}
+tr.row-collapsed .td-plat-filter,.tr-plat.row-collapsed .plat-filter{display:none}
+tr.row-collapsed .row-toggle-arrow{transform:rotate(-90deg)}
+@media(max-width:640px){.q-cols{grid-template-columns:1fr 1fr}.q-col:nth-child(2){border-right:none}.q-col:nth-child(1),.q-col:nth-child(2){border-bottom:1px solid var(--border)}.pilares-legend{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<div id="tt"><div id="tt-id"></div><div id="tt-name"></div><div id="tt-desc"></div><div id="tt-team"><div id="tt-team-title"></div><div id="tt-team-names"></div></div><div id="tt-footer"><span id="tt-left"></span><span id="tt-right"></span></div></div>
+
+<div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">📦 Procesos Finalizados — Legado 2025 <span style="font-size:10px;font-weight:400;color:var(--muted);margin-left:4px">18 procesos</span></div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<div>
+  <div class="hdr">
+    <div>
+      <div class="badge">Inversiones Bolívar · Area de Tecnología</div>
+      <h1>Roadmap de <em>Eficiencia y Tecnología</em> 2026</h1>
+    </div>
+  </div>
+
+  <div class="pilares-legend">
+    <div class="pl-leg op"><span class="pl-leg-ico">⚙️</span><div><div class="pl-leg-name">Operaciones y Continuidad</div><div class="pl-leg-tag">Garantiza sistemas e infraestructura</div></div></div>
+    <div class="pl-leg inn"><span class="pl-leg-ico">🚀</span><div><div class="pl-leg-name">Innovación y Experiencia Digital</div><div class="pl-leg-tag">Soluciones digitales y cultura tech</div></div></div>
+    <div class="pl-leg plat"><span class="pl-leg-ico">🔗</span><div><div class="pl-leg-name">Plataformas y Procesos Internos</div><div class="pl-leg-tag">Automatización y flujos corporativos</div></div></div>
+    <div class="pl-leg risk"><span class="pl-leg-ico">🛡️</span><div><div class="pl-leg-name">Riesgo y Gobernanza</div><div class="pl-leg-tag">Seguridad, cumplimiento y políticas</div></div></div>
+    <div class="pl-leg cap"><span class="pl-leg-ico">📚</span><div><div class="pl-leg-name">Capacitaciones Digitales</div><div class="pl-leg-tag">Formación digital para toda la org</div></div></div>
+  </div>
+
+  <div class="view-tabs">
+    <button class="vtab act" onclick="setView('grid',this)">📊 Grilla Trimestral</button>
+    <button class="vtab" onclick="setView('cards',this)">🗂️ Vista por Pilar</button>
+  </div>
+
+  <div id="view-grid">
+    <div class="tl-wrap">
+      <table class="tl">
+        <thead>
+          <tr>
+            <th class="th-pilar">Pilar</th>
+            <th class="th-q now">🟠 Q1 · Ene–Mar<br><small style="font-weight:400;font-size:8.5px;letter-spacing:0">EN CURSO</small></th>
+            <th class="th-q">🔵 Q2 · Abr–Jun</th>
+            <th class="th-q">🟢 Q3 · Jul–Sep</th>
+            <th class="th-q">🟣 Q4 · Oct–Dic</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="row-op">
+            <td><div class="td-pilar pl-op" onclick="toggleRow('row-op')"><div class="td-pilar-top"><span class="pico">⚙️</span><div><div class="pname">Operaciones y<br>Continuidad</div><span class="ptag">Operacional</span></div></div><span class="row-toggle-arrow">▾</span></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar op has-tip" data-type="op" data-id="OP-001">Seguridad y saneamiento de red <span class="chip c-done">✓</span> <span class="tip-i">ⓘ</span></div><div class="bar op has-tip" data-type="op" data-id="OP-002">Backups corporativos 9.05 TB <span class="chip c-done">✓</span> <span class="tip-i">ⓘ</span></div><div class="bar op has-tip" data-type="op" data-id="OP-003">Renovación impresoras Ricoh <span class="chip c-done">✓</span> <span class="tip-i">ⓘ</span></div><div class="bar op has-tip" data-type="op" data-id="OP-004">Reordenamiento de Equipos y Canales de Teams <span class="chip c-on">→</span> <span class="tip-i">ⓘ</span></div></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar op has-tip" data-type="op" data-id="OP-005">Nueva infraestructura de internet <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div><div class="bar op has-tip" data-type="op" data-id="OP-006">Optimización salas de reuniones <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div><div class="bar op has-tip" data-type="op" data-id="OP-007">Cierre reordenamiento <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div><div class="bar op has-tip" data-type="op" data-id="OP-BKP">Backup mensual — fin de mes <span class="chip c-plan">mensual</span> <span class="tip-i">ⓘ</span></div></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar op has-tip" data-type="op" data-id="OP-008">Mantenimiento preventivo equipos <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div><div class="bar op has-tip" data-type="op" data-id="OP-BKP">Backup mensual — fin de mes <span class="chip c-plan">mensual</span> <span class="tip-i">ⓘ</span></div></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar op has-tip" data-type="op" data-id="OP-009">Mantenimiento correctivo equipos <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div><div class="bar op has-tip" data-type="op" data-id="OP-BKP">Backup mensual — fin de mes <span class="chip c-plan">mensual</span> <span class="tip-i">ⓘ</span></div></div></td>
+          </tr>
+          <tr id="row-inn">
+            <td><div class="td-pilar pl-inn" onclick="toggleRow('row-inn')"><div class="td-pilar-top"><span class="pico">🚀</span><div><div class="pname">Innovación y<br>Exp. Digital</div><span class="ptag">Estratégico</span></div></div><span class="row-toggle-arrow">▾</span></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar inn">Sitio SharePoint Socios <span class="chip c-done">✓</span></div><div class="bar inn">Mesa de Ayuda Tecnología <span class="chip c-done">✓</span></div></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar inn">Inicio Azure Cloud + AI <span class="chip c-plan">próx</span></div></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar inn">Continuación Azure Cloud + AI <span class="chip c-plan">próx</span></div></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar inn">Cierre Azure Cloud + AI <span class="chip c-plan">próx</span></div></div></td>
+          </tr>
+          <tr id="row-plat">
+            <td id="plat-pilar-cell">
+              <div class="td-pilar pl-plat" onclick="toggleRow('row-plat')">
+                <div class="td-pilar-top"><span class="pico">🔗</span><div><div class="pname">Plataformas y<br>Proc. Internos</div><span class="ptag">Operacional</span></div></div>
+                <button class="legacy-inline-btn" onclick="event.stopPropagation();openModal()">📦 Legado 2025 <span class="lc">18</span></button>
+                <button class="legacy-inline-btn prio-btn" onclick="event.stopPropagation();openModalPrio()" style="border-color:rgba(46,184,230,0.4);background:rgba(46,184,230,0.07);color:#0d5e80;margin-top:4px">🎯 Criterios de Priorización IA <span class="lc" style="background:rgba(46,184,230,0.2);color:#0d5e80">P·A·B·C</span></button>
+                <button class="legacy-inline-btn" onclick="event.stopPropagation();openModalSGP()" style="border-color:rgba(155,89,208,0.4);background:rgba(155,89,208,0.07);color:#4a1e7a;margin-top:4px">📊 Métricas del Sistema de Gestión de Procesos <span class="lc" style="background:rgba(155,89,208,0.2);color:#4a1e7a">3 niveles</span></button>
+                <span class="row-toggle-arrow">▾</span>
+              </div>
+            </td>
+            <td class="td-plat-filter" colspan="4">
+              <div class="plat-filter">
+                <span class="pf-label">Ver:</span>
+                <button class="pfbtn pf-act" onclick="filterPlat('todos',this)">📋 Todos</button>
+                <button class="pfbtn" onclick="filterPlat('proceso',this)">🔄 Procesos</button>
+                <button class="pfbtn aut" onclick="filterPlat('aut',this)">⚡ Automatizaciones · Flujos · Agentes</button>
+              </div>
+              <div class="proc-counter-bar" id="proc-counter-bar">
+                <div class="sgp-wrap">
+                  <div class="sgp-title">📋 Sistema de Gestión del Proceso — Avance 2025–2026</div>
+                  <div class="sgp-cards">
+                    <div class="sgp-card" style="background:#15803d;border-color:#15803d">
+                      <div class="sgp-n" style="color:white">25</div>
+                      <div class="sgp-l" style="color:rgba(255,255,255,0.85)">Completados</div>
+                    </div>
+                    <div class="sgp-card" style="background:#eff6ff;border-color:#2eb8e6">
+                      <div class="sgp-n" style="color:#0d5e80" id="sgp-inprog-grid">6</div>
+                      <div class="sgp-l" style="color:#0d5e80">En Proceso</div>
+                    </div>
+                    <div class="sgp-card" style="background:#faf5ff;border-color:#9b59d0">
+                      <div class="sgp-n" style="color:#6b21a8" id="sgp-pend-grid">56</div>
+                      <div class="sgp-l" style="color:#6b21a8">Sin Empezar</div>
+                    </div>
+                  </div>
+                  <div class="sgp-bar-wrap">
+                    <div class="sgp-bar-track">
+                      <div class="sgp-bar-seg" id="sgp-done-bar-grid" style="width:28.7%;background:#15803d"><span>29%</span></div>
+                      <div class="sgp-bar-seg" id="sgp-inprog-bar-grid" style="width:6.9%;background:#2eb8e6"><span>7%</span></div>
+                      <div class="sgp-bar-seg" style="flex:1;background:#ede9fe"><span style="color:#9b59d0">64% pendiente</span></div>
+                    </div>
+                  </div>
+                  <div class="sgp-legend">
+                    <div class="sgp-leg-item"><div class="sgp-leg-dot" style="background:#15803d"></div>Completados (25)</div>
+                    <div class="sgp-leg-item"><div class="sgp-leg-dot" style="background:#2eb8e6"></div>En proceso (6)</div>
+                    <div class="sgp-leg-item"><div class="sgp-leg-dot" style="background:#ede9fe;border:1px solid #9b59d0"></div>Sin empezar (56)</div>
+                    <div class="sgp-leg-item" style="color:#9ca3af">Total: 87 procesos</div>
+                  </div>
+                </div>
+                <div class="proc-counter-inner" id="proc-counter-inner"></div>
+              </div>
+              <div class="aut-progress-bar" id="aut-progress-bar">
+                <div class="aut-prog-wrap">
+                  <div class="aut-prog-left">
+                    <div class="aut-prog-title">⚡ Avance de Automatizaciones · Flujos · Agentes 2026</div>
+                    <div class="aut-prog-track">
+                      <div class="aut-prog-seg done" id="aut-seg-done-grid" style="width:0%"></div>
+                      <div class="aut-prog-seg monitor" id="aut-seg-monitor-grid" style="width:0%"></div>
+                      <div class="aut-prog-seg blocked" id="aut-seg-blocked-grid" style="width:0%"></div>
+                      <div class="aut-prog-seg plan" id="aut-seg-plan-grid" style="width:100%"></div>
+                    </div>
+                    <div class="aut-prog-legend">
+                      <div class="apl"><div class="apl-dot" style="background:#3ec87a"></div>Terminado <span class="apl-n" id="aut-leg-done-grid">0</span></div>
+                      <div class="apl"><div class="apl-dot" style="background:#2eb8e6"></div>En Monitoreo <span class="apl-n" id="aut-leg-monitor-grid">0</span></div>
+                      <div class="apl"><div class="apl-dot" style="background:#ef4444"></div>Bloqueado <span class="apl-n" id="aut-leg-blocked-grid">0</span></div>
+                      <div class="apl"><div class="apl-dot" style="background:rgba(46,184,230,0.25)"></div>Planificado <span class="apl-n" id="aut-leg-plan-grid">0</span></div>
+                    </div>
+                  </div>
+                  <div class="aut-prog-right">
+                    <div class="aut-stat-box" style="background:rgba(62,200,122,0.07);border-color:rgba(62,200,122,0.25)"><div class="aut-stat-n" style="color:#1a7a45" id="aut-stat-done-grid">0</div><div class="aut-stat-l">Terminados</div></div>
+                    <div class="aut-stat-box" style="background:rgba(46,184,230,0.07);border-color:rgba(46,184,230,0.25)"><div class="aut-stat-n" style="color:#0d5e80" id="aut-stat-monitor-grid">0</div><div class="aut-stat-l">Monitoreo</div></div>
+                    <div class="aut-stat-box" style="background:rgba(239,68,68,0.06);border-color:rgba(239,68,68,0.2)"><div class="aut-stat-n" style="color:#b91c1c" id="aut-stat-blocked-grid">0</div><div class="aut-stat-l">Bloqueado</div></div>
+                    <div class="aut-stat-box" style="background:rgba(141,198,63,0.07);border-color:rgba(141,198,63,0.25)"><div class="aut-stat-n" style="color:#3d5e10" id="aut-stat-plan-grid">0</div><div class="aut-stat-l">Planificados</div></div>
+                  </div>
+                </div>
+                <div class="proc-counter-inner" id="aut-counter-inner-grid" style="margin-top:6px;padding-top:6px;border-top:1px dashed rgba(46,184,230,0.2)"></div>
+              </div>
+              <div class="td-q-wrap"><div style="display:grid;grid-template-columns:repeat(4,1fr)">
+                <div class="td-q-inner" style="border-right:1px solid var(--border)">
+                  <div class="area-sep pf-aut" data-cat="aut">💰 Finanzas</div>
+                  <div class="bar plat has-tip pf-aut" data-type="plat" data-id="AUT-006" data-cat="aut">Cierre Contable Mensual <span class="chip c-mon">→</span> <span class="dev-b dev-armando">Armando</span> <span class="fl-b">Flujo</span> <span class="p3-b">P·C</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="area-sep pf-aut" data-cat="aut">🏢 Nuevos Negocios</div>
+                  <div class="bar plat has-tip pf-aut" data-type="plat" data-id="AUT-003" data-cat="aut">Mesa de Ayuda IT <span class="chip c-mon">→</span> <span class="dev-b dev-andrea">Andrea</span> <span class="fl-b">Flujo</span> <span class="p3-b">P·C</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="bar plat has-tip pf-aut" data-type="plat" data-id="AUT-004" data-cat="aut">Formulario Tarjetas de Crédito <span class="chip c-mon">→</span> <span class="dev-b dev-andrea">Andrea</span> <span class="fl-b">Flujo</span> <span class="p3-b">P·C</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="area-sep pf-aut" data-cat="aut">👥 Talento Humano</div>
+                  <div class="bar agente has-tip pf-aut" data-type="plat" data-id="AUT-009" data-cat="aut">Reclutamiento <span class="chip c-plan">Mar</span> <span class="dev-b dev-armando">Armando</span> <span class="ag-b">Agente</span> <span class="p1-b">P·A</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="bar agente has-tip pf-aut" data-type="plat" data-id="AUT-012" data-cat="aut">Comunicación Interna <span class="chip c-plan">Mar</span> <span class="dev-b dev-andrea">Andrea</span> <span class="ag-b">Agente</span> <span class="p1-b">P·A</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="bar agente has-tip pf-aut" data-type="plat" data-id="AUT-014" data-cat="aut">Descriptores de Puesto <span class="chip c-plan">Mar</span> <span class="dev-b dev-brenda">Brenda</span> <span class="ag-b">Agente</span> <span class="p1-b">P·A</span> <span class="new-b">🆕</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="area-sep pf-proceso" data-cat="proceso">🗂️ Priorización</div>
+                  <div class="bar proc pf-proceso" data-cat="proceso">Priorización de Procesos <span class="chip c-done">✓</span> <span class="pr-b">Proceso</span></div>
+                  <div class="area-sep pf-aut" data-cat="aut">🗂️ Priorización</div>
+                  <div class="bar plat pf-aut" data-cat="aut" style="border-left-color:#7c3aed;background:rgba(124,58,237,0.07);color:#4a1e7a">Priorización de Automatizaciones <span class="chip c-done">✓</span> <span class="fl-b">Flujo</span></div>
+                  <div id="proc-grid-q1"></div>
+                </div>
+                <div class="td-q-inner" style="border-right:1px solid var(--border)">
+                  <div class="area-sep pf-aut" data-cat="aut">🏢 Nuevos Negocios</div>
+                  <div class="bar agente has-tip pf-aut" data-type="plat" data-id="AUT-015" data-cat="aut">Gestión de Procesos <span class="chip c-plan">Abr</span> <span class="dev-b dev-andrea">Andrea</span> <span class="ag-b">Agente</span> <span class="p3-b">P·C</span> <span class="new-b">🆕</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="bar agente has-tip pf-aut" data-type="plat" data-id="AUT-016" data-cat="aut">Soporte de Tecnología <span class="chip c-plan">Abr</span> <span class="dev-b dev-armando">Armando</span> <span class="ag-b">Agente</span> <span class="p1-b">P·A</span> <span class="new-b">🆕</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="area-sep pf-aut" data-cat="aut">👥 Talento Humano</div>
+                  <div class="bar agente has-tip pf-aut" data-type="plat" data-id="AUT-010" data-cat="aut">Planes de Desarrollo <span class="chip c-plan">Abr</span> <span class="dev-b dev-armando">Armando</span> <span class="ag-b">Agente</span> <span class="p2-b">P·B</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="area-sep pf-aut" data-cat="aut">💰 Finanzas</div>
+                  <div class="bar plat has-tip pf-aut" data-type="plat" data-id="AUT-007" data-cat="aut">Cartas de Incremento <span class="chip c-plan">Abr</span> <span class="dev-b dev-andrea">Andrea</span> <span class="fl-b">Flujo</span> <span class="p2-b">P·B</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="bar plat has-tip pf-aut" data-type="plat" data-id="AUT-008" data-cat="aut">Consultas de Pagos Realizados <span class="chip c-plan">May</span> <span class="dev-b dev-andrea">Andrea</span> <span class="fl-b">Flujo</span> <span class="p2-b">P·B</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="area-sep pf-aut" data-cat="aut">🏠 Comercial</div>
+                  <div class="bar agente has-tip pf-aut" data-type="plat" data-id="AUT-017" data-cat="aut">Ventas Habitacionales <span class="chip c-plan">Q2</span> <span class="dev-team armando-lead"><span class="star">⭐</span>Armando</span> <span class="ag-b">Agente</span> <span class="p1-b">P·A</span> <span class="new-b">🆕</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="area-sep pf-aut" data-cat="aut">🔧 Técnico</div>
+                  <div class="bar agente has-tip pf-aut" data-type="plat" data-id="AUT-019" data-cat="aut">Tramitología Institucional <span class="chip c-plan">Q2</span> <span class="dev-team andrea-lead"><span class="star">⭐</span>Andrea</span> <span class="ag-b">Agente</span> <span class="p1-b">P·A</span> <span class="new-b">🆕</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="bar agente has-tip pf-aut" data-type="plat" data-id="AUT-020" data-cat="aut">Residente de Proyectos <span class="chip c-plan">Q2→</span> <span class="dev-team andrea-lead"><span class="star">⭐</span>Andrea</span> <span class="ag-b">Agente</span> <span class="p1-b">P·A</span> <span class="new-b">🆕</span> <span class="tip-i">ⓘ</span></div>
+                  <div id="proc-grid-q2"></div>
+                </div>
+                <div class="td-q-inner" style="border-right:1px solid var(--border)">
+                  <div class="area-sep pf-aut" data-cat="aut">👥 Talento Humano</div>
+                  <div class="bar agente has-tip pf-aut" data-type="plat" data-id="AUT-011" data-cat="aut">Gestión de RRHH <span class="chip c-block">⛔</span> <span class="dev-b dev-tbd">TBD</span> <span class="ag-b">Agente</span> <span class="p1-b">P·A</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="area-sep pf-aut" data-cat="aut">🏘️ Activos Rentistas</div>
+                  <div class="bar plat has-tip pf-aut" data-type="plat" data-id="AUT-013" data-cat="aut">Seguimiento Renovaciones Contractuales <span class="chip c-plan">Ago</span> <span class="dev-b dev-tbd">TBD</span> <span class="fl-b">Flujo</span> <span class="p2-b">P·B</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="area-sep pf-aut" data-cat="aut">🏠 Comercial</div>
+                  <div class="bar agente has-tip pf-aut" data-type="plat" data-id="AUT-018" data-cat="aut">Mesa de Ayuda Comunicaciones <span class="chip c-plan">Q3</span> <span class="dev-b dev-josue">Josué</span> <span class="ag-b">Agente</span> <span class="p1-b">P·A</span> <span class="new-b">🆕</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="area-sep pf-aut" data-cat="aut">🔧 Técnico</div>
+                  <div class="bar agente has-tip pf-aut" data-type="plat" data-id="AUT-020b" data-cat="aut">Residente de Proyectos (fase 2) <span class="chip c-plan">→Q3</span> <span class="dev-team andrea-lead"><span class="star">⭐</span>Andrea</span> <span class="ag-b">Agente</span> <span class="p1-b">P·A</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="bar plat has-tip pf-aut" data-type="plat" data-id="AUT-021" data-cat="aut">Resguardo de Facturas de Proveedores <span class="chip c-plan">Q3</span> <span class="dev-team andrea-lead"><span class="star">⭐</span>Andrea</span> <span class="fl-b">Flujo</span> <span class="p2-b">P·B</span> <span class="new-b">🆕</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="area-sep pf-proceso" data-cat="proceso">🔄 Seguimiento</div>
+                  <div class="bar proc pf-proceso" data-cat="proceso">Revisión de automatizaciones activas <span class="chip c-plan">Q3</span> <span class="pr-b">Proceso</span></div>
+                  <div id="proc-grid-q3"></div>
+                </div>
+                <div class="td-q-inner">
+                  <div class="area-sep pf-aut" data-cat="aut">💰 Finanzas</div>
+                  <div class="bar plat has-tip pf-aut" data-type="plat" data-id="AUT-005" data-cat="aut">Solicitud de Mensajería <span class="chip c-done">✓ 2025</span> <span class="dev-b dev-brenda">Brenda</span> <span class="fl-b">Flujo</span> <span class="p3-b">P·C</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="area-sep pf-aut" data-cat="aut">🔧 Técnico</div>
+                  <div class="bar plat has-tip pf-aut" data-type="plat" data-id="AUT-022" data-cat="aut">Flujo de Adquisiciones <span class="chip c-plan">Q4</span> <span class="dev-team andrea-lead"><span class="star">⭐</span>Andrea</span> <span class="fl-b">Flujo</span> <span class="p3-b">P·C</span> <span class="new-b">🆕</span> <span class="tip-i">ⓘ</span></div>
+                  <div class="area-sep pf-proceso" data-cat="proceso">📋 Planificación</div>
+                  <div class="bar proc pf-proceso" data-cat="proceso">Cierre y documentación de procesos 2026 <span class="chip c-plan">Q4</span> <span class="pr-b">Proceso</span></div>
+                  <div class="bar proc pf-proceso" data-cat="proceso">Planificación roadmap de procesos 2027 <span class="chip c-plan">Q4</span> <span class="pr-b">Proceso</span></div>
+                  <div class="buffer-card pf-aut" data-cat="aut"><div class="buffer-title">🗂️ Buffer · Proyectos Emergentes</div><div class="buffer-list"><div class="buffer-item"><span class="bd"></span>Automatizaciones no previstas.</div><div class="buffer-item"><span class="bd"></span>Contingencia Agente RRHH.</div><div class="buffer-item"><span class="bd"></span>Mantenimiento de flujos.</div></div></div>
+                  <div id="proc-grid-q4"></div>
+                </div>
+              </div></div>
+            </td>
+          </tr>
+          <tr id="row-risk">
+            <td><div class="td-pilar pl-risk" onclick="toggleRow('row-risk')"><div class="td-pilar-top"><span class="pico">🛡️</span><div><div class="pname">Riesgo y<br>Gobernanza</div><span class="ptag">Estratégico</span></div></div><span class="row-toggle-arrow">▾</span></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar risk has-tip" data-type="risk" data-id="GOB-001">Políticas de Impresoras <span class="chip c-on">→</span> <span class="tip-i">ⓘ</span></div></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar risk has-tip" data-type="risk" data-id="GOB-002">Gobernanza Microsoft 365 <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div><div class="bar risk has-tip" data-type="risk" data-id="GOB-003">Gobernanza ERP <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div><div class="bar risk has-tip" data-type="risk" data-id="GOB-004">Adquisición de Proveedores <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div><div class="bar risk has-tip" data-type="risk" data-id="GOB-007">Gestión de Contraseñas <span class="chip c-plan">próx</span> <span class="new-b">🆕</span> <span class="tip-i">ⓘ</span></div><div class="bar risk has-tip" data-type="risk" data-id="GOB-008">SLA IT Internos <span class="chip c-plan">próx</span> <span class="new-b">🆕</span> <span class="tip-i">ⓘ</span></div></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar risk has-tip" data-type="risk" data-id="GOB-005">Estrategia Ciberseguridad <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div><div class="bar risk has-tip" data-type="risk" data-id="GOB-006">Retención y Eliminación Datos <span class="chip c-plan">próx</span> <span class="new-b">🆕</span> <span class="tip-i">ⓘ</span></div><div class="bar risk has-tip" data-type="risk" data-id="GOB-009">Gobierno de Datos ERP <span class="chip c-plan">próx</span> <span class="new-b">🆕</span> <span class="tip-i">ⓘ</span></div></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar risk has-tip" data-type="risk" data-id="GOB-010">Consolidación Gobernanza <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div></div></td>
+          </tr>
+          <tr class="tr-cap" id="row-cap">
+            <td><div class="td-pilar pl-cap" onclick="toggleRow('row-cap')"><div class="td-pilar-top"><span class="pico">📚</span><div><div class="pname">Capacitaciones<br>Digitales</div><span class="ptag">Transversal</span></div></div><span class="row-toggle-arrow">▾</span></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar cap has-tip" data-type="cap" data-id="CAP-001">SharePoint Básico <span class="chip c-done">✓</span> <span class="tip-i">ⓘ</span></div><div class="bar cap has-tip" data-type="cap" data-id="CAP-002">Teams y OneDrive <span class="chip c-done">✓</span> <span class="tip-i">ⓘ</span></div><div class="bar cap has-tip" data-type="cap" data-id="CAP-003">Uso Mesa de Ayuda <span class="chip c-done">✓</span> <span class="tip-i">ⓘ</span></div></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar cap has-tip" data-type="cap" data-id="CAP-004">Outlook Productivo <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div><div class="bar cap has-tip" data-type="cap" data-id="CAP-005">Ciberseguridad para Colaboradores <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar cap has-tip" data-type="cap" data-id="CAP-006">Microsoft Planner <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div><div class="bar cap has-tip" data-type="cap" data-id="CAP-007">Tipos y Usos de IA <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div></div></td>
+            <td class="td-q"><div class="td-q-wrap"><div class="bar cap has-tip" data-type="cap" data-id="CAP-008">Prompting Efectivo <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div><div class="bar cap has-tip" data-type="cap" data-id="CAP-009">Copilot en Office 365 <span class="chip c-plan">próx</span> <span class="tip-i">ⓘ</span></div></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="view-cards" style="display:none">
+    <div class="pilares-list">
+      <div class="pilar-card">
+        <div class="pc-head ph-op"><span class="pico">⚙️</span><div class="pc-head-info"><div class="ptitle">Operaciones y Continuidad</div><div class="psub">Garantiza la funcionalidad ininterrumpida</div></div><span class="pbadge">7 proyectos</span></div>
+        <div class="q-cols">
+          <div class="q-col"><div class="q-lbl now">🟠 Q1</div><div class="items"><div class="irow tip" data-type="op" data-id="OP-001"><div class="idot" style="background:var(--op)"></div><span class="iname">Seguridad y red ✓</span></div><div class="irow tip" data-type="op" data-id="OP-002"><div class="idot" style="background:var(--op)"></div><span class="iname">Backups 9.05 TB ✓</span></div><div class="irow tip" data-type="op" data-id="OP-003"><div class="idot" style="background:var(--op)"></div><span class="iname">Impresoras Ricoh ✓</span></div><div class="irow tip" data-type="op" data-id="OP-004"><div class="idot" style="background:var(--op)"></div><span class="iname">Equipos y Canales Teams →</span></div></div></div>
+          <div class="q-col"><div class="q-lbl future">🔵 Q2</div><div class="items"><div class="irow tip" data-type="op" data-id="OP-005"><div class="idot" style="background:var(--op)"></div><span class="iname">Nueva infra. internet</span></div><div class="irow tip" data-type="op" data-id="OP-006"><div class="idot" style="background:var(--op)"></div><span class="iname">Salas de reuniones</span></div><div class="irow tip" data-type="op" data-id="OP-007"><div class="idot" style="background:var(--op)"></div><span class="iname">Cierre reordenamiento</span></div><div class="irow tip" data-type="op" data-id="OP-BKP"><div class="idot" style="background:var(--op)"></div><span class="iname">Backup mensual</span></div></div></div>
+          <div class="q-col"><div class="q-lbl future">🟢 Q3</div><div class="items"><div class="irow tip" data-type="op" data-id="OP-008"><div class="idot" style="background:var(--op)"></div><span class="iname">Mantenimiento preventivo</span></div><div class="irow tip" data-type="op" data-id="OP-BKP"><div class="idot" style="background:var(--op)"></div><span class="iname">Backup mensual</span></div></div></div>
+          <div class="q-col"><div class="q-lbl future">🟣 Q4</div><div class="items"><div class="irow tip" data-type="op" data-id="OP-009"><div class="idot" style="background:var(--op)"></div><span class="iname">Mantenimiento correctivo</span></div><div class="irow tip" data-type="op" data-id="OP-BKP"><div class="idot" style="background:var(--op)"></div><span class="iname">Backup mensual</span></div></div></div>
+        </div>
+      </div>
+      <div class="pilar-card">
+        <div class="pc-head ph-inn"><span class="pico">🚀</span><div class="pc-head-info"><div class="ptitle">Innovación y Experiencia Digital</div><div class="psub">Desarrolla soluciones digitales y acompaña el crecimiento</div></div><span class="pbadge">4 proyectos</span></div>
+        <div class="q-cols">
+          <div class="q-col"><div class="q-lbl now">🟠 Q1</div><div class="items"><div class="irow"><div class="idot" style="background:var(--inn)"></div><span>Sitio SP Socios ✓</span></div><div class="irow"><div class="idot" style="background:var(--inn)"></div><span>Mesa de Ayuda ✓</span></div></div></div>
+          <div class="q-col"><div class="q-lbl future">🔵 Q2</div><div class="items"><div class="irow"><div class="idot" style="background:var(--inn)"></div><span>Inicio Azure Cloud + AI</span></div></div></div>
+          <div class="q-col"><div class="q-lbl future">🟢 Q3</div><div class="items"><div class="irow"><div class="idot" style="background:var(--inn)"></div><span>Continuación Azure AI</span></div></div></div>
+          <div class="q-col"><div class="q-lbl future">🟣 Q4</div><div class="items"><div class="irow"><div class="idot" style="background:var(--inn)"></div><span>Cierre Azure + Copilot</span></div></div></div>
+        </div>
+      </div>
+      <div class="pilar-card">
+        <div class="pc-head ph-plat"><span class="pico">🔗</span><div class="pc-head-info"><div class="ptitle">Plataformas y Procesos Internos</div><div class="psub">20 automatizaciones · 69 procesos 2026 &nbsp;<button class="legacy-inline-btn" onclick="openModal()" style="vertical-align:middle">📦 Legado 2025 <span class="lc">18</span></button></div></div><span class="pbadge">20 + 69</span></div>
+        <div style="padding:7px 12px;border-bottom:1px solid var(--border);display:flex;gap:5px;flex-wrap:wrap;background:rgba(141,198,63,0.04);align-items:center">
+          <span class="pf-label">Ver:</span>
+          <button class="pfbtn pf-act" onclick="filterPlatCard('todos',this)">📋 Todos</button>
+          <button class="pfbtn" onclick="filterPlatCard('proceso',this)">🔄 Procesos</button>
+          <button class="pfbtn aut" onclick="filterPlatCard('aut',this)">⚡ Automatizaciones · Flujos · Agentes</button>
+        </div>
+        <div class="proc-counter-bar" id="proc-counter-bar-card">
+          <div class="sgp-wrap">
+            <div class="sgp-title">📋 Sistema de Gestión del Proceso — Avance 2025–2026</div>
+            <div class="sgp-cards">
+              <div class="sgp-card" style="background:#15803d;border-color:#15803d">
+                <div class="sgp-n" style="color:white">25</div>
+                <div class="sgp-l" style="color:rgba(255,255,255,0.85)">Completados</div>
+              </div>
+              <div class="sgp-card" style="background:#eff6ff;border-color:#2eb8e6">
+                <div class="sgp-n" style="color:#0d5e80">6</div>
+                <div class="sgp-l" style="color:#0d5e80">En Proceso</div>
+              </div>
+              <div class="sgp-card" style="background:#faf5ff;border-color:#9b59d0">
+                <div class="sgp-n" style="color:#6b21a8">56</div>
+                <div class="sgp-l" style="color:#6b21a8">Sin Empezar</div>
+              </div>
+            </div>
+            <div class="sgp-bar-wrap">
+              <div class="sgp-bar-track">
+                <div class="sgp-bar-seg" style="width:28.7%;background:#15803d"><span>29%</span></div>
+                <div class="sgp-bar-seg" style="width:6.9%;background:#2eb8e6"><span>7%</span></div>
+                <div class="sgp-bar-seg" style="flex:1;background:#ede9fe"><span style="color:#9b59d0">64% pendiente</span></div>
+              </div>
+            </div>
+            <div class="sgp-legend">
+              <div class="sgp-leg-item"><div class="sgp-leg-dot" style="background:#15803d"></div>Completados (25)</div>
+              <div class="sgp-leg-item"><div class="sgp-leg-dot" style="background:#2eb8e6"></div>En proceso (6)</div>
+              <div class="sgp-leg-item"><div class="sgp-leg-dot" style="background:#ede9fe;border:1px solid #9b59d0"></div>Sin empezar (56)</div>
+              <div class="sgp-leg-item" style="color:#9ca3af">Total: 87 procesos</div>
+            </div>
+          </div>
+          <div class="proc-counter-inner" id="proc-counter-inner-card"></div>
+        </div>
+        <div class="aut-progress-bar" id="aut-progress-bar-card">
+          <div class="aut-prog-wrap">
+            <div class="aut-prog-left">
+              <div class="aut-prog-title">⚡ Avance de Automatizaciones · Flujos · Agentes 2026</div>
+              <div class="aut-prog-track">
+                <div class="aut-prog-seg done" id="aut-seg-done-card" style="width:0%"></div>
+                <div class="aut-prog-seg monitor" id="aut-seg-monitor-card" style="width:0%"></div>
+                <div class="aut-prog-seg blocked" id="aut-seg-blocked-card" style="width:0%"></div>
+                <div class="aut-prog-seg plan" id="aut-seg-plan-card" style="width:100%"></div>
+              </div>
+              <div class="aut-prog-legend">
+                <div class="apl"><div class="apl-dot" style="background:#3ec87a"></div>Terminado <span class="apl-n" id="aut-leg-done-card">0</span></div>
+                <div class="apl"><div class="apl-dot" style="background:#2eb8e6"></div>En Monitoreo <span class="apl-n" id="aut-leg-monitor-card">0</span></div>
+                <div class="apl"><div class="apl-dot" style="background:#ef4444"></div>Bloqueado <span class="apl-n" id="aut-leg-blocked-card">0</span></div>
+                <div class="apl"><div class="apl-dot" style="background:rgba(46,184,230,0.25)"></div>Planificado <span class="apl-n" id="aut-leg-plan-card">0</span></div>
+              </div>
+            </div>
+            <div class="aut-prog-right">
+              <div class="aut-stat-box" style="background:rgba(62,200,122,0.07);border-color:rgba(62,200,122,0.25)"><div class="aut-stat-n" style="color:#1a7a45" id="aut-stat-done-card">0</div><div class="aut-stat-l">Terminados</div></div>
+              <div class="aut-stat-box" style="background:rgba(46,184,230,0.07);border-color:rgba(46,184,230,0.25)"><div class="aut-stat-n" style="color:#0d5e80" id="aut-stat-monitor-card">0</div><div class="aut-stat-l">Monitoreo</div></div>
+              <div class="aut-stat-box" style="background:rgba(239,68,68,0.06);border-color:rgba(239,68,68,0.2)"><div class="aut-stat-n" style="color:#b91c1c" id="aut-stat-blocked-card">0</div><div class="aut-stat-l">Bloqueado</div></div>
+              <div class="aut-stat-box" style="background:rgba(141,198,63,0.07);border-color:rgba(141,198,63,0.25)"><div class="aut-stat-n" style="color:#3d5e10" id="aut-stat-plan-card">0</div><div class="aut-stat-l">Planificados</div></div>
+            </div>
+          </div>
+          <div class="proc-counter-inner" id="aut-counter-inner-card" style="margin-top:6px;padding-top:6px;border-top:1px dashed rgba(46,184,230,0.2)"></div>
+        </div>
+        <div class="q-cols">
+          <div class="q-col"><div class="q-lbl now">🟠 Q1</div><div class="items">
+            <div class="isep pfc-aut">💰 Finanzas</div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-006"><div class="idot" style="background:var(--plat)"></div><span class="iname">Cierre Contable Mensual <span class="fl-b">F</span> <span class="p3-b">P·C</span></span></div>
+            <div class="isep pfc-aut">🏢 Nuevos Negocios</div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-003"><div class="idot" style="background:var(--plat)"></div><span class="iname">Mesa de Ayuda IT <span class="fl-b">F</span> <span class="p3-b">P·C</span></span></div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-004"><div class="idot" style="background:var(--plat)"></div><span class="iname">Formulario Tarjetas Crédito <span class="fl-b">F</span> <span class="p3-b">P·C</span></span></div>
+            <div class="isep pfc-aut">👥 Talento Humano</div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-009"><div class="idot" style="background:#2eb8e6"></div><span class="iname">Reclutamiento <span class="ag-b">A</span> <span class="p1-b">P·A</span></span></div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-012"><div class="idot" style="background:#2eb8e6"></div><span class="iname">Comunicación Interna <span class="ag-b">A</span> <span class="p1-b">P·A</span></span></div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-014"><div class="idot" style="background:#2eb8e6"></div><span class="iname">Descriptores de Puesto <span class="ag-b">A</span> <span class="p1-b">P·A</span></span></div>
+            <div class="isep pfc-proceso">🗂️ Priorización</div><div class="irow pfc-proceso"><div class="idot" style="background:#9b59d0"></div><span>Priorización de Procesos ✓</span></div>
+            <div class="isep pfc-aut">🗂️ Priorización</div><div class="irow pfc-aut"><div class="idot" style="background:#7c3aed"></div><span>Priorización Automatizaciones ✓</span></div>
+            <div id="proc-card-q1"></div>
+          </div></div>
+          <div class="q-col"><div class="q-lbl future">🔵 Q2</div><div class="items">
+            <div class="isep pfc-aut">🏢 Nuevos Negocios</div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-015"><div class="idot" style="background:#2eb8e6"></div><span class="iname">Gestión de Procesos <span class="ag-b">A</span> <span class="p3-b">P·C</span></span></div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-016"><div class="idot" style="background:#2eb8e6"></div><span class="iname">Soporte de Tecnología <span class="ag-b">A</span> <span class="p1-b">P·A</span></span></div>
+            <div class="isep pfc-aut">👥 Talento Humano</div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-010"><div class="idot" style="background:#2eb8e6"></div><span class="iname">Planes de Desarrollo <span class="ag-b">A</span> <span class="p2-b">P·B</span></span></div>
+            <div class="isep pfc-aut">💰 Finanzas</div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-007"><div class="idot" style="background:var(--plat)"></div><span class="iname">Cartas de Incremento <span class="fl-b">F</span> <span class="p2-b">P·B</span></span></div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-008"><div class="idot" style="background:var(--plat)"></div><span class="iname">Consultas de Pagos Realizados <span class="fl-b">F</span> <span class="p2-b">P·B</span></span></div>
+            <div class="isep pfc-aut">🏠 Comercial</div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-017"><div class="idot" style="background:#2eb8e6"></div><span class="iname">Ventas Habitacionales <span class="ag-b">A</span> <span class="p1-b">P·A</span></span></div>
+            <div class="isep pfc-aut">🔧 Técnico</div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-019"><div class="idot" style="background:#2eb8e6"></div><span class="iname">Tramitología Institucional <span class="ag-b">A</span> <span class="p1-b">P·A</span></span></div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-020"><div class="idot" style="background:#2eb8e6"></div><span class="iname">Residente de Proyectos <span class="ag-b">A</span> <span class="p1-b">P·A</span></span></div>
+            <div id="proc-card-q2"></div>
+          </div></div>
+          <div class="q-col"><div class="q-lbl future">🟢 Q3</div><div class="items">
+            <div class="isep pfc-aut">👥 Talento Humano</div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-011"><div class="idot" style="background:#ef4444"></div><span class="iname">Gestión de RRHH ⛔ <span class="ag-b">A</span> <span class="p1-b">P·A</span></span></div>
+            <div class="isep pfc-aut">🏘️ Activos Rentistas</div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-013"><div class="idot" style="background:var(--plat)"></div><span class="iname">Seguimiento Renovaciones <span class="fl-b">F</span> <span class="p2-b">P·B</span></span></div>
+            <div class="isep pfc-aut">🏠 Comercial</div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-018"><div class="idot" style="background:#2eb8e6"></div><span class="iname">Mesa Ayuda Comunicaciones <span class="ag-b">A</span> <span class="p1-b">P·A</span></span></div>
+            <div class="isep pfc-aut">🔧 Técnico</div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-021"><div class="idot" style="background:var(--plat)"></div><span class="iname">Resguardo de Facturas <span class="fl-b">F</span> <span class="p2-b">P·B</span></span></div>
+            <div class="isep pfc-proceso">🔄 Seguimiento</div><div class="irow pfc-proceso"><div class="idot" style="background:#9b59d0"></div><span>Revisión automatizaciones activas</span></div>
+            <div id="proc-card-q3"></div>
+          </div></div>
+          <div class="q-col"><div class="q-lbl future">🟣 Q4</div><div class="items">
+            <div class="isep pfc-aut">💰 Finanzas</div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-005"><div class="idot" style="background:var(--op)"></div><span class="iname">Solicitud de Mensajería ✓ <span class="fl-b">F</span> <span class="p3-b">P·C</span></span></div>
+            <div class="isep pfc-aut">🔧 Técnico</div><div class="irow tip pfc-aut" data-type="plat" data-id="AUT-022"><div class="idot" style="background:var(--plat)"></div><span class="iname">Flujo de Adquisiciones <span class="fl-b">F</span> <span class="p3-b">P·C</span></span></div>
+            <div class="isep pfc-proceso">📋 Planificación</div><div class="irow pfc-proceso"><div class="idot" style="background:#9b59d0"></div><span>Cierre y documentación 2026</span></div><div class="irow pfc-proceso"><div class="idot" style="background:#9b59d0"></div><span>Roadmap procesos 2027</span></div>
+            <div class="buffer-card-sm pfc-aut"><div class="bt">🗂️ Buffer</div><div class="bi">Emergentes y contingencia.</div></div>
+            <div id="proc-card-q4"></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="pilar-card">
+        <div class="pc-head ph-risk"><span class="pico">🛡️</span><div class="pc-head-info"><div class="ptitle">Riesgo y Gobernanza</div><div class="psub">Seguridad, cumplimiento y políticas corporativas</div></div><span class="pbadge">9 iniciativas</span></div>
+        <div class="q-cols">
+          <div class="q-col"><div class="q-lbl now">🟠 Q1</div><div class="items"><div class="irow tip" data-type="risk" data-id="GOB-001"><div class="idot" style="background:var(--risk)"></div><span class="iname">Políticas Impresoras →</span></div></div></div>
+          <div class="q-col"><div class="q-lbl future">🔵 Q2</div><div class="items"><div class="irow tip" data-type="risk" data-id="GOB-002"><div class="idot" style="background:var(--risk)"></div><span class="iname">Gobernanza Microsoft 365</span></div><div class="irow tip" data-type="risk" data-id="GOB-003"><div class="idot" style="background:var(--risk)"></div><span class="iname">Gobernanza ERP</span></div><div class="irow tip" data-type="risk" data-id="GOB-004"><div class="idot" style="background:var(--risk)"></div><span class="iname">Adquisición Proveedores</span></div><div class="irow tip" data-type="risk" data-id="GOB-007"><div class="idot" style="background:var(--risk)"></div><span class="iname">Gestión Contraseñas 🆕</span></div><div class="irow tip" data-type="risk" data-id="GOB-008"><div class="idot" style="background:var(--risk)"></div><span class="iname">SLA IT Internos 🆕</span></div></div></div>
+          <div class="q-col"><div class="q-lbl future">🟢 Q3</div><div class="items"><div class="irow tip" data-type="risk" data-id="GOB-005"><div class="idot" style="background:var(--risk)"></div><span class="iname">Estrategia Ciberseguridad</span></div><div class="irow tip" data-type="risk" data-id="GOB-006"><div class="idot" style="background:var(--risk)"></div><span class="iname">Retención de Datos 🆕</span></div><div class="irow tip" data-type="risk" data-id="GOB-009"><div class="idot" style="background:var(--risk)"></div><span class="iname">Gobierno Datos ERP 🆕</span></div></div></div>
+          <div class="q-col"><div class="q-lbl future">🟣 Q4</div><div class="items"><div class="irow tip" data-type="risk" data-id="GOB-010"><div class="idot" style="background:var(--risk)"></div><span class="iname">Consolidación Gobernanza</span></div></div></div>
+        </div>
+      </div>
+      <div class="pilar-card">
+        <div class="pc-head ph-cap"><span class="pico">📚</span><div class="pc-head-info"><div class="ptitle">Capacitaciones Digitales</div><div class="psub">Formación digital para toda la organización</div></div><span class="pbadge">9 caps.</span></div>
+        <div class="q-cols">
+          <div class="q-col"><div class="q-lbl now">🟠 Q1</div><div class="items"><div class="irow tip" data-type="cap" data-id="CAP-001"><div class="idot" style="background:var(--cap)"></div><span class="iname">SharePoint Básico ✓</span></div><div class="irow tip" data-type="cap" data-id="CAP-002"><div class="idot" style="background:var(--cap)"></div><span class="iname">Teams y OneDrive ✓</span></div><div class="irow tip" data-type="cap" data-id="CAP-003"><div class="idot" style="background:var(--cap)"></div><span class="iname">Uso Mesa de Ayuda ✓</span></div></div></div>
+          <div class="q-col"><div class="q-lbl future">🔵 Q2</div><div class="items"><div class="irow tip" data-type="cap" data-id="CAP-004"><div class="idot" style="background:var(--cap)"></div><span class="iname">Outlook Productivo</span></div><div class="irow tip" data-type="cap" data-id="CAP-005"><div class="idot" style="background:var(--cap)"></div><span class="iname">Ciberseguridad Colab.</span></div></div></div>
+          <div class="q-col"><div class="q-lbl future">🟢 Q3</div><div class="items"><div class="irow tip" data-type="cap" data-id="CAP-006"><div class="idot" style="background:var(--cap)"></div><span class="iname">Microsoft Planner</span></div><div class="irow tip" data-type="cap" data-id="CAP-007"><div class="idot" style="background:var(--cap)"></div><span class="iname">Tipos y Usos de IA</span></div></div></div>
+          <div class="q-col"><div class="q-lbl future">🟣 Q4</div><div class="items"><div class="irow tip" data-type="cap" data-id="CAP-008"><div class="idot" style="background:var(--cap)"></div><span class="iname">Prompting Efectivo</span></div><div class="irow tip" data-type="cap" data-id="CAP-009"><div class="idot" style="background:var(--cap)"></div><span class="iname">Copilot en Office 365</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const DATA={
+  op:{'OP-001':{name:'Seguridad y saneamiento de red',desc:'Revisión de infraestructura: segmentación, accesos, firmware y vulnerabilidades.',left:'⚙️ Operaciones',right:'Q1 · ✓ Completado'},'OP-002':{name:'Backups corporativos — 9.05 TB',desc:'Al cierre de cada mes se respaldan 9.05 TB entre servidores, SharePoint y sistemas críticos.',left:'⚙️ Operaciones',right:'Q1 · ✓ Completado'},'OP-003':{name:'Renovación impresoras Ricoh',desc:'Sustitución por equipos Ricoh con gestión centralizada y menor costo operativo.',left:'⚙️ Operaciones',right:'Q1 · ✓ Completado'},'OP-004':{name:'Reordenamiento de Equipos y Canales de Teams',desc:'Reorganización de los canales de Microsoft Teams y estructura de equipos para optimizar el flujo de información, reducir ruido y mejorar la eficiencia colaborativa de toda la organización.',left:'⚙️ Operaciones',right:'Q1 · En curso →'},'OP-005':{name:'Nueva infraestructura de internet',desc:'Mayor ancho de banda, redundancia y mejor calidad para videoconferencias y cloud.',left:'⚙️ Operaciones',right:'Q2 · Próximo'},'OP-006':{name:'Optimización de salas de reuniones',desc:'Pantallas, cámaras y micrófonos para reuniones híbridas con Teams.',left:'⚙️ Operaciones',right:'Q2 · Próximo'},'OP-007':{name:'Cierre del reordenamiento',desc:'Inventario final, baja de equipos obsoletos y documentación del parque.',left:'⚙️ Operaciones',right:'Q2 · Próximo'},'OP-008':{name:'Mantenimiento preventivo de equipos',desc:'Limpieza, software, rendimiento y reemplazo preventivo.',left:'⚙️ Operaciones',right:'Q3 · Próximo'},'OP-009':{name:'Mantenimiento correctivo de equipos',desc:'Reparación de fallas y preparación del parque para el ciclo 2027.',left:'⚙️ Operaciones',right:'Q4 · Próximo'},'OP-BKP':{name:'Backup mensual — Resguardo de información',desc:'Al cierre de cada mes se respaldan 9.05 TB. Crecimiento estimado del 15% anual.',left:'⚙️ Operaciones · Recurrente',right:'Fin de cada mes'}},
+  plat:{'AUT-003':{name:'Gestión Mesa de Ayuda IT',desc:'Registro y seguimiento de tickets IT con notificación automática.',left:'👤 Andrea H.',right:'Nuevos Negocios · Flujo',team:null},'AUT-004':{name:'Formulario Tarjetas de Crédito v2',desc:'Solicitud de tarjetas corporativas con registro en SharePoint.',left:'👤 Andrea H.',right:'Nuevos Negocios · Flujo',team:null},'AUT-005':{name:'Solicitud de Mensajería',desc:'Solicitudes de mensajería corporativa. Completado Nov 2025.',left:'👤 Brenda A.',right:'Finanzas · ✓ Nov 2025',team:null},'AUT-006':{name:'Seguimiento de Cierre Contable',desc:'Cierre mensual automatizado: recordatorios, consolidación y notificaciones.',left:'👤 Armando B.',right:'Finanzas · Flujo',team:null},'AUT-007':{name:'Redacción de Cartas de Incremento',desc:'Genera cartas de incremento desde plantillas con aprobación digital.',left:'👤 Andrea H.',right:'Finanzas e Inv. · Abr 2026',team:null},'AUT-008':{name:'Consultas de Pagos Realizados',desc:'Consulta pagos procesados sin contactar a Finanzas.',left:'👤 Andrea H.',right:'Finanzas e Inv. · May 2026',team:null},'AUT-009':{name:'Agente de Reclutamiento',desc:'Requisiciones, filtrado de candidatos y coordinación de entrevistas.',left:'👤 Armando B.',right:'Talento Humano · Agente',team:null},'AUT-010':{name:'Agente de Planes de Desarrollo',desc:'Planes de carrera, formación y seguimiento de aprendizaje.',left:'👤 Armando B.',right:'Talento Humano · Agente · Abr 2026',team:null},'AUT-011':{name:'Agente de RRHH',desc:'Estado: BLOQUEADO. Pendiente resolver causa.',left:'👤 TBD',right:'Talento Humano · ⛔ Jul 2026',team:null},'AUT-012':{name:'Agente de Comunicación Interna',desc:'Bienestar, comunicaciones RRHH y consultas de beneficios.',left:'👤 Andrea H.',right:'Talento Humano · Agente',team:null},'AUT-013':{name:'Seguimiento de Renovaciones Contractuales',desc:'Alertas automáticas para vencimientos de contratos de activos rentistas.',left:'👤 TBD',right:'Activos Rentistas · Flujo · Ago 2026',team:null},'AUT-014':{name:'Agente de Descriptores de Puesto',desc:'Gestión de descriptores, vacantes y seguimiento de postulaciones.',left:'👤 Brenda A.',right:'Talento Humano · Agente',team:null},'AUT-015':{name:'Agente de Procesos',desc:'Clientes potenciales y oportunidades en Nuevos Negocios.',left:'👤 Andrea H.',right:'Nuevos Negocios · Agente · Abr 2026',team:null},'AUT-016':{name:'Agente de Tecnología',desc:'Tickets operativos: estado, escalamiento y reportes por área.',left:'👤 Armando B.',right:'Nuevos Negocios · Agente · Abr 2026',team:null},'AUT-017':{name:'Chatbot de Ventas Habitacionales',desc:'Chatbot para clientes interesados en proyectos habitacionales.',left:'📅 Q2 2026',right:'Comercial · Agente 🆕',team:{title:'⭐ Líder · Apoyo',names:'Armando Barrios (líder)\nAndrea Henríquez (apoyo)'}},'AUT-018':{name:'Mesa de Ayuda — Comunicaciones',desc:'Centraliza solicitudes de diseño, contenido y publicaciones.',left:'👤 Josué R.',right:'Comercial · Q3 2026 🆕',team:null},'AUT-019':{name:'Agente de Tramitología',desc:'Estado de trámites institucionales: permisos, aprobaciones y gestiones.',left:'📅 Q2 2026 · Prioridad A',right:'Área Técnica · Agente 🆕',team:{title:'⭐ Líder · Apoyo',names:'Andrea Henríquez (líder)\nJosué Ramírez (apoyo)\nArmando Barrios (apoyo)'}},'AUT-020':{name:'Agente Residente de Proyectos',desc:'Status, informes, trámites, proyecciones, Planner/Dataverse y ticketera. Multifase Q2→Q3.',left:'📅 Q2→Q3 · Prioridad A',right:'Área Técnica · Agente 🆕',team:{title:'⭐ Líder · Apoyo',names:'Andrea Henríquez (líder)\nJosué Ramírez (apoyo)\nArmando Barrios (apoyo)'}},'AUT-020b':{name:'Agente Residente de Proyectos — Fase 2',desc:'Continuación Q3: Planner/Dataverse, proyecciones y ticketera interna.',left:'📅 Q3 2026',right:'Área Técnica · Agente',team:{title:'⭐ Líder · Apoyo',names:'Andrea Henríquez (líder)\nJosué Ramírez (apoyo)\nArmando Barrios (apoyo)'}},'AUT-021':{name:'Resguardo de Facturas de Proveedores',desc:'Registra y archiva facturas de proveedores en SharePoint.',left:'📅 Q3 2026 · Prioridad B',right:'Área Técnica · Flujo 🆕',team:{title:'⭐ Líder · Apoyo',names:'Andrea Henríquez (líder)\nJosué Ramírez (apoyo)\nArmando Barrios (apoyo)'}},'AUT-022':{name:'Flujo de Adquisiciones',desc:'Adquisición de materiales, equipos y servicios: solicitud, aprobación y órdenes de compra.',left:'📅 Q4 2026 · Prioridad C',right:'Área Técnica · Flujo 🆕',team:{title:'⭐ Líder · Apoyo',names:'Andrea Henríquez (líder)\nJosué Ramírez (apoyo)\nArmando Barrios (apoyo)'}}},
+  risk:{'GOB-001':{name:'Políticas de Uso de Impresoras',desc:'Cuotas por usuario, B&N por defecto y reportes de consumo mensual.',left:'📅 Mar 2026',right:'En curso →'},'GOB-002':{name:'Gobernanza del Entorno Microsoft 365',desc:'Políticas y permisos para Teams y SharePoint.',left:'📅 Abr 2026',right:'Próximo'},'GOB-003':{name:'Gobernanza para ERP',desc:'Roles, accesos, flujos de aprobación y políticas del ERP.',left:'📅 May 2026',right:'Próximo'},'GOB-004':{name:'Proceso de Adquisición de Proveedores',desc:'Formalización para cotizar, evaluar y contratar proveedores.',left:'📅 May–Jun 2026',right:'Próximo'},'GOB-005':{name:'Estrategia de Ciberseguridad',desc:'Evaluación de riesgos y hoja de ruta para infraestructura, cloud y endpoints.',left:'📅 Jun–Q3 2026',right:'Próximo'},'GOB-006':{name:'Política de Retención y Eliminación de Datos',desc:'Tiempo de conservación de correos, documentos y datos.',left:'📅 Q3 2026',right:'🆕 Nueva'},'GOB-007':{name:'Política de Gestión de Contraseñas e Identidades',desc:'MFA, contraseñas seguras y revocación al cese de colaborador.',left:'📅 Q2 2026',right:'🆕 Nueva'},'GOB-008':{name:'Acuerdos de Nivel de Servicio Internos (SLA IT)',desc:'Crítico (2h), normal (8h), solicitud (24–48h), consulta (72h).',left:'📅 Q2 2026',right:'🆕 Nueva'},'GOB-009':{name:'Gobierno de Datos del ERP',desc:'Dueños de módulos de datos y proceso de depuración.',left:'📅 Q3 2026',right:'🆕 Nueva'},'GOB-010':{name:'Consolidación de Gobernanza Corporativa',desc:'Revisión integral de políticas, cierre de brechas y ciclo anual.',left:'📅 Q4 2026',right:'Cierre del año'}},
+  cap:{
+    'CAP-001':{name:'SharePoint Básico',desc:'Los colaboradores que conocen SharePoint centralizan documentos, evitan versiones duplicadas y acceden a información actualizada desde cualquier lugar. Elimina el caos de archivos en correo y carpetas locales.',left:'📅 Q1 2026',right:'✓ Completada'},
+    'CAP-002':{name:'Teams y OneDrive',desc:'Teams unifica comunicación, reuniones y archivos en un solo lugar. OneDrive garantiza que cada colaborador tenga su información respaldada y disponible. Reduce correos innecesarios y mejora la colaboración en tiempo real.',left:'📅 Q1 2026',right:'✓ Completada'},
+    'CAP-003':{name:'Uso de Mesa de Ayuda',desc:'Saber cómo registrar un ticket correctamente reduce tiempos de resolución y permite al equipo de TI priorizar eficientemente. Evita solicitudes por WhatsApp o canales informales que se pierden.',left:'📅 Q1 2026',right:'✓ Completada'},
+    'CAP-004':{name:'Outlook Productivo',desc:'La mayoría del tiempo laboral se gasta en correo. Enseñar a usar reglas, calendarios compartidos, respuestas rápidas y organización de bandeja reduce hasta un 30% el tiempo dedicado a gestión de correo.',left:'📅 Q2 2026',right:'Planificada'},
+    'CAP-005':{name:'Ciberseguridad para Colaboradores',desc:'El 90% de los ciberataques comienzan con un error humano (phishing, contraseñas débiles). Capacitar a toda la organización es la primera línea de defensa para proteger los datos de clientes e inversores.',left:'📅 Q2 2026',right:'Planificada'},
+    'CAP-006':{name:'Microsoft Planner',desc:'Planner permite a los equipos gestionar tareas, asignar responsables y dar seguimiento a proyectos sin necesidad de reuniones de status. Mejora la visibilidad del trabajo y reduce tareas que "se olvidan".',left:'📅 Q3 2026',right:'Planificada'},
+    'CAP-007':{name:'Tipos y Usos de IA',desc:'La IA ya es parte del entorno de trabajo. Entender qué tipos existen, para qué sirven y cuáles están disponibles en la organización permite a los colaboradores adoptarla con confianza y aprovechar sus beneficios reales.',left:'📅 Q3 2026',right:'Planificada'},
+    'CAP-008':{name:'Prompting Efectivo',desc:'Saber cómo dar instrucciones claras a una IA es la diferencia entre resultados mediocres y resultados de alto valor. Esta capacitación multiplica el impacto de todas las herramientas de IA que la organización adopte.',left:'📅 Q4 2026',right:'Planificada'},
+    'CAP-009':{name:'Copilot en Office 365',desc:'Copilot integrado en Word, Excel, Outlook y Teams puede automatizar resúmenes, redacción, análisis de datos y preparación de reuniones. Una fuerza de trabajo que lo domina opera significativamente más rápido.',left:'📅 Q4 2026',right:'Planificada'}
+  },
+  proc:{}
+};
+
+const MP={MP01:{ico:'🎯',name:'Planificación Estratégica',nat:'ESTRATÉGICO'},MP02:{ico:'🌱',name:'Gestión de Sostenibilidad',nat:'ESTRATÉGICO'},MP03:{ico:'🏛️',name:'Alineación estratégica de la cultura',nat:'ESTRATÉGICO'},MP04:{ico:'🔍',name:'Inteligencia de Mercado y Desarrollo de Producto',nat:'MISIONAL'},MP05:{ico:'💵',name:'Estructuración financiera de proyectos',nat:'MISIONAL'},MP06:{ico:'🏗️',name:'Proyectos habitacionales y rentistas',nat:'MISIONAL'},MP07:{ico:'⭐',name:'Experiencia integral del cliente',nat:'MISIONAL'},MP08:{ico:'⚙️',name:'Eficiencia Operativa',nat:'APOYO'},MP09:{ico:'👥',name:'Gestión Integral de Talento',nat:'APOYO'},MP10:{ico:'📈',name:'Desempeño organizacional y conocimiento',nat:'APOYO'}};
+
+const PROC_2025=[['P25-001','MP04','PR01 - Análisis de mercado y segmentación','Judith Rivas','Edwin Torres'],['P25-002','MP04','PR02 - Análisis de Terreno para Pipeline','Judith Rivas','Edwin Torres'],['P25-003','MP05','PR01 - Elaboración de plan de negocio / Factibilidad financiera','Miguel Marroquin','Edwin Torres'],['P25-004','MP05','PR02 - Desarrollo de Instrumento Financiero / Estructuración del Negocio','Miguel Marroquin','Edwin Torres'],['P25-005','MP05','PR04 - Gestión de Manejo / Reportería Inversionista','Miguel Marroquin','Edwin Torres'],['P25-006','MP06','PR11 - Gestión administrativa de planificación y ejecución de ingresos rentistas','Alejandro Portal / Karla Escoto','Edwin Torres'],['P25-007','MP06','PR13 - Gestión de operaciones de inmuebles','Alfonso Sampera / Alejandro Portal','Edwin Torres'],['P25-008','MP06','PR05 - Contabilización de cambios por Clientes','Carlos Flores','Edwin Torres'],['P25-009','MP06','PR01 - Diseño integrativo','Carlos Flores','Edwin Torres'],['P25-010','MP06','PR02 - Proceso de creación de presupuesto','Carlos Flores','Edwin Torres'],['P25-011','MP06','PR16 - Marketing de proyectos inmobiliarios','Hector Delgado','Edwin Torres'],['P25-012','MP06','PR17 - Escrituración Habitacional','Hector Delgado','Edwin Torres'],['P25-013','MP07','PR08 - Entrega y Recepción de Producto','Hector Delgado','Edwin Torres'],['P25-014','MP07','PR11 - Gestión de Quejas y Reclamos','Hector Delgado','Edwin Torres'],['P25-015','MP08','PR10 - Gestión de tesorería','Miguel Marroquin','Edwin Torres'],['P25-016','MP08','PR13 - Gestión administrativa de servicios','Miguel Marroquin','Brenda Argueta'],['P25-017','MP08','PR07 - Gestión integral de cuentas por pagar','Miguel Marroquin','Edwin Torres'],['P25-018','MP08','PR16 - Gestión de cumplimiento','Miguel Marroquin','Edwin Torres']];
+
+const PROC_RAW=[['PROC-001','MP08','PR12-Gestión de Cobros','Miguel Marroquin','Edwin Torres','Finalizado','Febrero','q1'],['PROC-002','MP10','PR06-Gestión del Conocimiento documentado','Judith Rivas','Edwin Torres','Finalizado','Febrero','q1'],['PROC-003','MP10','PR05-Gestión de indicadores de desempeño de procesos','Judith Rivas','Edwin Torres','Finalizado','Febrero','q1'],['PROC-004','MP09','PR02-Onboarding e Integración','Cecilia de Jovel','Brenda Argueta','Finalizado','Febrero','q1'],['PROC-005','MP08','PR03-Gestión financiera y de recursos','Miguel Marroquin','Brenda Argueta','En Proceso','Marzo','q1'],['PROC-006','MP08','PR02-Control operativo de gastos rentista','Alejandro Portal','Brenda Argueta','Finalizado','Marzo','q1'],['PROC-007','MP09','PR01-Atracción, Reclutamiento y Selección de Talento','Cecilia de Jovel','Brenda Argueta','Finalizado','Marzo','q1'],['PROC-008','MP04','PR08-Investigación de mercado (Mystery Shopping)','Judith Rivas','Edwin Torres','En Proceso','Marzo','q1'],['PROC-009','MP07','PR04-Preventa','Hector Delgado','Edwin Torres','En Proceso','Marzo','q1'],['PROC-010','MP06','PR20-Proceso de planificacion de proyectos','Carlos Flores','Edwin Torres','Finalizado','Marzo','q1'],['PROC-011','MP06','PR04-Supervisión administrativa técnica','Carlos Flores','Edwin Torres','En Proceso','Marzo','q1'],['PROC-012','MP05','PR03-Ronda y levantamiento con inversionistas','Miguel Marroquin','Edwin Torres','Sin Empezar','Abril','q2'],['PROC-013','MP06','PR15-Resultados y reportería (P&L)','Alejandro Portal','Edwin Torres','Sin Empezar','Abril','q2'],['PROC-014','MP06','PR05-Monitoreo y control de calidad','Carlos Flores','Edwin Torres','Sin Empezar','Abril','q2'],['PROC-015','MP02','PR01-Estrategia de Sostenibilidad y Certificaciones (ESG)','Cecilia de Jovel','Edwin Torres','Sin Empezar','Abril','q2'],['PROC-016','MP08','PR22-Planeación y ejecución de marketing rentista','Hector Delgado / Alejandro Portal','Edwin Torres','Sin Empezar','Abril','q2'],['PROC-017','MP04','PR04-Desarrollo de productos y servicios','Judith Rivas','Edwin Torres','Sin Empezar','Abril','q2'],['PROC-018','MP06','PR06-Atención de cliente preventa y postventa','Carlos Flores','Edwin Torres','Sin Empezar','Abril','q2'],['PROC-019','MP07','PR10-Gestión de ventas','Hector Delgado','Edwin Torres','Sin Empezar','Abril','q2'],['PROC-020','MP08','PR08-Conciliaciones Bancarias Bolívar y Afiliadas','Miguel Marroquin','Brenda Argueta','Sin Empezar','Abril','q2'],['PROC-021','MP09','PR04-Gestión del Desempeño Individual','Cecilia de Jovel','Brenda Argueta','En Proceso','Abril','q2'],['PROC-022','MP09','PR05-Administración del Ciclo de Vida del Colaborador','Cecilia de Jovel','Brenda Argueta','En Proceso','Abril','q2'],['PROC-023','MP08','PR11-Facturación e ingresos','Miguel Marroquin','Brenda Argueta','Sin Empezar','Abril','q2'],['PROC-024','MP07','PR05-Gestión de clientes (captación a cierre)','Hector Delgado','Edwin Torres','Sin Empezar','Mayo','q2'],['PROC-025','MP07','PR01-Gestión de garantías','Carlos Flores','Edwin Torres','Sin Empezar','Mayo','q2'],['PROC-026','MP09','PR06-Desarrollo y Aprendizaje (Formación + Carrera)','Cecilia de Jovel','Brenda Argueta','Sin Empezar','Mayo','q2'],['PROC-027','MP09','PR07-Riesgos Organizacionales y Control de Gestión','Cecilia de Jovel','Brenda Argueta','Sin Empezar','Mayo','q2'],['PROC-028','MP04','PR05-Estudio de viabilidad del proyecto','Judith Rivas','Edwin Torres','Sin Empezar','Mayo','q2'],['PROC-029','MP01','PR03-Desarrollo de Capacidades Organizacionales','Cecilia de Jovel','Edwin Torres','Sin Empezar','Mayo','q2'],['PROC-030','MP08','PR20-Evaluación de compras administrativas','Miguel Marroquin','Brenda Argueta','Sin Empezar','Mayo','q2'],['PROC-031','MP05','PR05-Liquidación de inversión / Distribución de rendimientos','Miguel Marroquin','Edwin Torres','Sin Empezar','Mayo','q2'],['PROC-032','MP06','PR08-Trámites institucionales','Carlos Flores','Edwin Torres','Sin Empezar','Mayo','q2'],['PROC-033','MP07','PR02-Identificación de oportunidades','Judith Rivas / Hector Delgado','Edwin Torres','Sin Empezar','Junio','q2'],['PROC-034','MP06','PR12-Planificación y ejecución de gastos y subcontratos','Alejandro Portal','Edwin Torres','Sin Empezar','Junio','q2'],['PROC-035','MP06','PR14-Comercialización de activos rentistas','Alejandro Portal','Edwin Torres','Sin Empezar','Junio','q2'],['PROC-036','MP07','PR12-Servicio postventa','Hector Delgado / Carlos Flores','Edwin Torres','Sin Empezar','Junio','q2'],['PROC-037','MP06','PR03-Construcción','Carlos Flores','Edwin Torres','Sin Empezar','Junio','q2'],['PROC-038','MP07','PR06-Personalización del proyecto','Carlos Flores','Edwin Torres','Sin Empezar','Junio','q2'],['PROC-039','MP09','PR08-Nómina y Compensación Operativa','Cecilia de Jovel','Brenda Argueta','Sin Empezar','Junio','q2'],['PROC-040','MP02','PR02-Riesgos Organizacionales y Control de Gestión','Cecilia de Jovel','Brenda Argueta','Sin Empezar','Junio','q2'],['PROC-041','MP03','PR01-Cultura y Liderazgo Organizacional','Cecilia de Jovel','Brenda Argueta','Sin Empezar','Julio','q3'],['PROC-042','MP04','PR06-Desarrollo de marca','Judith Rivas','Edwin Torres','Sin Empezar','Julio','q3'],['PROC-043','MP07','PR03-Prospección de Clientes según perfil y segmentos','Judith Rivas / Hector Delgado','Edwin Torres','Sin Empezar','Julio','q3'],['PROC-044','MP08','PR11-Facturación y contabilización de ingresos','Miguel Marroquin','Brenda Argueta','Sin Empezar','Julio','q3'],['PROC-045','MP08','PR06-Presupuesto anual de operaciones administrativas','Miguel Marroquin','Brenda Argueta','Sin Empezar','Julio','q3'],['PROC-046','MP10','PR02-Gestión de proyectos de mejora de desempeño organizacional','Judith Rivas','Brenda Argueta','Sin Empezar','Julio','q3'],['PROC-047','MP02','PR03-Comunicación Corporativa Estratégica','Hector Delgado','Edwin Torres','Sin Empezar','Agosto','q3'],['PROC-048','MP04','PR07-Gestión de datos e inteligencia de negocios','Judith Rivas','Edwin Torres','Sin Empezar','Agosto','q3'],['PROC-049','MP06','PR07-Proceso de adquisiciones y contrataciones','Carlos Flores','Edwin Torres','Sin Empezar','Agosto','q3'],['PROC-050','MP07','PR07-Integración del Cliente','Hector Delgado','Edwin Torres','Sin Empezar','Agosto','q3'],['PROC-051','MP08','PR01-Planeación y ejecución de marketing rentista','Hector Delgado / Alejandro Portal','Edwin Torres','Sin Empezar','Agosto','q3'],['PROC-052','MP08','PR19-Proceso de compras y contrataciones administrativa','Miguel Marroquin','Brenda Argueta','Sin Empezar','Agosto','q3'],['PROC-053','MP10','PR04-Gestión del ciclo de mejora continua','Judith Rivas','Brenda Argueta','Sin Empezar','Agosto','q3'],['PROC-054','MP01','PR04-Gestión del Desempeño Organizacional (KPIs + Revisión por Dirección)','Oscar Cornejo','Edwin Torres','Sin Empezar','Septiembre','q3'],['PROC-055','MP03','PR02-Gestión del Cambio (Organizacional y Cultural)','Cecilia de Jovel','Edwin Torres','Sin Empezar','Septiembre','q3'],['PROC-056','MP06','PR09-Proceso de análisis técnico para pipeline','Judith Rivas','Edwin Torres','Sin Empezar','Septiembre','q3'],['PROC-057','MP08','PR04-Diseño organizacional y monitoreo de mapa de transformación','Cecilia de Jovel','Brenda Argueta','Sin Empezar','Septiembre','q3'],['PROC-058','MP08','PR09-Elaboración y contabilización de impuestos mensuales','Miguel Marroquin','Brenda Argueta','Sin Empezar','Septiembre','q3'],['PROC-059','MP08','PR14-Mantenimiento de la infraestructura de las oficinas de IB','Judith Rivas','Brenda Argueta','Sin Empezar','Septiembre','q3'],['PROC-060','MP08','PR17-Diseño y desarrollo de sistema de información','Judith Rivas','Brenda Argueta','Sin Empezar','Septiembre','q3'],['PROC-061','MP03','PR03-Diseño Organizacional','Cecilia de Jovel','Edwin Torres','Sin Empezar','Octubre','q4'],['PROC-062','MP06','PR10-Proceso monitoreo de proyecto','Carlos Flores','Edwin Torres','Sin Empezar','Octubre','q4'],['PROC-063','MP07','PR09-Evaluación del Proyecto Finalizado','Carlos Flores','Edwin Torres','Sin Empezar','Octubre','q4'],['PROC-064','MP08','PR05-Gestión de cambio organizacional','Cecilia de Jovel','Brenda Argueta','Sin Empezar','Octubre','q4'],['PROC-065','MP08','PR15-Gestión de póliza de seguro de inmuebles y equipos','Miguel Marroquin','Brenda Argueta','Sin Empezar','Octubre','q4'],['PROC-066','MP08','PR18-Preservación de la infraestructura tecnológica','Judith Rivas','Brenda Argueta','Sin Empezar','Octubre','q4'],['PROC-067','MP08','PR21-Seguimiento y evaluación de proveedores','Judith Rivas','Brenda Argueta','Sin Empezar','Octubre','q4'],['PROC-068','MP01','PR01-Dirección y Planificación Estratégica Corporativa','Oscar Cornejo','Edwin Torres','Sin Empezar','Noviembre','q4'],['PROC-069','MP01','PR02-Gestión del Portafolio de Iniciativas y Transformación','Oscar Cornejo / Cecilia de Jovel','Edwin Torres','Sin Empezar','Noviembre','q4']];
+
+PROC_RAW.forEach(r=>{const[id,mp,proc,resp,enc,est,mes]=r;DATA.proc[id]={name:proc,desc:`Macroproceso: ${MP[mp]?.name||mp}\nNaturaleza: ${MP[mp]?.nat||''}`,left:`${mp} · 📅 ${mes} 2026`,right:est==='Finalizado'?'✅ Finalizado':est==='En Proceso'?'🔄 En Proceso':'⏳ Sin Empezar',team:{title:'👤 RESPONSABLE · ENCARGADO',names:`${resp} (responsable)\n${enc} (encargado de levantamiento)`}};});
+
+const PROC_GROUPS={q1:[{mp:'MP04',ids:['PROC-008']},{mp:'MP06',ids:['PROC-010','PROC-011']},{mp:'MP07',ids:['PROC-009']},{mp:'MP08',ids:['PROC-001','PROC-005','PROC-006']},{mp:'MP09',ids:['PROC-004','PROC-007']},{mp:'MP10',ids:['PROC-002','PROC-003']}],q2:[{mp:'MP01',ids:['PROC-029']},{mp:'MP02',ids:['PROC-015','PROC-040']},{mp:'MP04',ids:['PROC-017','PROC-028']},{mp:'MP05',ids:['PROC-012','PROC-031']},{mp:'MP06',ids:['PROC-013','PROC-014','PROC-018','PROC-032','PROC-034','PROC-035','PROC-037']},{mp:'MP07',ids:['PROC-019','PROC-024','PROC-025','PROC-033','PROC-036','PROC-038']},{mp:'MP08',ids:['PROC-016','PROC-020','PROC-023','PROC-030']},{mp:'MP09',ids:['PROC-021','PROC-022','PROC-026','PROC-027','PROC-039']}],q3:[{mp:'MP01',ids:['PROC-054']},{mp:'MP02',ids:['PROC-047']},{mp:'MP03',ids:['PROC-041','PROC-055']},{mp:'MP04',ids:['PROC-042','PROC-048']},{mp:'MP06',ids:['PROC-049','PROC-056']},{mp:'MP07',ids:['PROC-043','PROC-050']},{mp:'MP08',ids:['PROC-044','PROC-045','PROC-051','PROC-052','PROC-057','PROC-058','PROC-059','PROC-060']},{mp:'MP10',ids:['PROC-046','PROC-053']}],q4:[{mp:'MP01',ids:['PROC-068','PROC-069']},{mp:'MP03',ids:['PROC-061']},{mp:'MP06',ids:['PROC-062']},{mp:'MP07',ids:['PROC-063']},{mp:'MP08',ids:['PROC-064','PROC-065','PROC-066','PROC-067']}]};
+
+const Q_COUNTS={q1:0,q2:0,q3:0,q4:0};
+Object.entries(PROC_GROUPS).forEach(([q,groups])=>{groups.forEach(g=>{Q_COUNTS[q]+=g.ids.length;});});
+
+function statusChip(est){if(est==='Finalizado')return '<span class="chip c-done" style="font-size:7.5px">✓</span>';if(est==='En Proceso')return '<span class="chip c-mon" style="font-size:7.5px">→</span>';return '<span class="chip c-pend" style="font-size:7.5px">○</span>';}
+
+function toggleRow(rowId){
+  const row=document.getElementById(rowId);
+  if(!row)return;
+  const isCollapsed=row.classList.toggle('row-collapsed');
+  // For plat row, also hide/show the filter bar and progress bars
+  if(rowId==='row-plat'){
+    const filterBar=row.querySelector('.plat-filter');
+    const procBar=row.querySelector('#proc-counter-bar');
+    const autBar=row.querySelector('#aut-progress-bar');
+    if(filterBar)filterBar.style.display=isCollapsed?'none':'';
+    if(procBar&&procBar.classList.contains('visible'))procBar.style.display=isCollapsed?'none':'';
+    if(autBar&&autBar.classList.contains('visible'))autBar.style.display=isCollapsed?'none':'';
+  }
+}
+
+function renderProcBars(){
+  ['q1','q2','q3','q4'].forEach(q=>{
+    ['grid','card'].forEach(view=>{
+      const ctn=document.getElementById(`proc-${view}-${q}`);if(!ctn)return;
+      const groups=PROC_GROUPS[q];if(!groups||!groups.length)return;
+      let html=`<div style="font-family:var(--fh);font-size:7.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--risk);padding:6px 2px 3px;border-bottom:1px solid rgba(155,89,208,0.2);margin-bottom:4px" class="pf-proceso" data-cat="proceso">📋 Procesos ${q.toUpperCase()}</div>`;
+      groups.forEach(g=>{
+        const m=MP[g.mp]||{ico:'🔹',name:g.mp};
+        html+=`<div class="proc-acc pf-proceso" data-cat="proceso"><div class="proc-acc-head" onclick="this.classList.toggle('open')">${m.ico} <span style="font-size:8px;color:var(--muted);font-family:var(--fh);font-weight:800">${g.mp}</span><span class="proc-acc-count">${g.ids.length}</span><span class="proc-acc-arrow">▾</span></div><div class="proc-acc-body">`;
+        g.ids.forEach(id=>{const p=PROC_RAW.find(r=>r[0]===id);if(!p)return;html+=`<div class="proc-item has-tip" data-type="proc" data-id="${id}"><span class="proc-dot"></span><span>${p[2]} ${statusChip(p[5])}</span></div>`;});
+        html+=`</div></div>`;
+      });
+      ctn.innerHTML=html;
+    });
+  });
+  document.querySelectorAll('[data-type="proc"].has-tip').forEach(attachTip);
+}
+
+// AUT statuses: [id, status]  done=Terminado, monitor=En Monitoreo, blocked=Bloqueado, plan=Planificado
+const AUT_STATUSES=[
+  ['AUT-003','monitor'],['AUT-004','monitor'],['AUT-005','done'],['AUT-006','monitor'],
+  ['AUT-007','plan'],['AUT-008','plan'],['AUT-009','plan'],['AUT-010','plan'],
+  ['AUT-011','blocked'],['AUT-012','plan'],['AUT-013','plan'],['AUT-014','plan'],
+  ['AUT-015','plan'],['AUT-016','plan'],['AUT-017','plan'],['AUT-018','plan'],
+  ['AUT-019','plan'],['AUT-020','plan'],['AUT-021','plan'],['AUT-022','plan']
+];
+
+// AUT counts per quarter (unique AUTs active in that quarter)
+const AUT_Q_COUNTS={q1:6,q2:8,q3:5,q4:2};
+
+function renderAutCounterBar(innerId){
+  const labels={q1:'🟠 Q1',q2:'🔵 Q2',q3:'🟢 Q3',q4:'🟣 Q4'};
+  const subs={q1:'Ene–Mar',q2:'Abr–Jun',q3:'Jul–Sep',q4:'Oct–Dic'};
+  let html='';
+  ['q1','q2','q3','q4'].forEach(q=>{
+    html+=`<div class="proc-counter-q"><div class="proc-counter-n" style="color:#0d5e80">${AUT_Q_COUNTS[q]}</div><div class="proc-counter-label">${labels[q]}</div><div class="proc-counter-sub" style="color:#2eb8e6">${subs[q]}</div></div>`;
+  });
+  document.getElementById(innerId).innerHTML=html;
+}
+
+function renderAutProgressBar(suffix){
+  const total=AUT_STATUSES.length;
+  const done=AUT_STATUSES.filter(r=>r[1]==='done').length;
+  const monitor=AUT_STATUSES.filter(r=>r[1]==='monitor').length;
+  const blocked=AUT_STATUSES.filter(r=>r[1]==='blocked').length;
+  const plan=total-done-monitor-blocked;
+  const pctDone=Math.round(done/total*100);
+  const pctMonitor=Math.round(monitor/total*100);
+  const pctBlocked=Math.round(blocked/total*100);
+  const pctPlan=100-pctDone-pctMonitor-pctBlocked;
+  document.getElementById('aut-seg-done-'+suffix).style.width=pctDone+'%';
+  document.getElementById('aut-seg-monitor-'+suffix).style.width=pctMonitor+'%';
+  document.getElementById('aut-seg-blocked-'+suffix).style.width=pctBlocked+'%';
+  document.getElementById('aut-seg-plan-'+suffix).style.width=pctPlan+'%';
+  document.getElementById('aut-leg-done-'+suffix).textContent=done;
+  document.getElementById('aut-leg-monitor-'+suffix).textContent=monitor;
+  document.getElementById('aut-leg-blocked-'+suffix).textContent=blocked;
+  document.getElementById('aut-leg-plan-'+suffix).textContent=plan;
+  document.getElementById('aut-stat-done-'+suffix).textContent=done;
+  document.getElementById('aut-stat-monitor-'+suffix).textContent=monitor;
+  document.getElementById('aut-stat-blocked-'+suffix).textContent=blocked;
+  document.getElementById('aut-stat-plan-'+suffix).textContent=plan;
+  renderAutCounterBar('aut-counter-inner-'+suffix);
+}
+
+function renderProgressBar(suffix){
+  // Los valores ya están hardcodeados en el HTML de sgp-wrap — no se necesita actualización dinámica
+  try {
+    const estados=PROC_RAW.map(r=>r[5]);
+    const total=estados.length;
+    const done=estados.filter(e=>e==='Finalizado').length;
+    const inprog=estados.filter(e=>e==='En Proceso').length;
+    const pending=total-done-inprog;
+    if(document.getElementById('sgp-inprog-'+suffix)) document.getElementById('sgp-inprog-'+suffix).textContent=inprog;
+    if(document.getElementById('sgp-pend-'+suffix)) document.getElementById('sgp-pend-'+suffix).textContent=pending;
+  } catch(e){}
+}
+
+function renderCounterBar(innerId){
+  const labels={q1:'🟠 Q1',q2:'🔵 Q2',q3:'🟢 Q3',q4:'🟣 Q4'};
+  const subs={q1:'Ene–Mar',q2:'Abr–Jun',q3:'Jul–Sep',q4:'Oct–Dic'};
+  let html='';
+  ['q1','q2','q3','q4'].forEach(q=>{html+=`<div class="proc-counter-q"><div class="proc-counter-n">${Q_COUNTS[q]}</div><div class="proc-counter-label">${labels[q]}</div><div class="proc-counter-sub">${subs[q]}</div></div>`;});
+  document.getElementById(innerId).innerHTML=html;
+}
+
+function buildModal(){
+  const groups={};PROC_2025.forEach(p=>{if(!groups[p[1]])groups[p[1]]=[];groups[p[1]].push(p);});
+  let html='';
+  Object.entries(groups).forEach(([mp,procs])=>{
+    const m=MP[mp]||{ico:'🔹',name:mp};
+    html+=`<div class="modal-mp-group"><div class="modal-mp-head" onclick="this.classList.toggle('open')"><span class="modal-mp-ico">${m.ico}</span><span class="modal-mp-code">${mp}</span><span class="modal-mp-name">${m.name}</span><span class="modal-mp-badge">${procs.length}</span><span class="modal-mp-arrow">▾</span></div><div class="modal-mp-body">`;
+    procs.forEach(p=>{html+=`<div class="modal-proc-row"><span class="modal-dot"></span><div><div>${p[2]}</div><div class="modal-proc-meta">👤 ${p[3]} · Enc: ${p[4]} <span class="chip-2025">✓ 2025</span></div></div></div>`;});
+    html+=`</div></div>`;
+  });
+  document.getElementById('modal-body').innerHTML=html;
+}
+function openModal(){document.getElementById('modal-overlay').classList.add('open');if(!document.getElementById('modal-body').innerHTML)buildModal();}
+function closeModal(){document.getElementById('modal-overlay').classList.remove('open');}
+
+const tt=document.getElementById('tt');
+const ttId=document.getElementById('tt-id'),ttName=document.getElementById('tt-name'),ttDesc=document.getElementById('tt-desc');
+const ttTeam=document.getElementById('tt-team'),ttTeamTitle=document.getElementById('tt-team-title'),ttTeamNames=document.getElementById('tt-team-names');
+const ttLeft=document.getElementById('tt-left'),ttRight=document.getElementById('tt-right');
+function attachTip(el){
+  const id=el.dataset.id,type=el.dataset.type;if(!id||!type||!DATA[type]||!DATA[type][id])return;
+  el.removeEventListener('mouseenter',el._tt);
+  el._tt=e=>{const d=DATA[type][id];tt.className=type==='risk'?'risk-tt':type==='op'?'op-tt':type==='proc'?'proc-tt':type==='cap'?'cap-tt':'plat-tt';ttId.textContent=id;ttName.textContent=d.name;ttDesc.textContent=d.desc||'';ttLeft.textContent=d.left;ttRight.textContent=d.right;if(d.team){ttTeam.style.display='block';ttTeamTitle.textContent=d.team.title;ttTeamNames.textContent=d.team.names;}else{ttTeam.style.display='none';}tt.style.display='block';pos(e);};
+  el.addEventListener('mouseenter',el._tt);el.addEventListener('mousemove',pos);el.addEventListener('mouseleave',()=>tt.style.display='none');
+}
+function pos(e){const x=e.clientX+14,y=e.clientY+14,tw=265,ww=window.innerWidth,th=tt.offsetHeight||200,wh=window.innerHeight;tt.style.left=(x+tw>ww?x-tw-28:x)+'px';tt.style.top=(y+th>wh?y-th-20:y)+'px';}
+document.querySelectorAll('.has-tip,.irow.tip').forEach(attachTip);
+
+function filterPlat(cat,btn){
+  document.querySelectorAll('.plat-filter .pfbtn').forEach(b=>b.classList.remove('pf-act'));btn.classList.add('pf-act');
+  document.querySelectorAll('[data-cat]').forEach(el=>{if(cat==='todos')el.classList.remove('hidden');else el.classList.toggle('hidden',el.dataset.cat!==cat);});
+  const bar=document.getElementById('proc-counter-bar');
+  const autBar=document.getElementById('aut-progress-bar');
+  if(cat==='proceso'){renderProgressBar('grid');renderCounterBar('proc-counter-inner');bar.classList.add('visible');autBar.classList.remove('visible');}
+  else if(cat==='aut'){renderAutProgressBar('grid');autBar.classList.add('visible');bar.classList.remove('visible');}
+  else{bar.classList.remove('visible');autBar.classList.remove('visible');}
+}
+function filterPlatCard(cat,btn){
+  btn.closest('div').querySelectorAll('.pfbtn').forEach(b=>b.classList.remove('pf-act'));btn.classList.add('pf-act');
+  const card=btn.closest('.pilar-card');
+  card.querySelectorAll('[data-cat],.pfc-aut,.pfc-proceso,.isep').forEach(el=>{
+    if(cat==='todos'){el.classList.remove('hidden');return;}
+    const c=el.dataset.cat||(el.classList.contains('pfc-aut')?'aut':el.classList.contains('pfc-proceso')?'proceso':null);
+    if(el.classList.contains('isep')){el.classList.toggle('hidden',c!==cat);return;}
+    if(c)el.classList.toggle('hidden',c!==cat);
+  });
+  const bar=document.getElementById('proc-counter-bar-card');
+  const autBar=document.getElementById('aut-progress-bar-card');
+  if(cat==='proceso'){renderProgressBar('card');renderCounterBar('proc-counter-inner-card');bar.classList.add('visible');autBar.classList.remove('visible');}
+  else if(cat==='aut'){renderAutProgressBar('card');autBar.classList.add('visible');bar.classList.remove('visible');}
+  else{bar.classList.remove('visible');autBar.classList.remove('visible');}
+}
+function setView(v,btn){
+  document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('act'));btn.classList.add('act');
+  document.getElementById('view-grid').style.display=v==='grid'?'block':'none';
+  document.getElementById('view-cards').style.display=v==='cards'?'block':'none';
+}
+function openModalPrio(){
+  document.getElementById('modal-prio-overlay').classList.add('open');
+  buildPrioList();
+}
+function closeModalPrio(){document.getElementById('modal-prio-overlay').classList.remove('open');}
+
+function buildPrioList(){
+  const el = document.getElementById('prio-list');
+  if(el.innerHTML) return;
+  const auts = [
+    {p:'P·A',pc:'#b91c1c',pbg:'#fef2f2',name:'Ventas Habitacionales',area:'Comercial · MP07',tipo:'Agente',q:'Q2'},
+    {p:'P·A',pc:'#b91c1c',pbg:'#fef2f2',name:'Tramitología Institucional',area:'Área Técnica · MP06',tipo:'Agente',q:'Q2'},
+    {p:'P·A',pc:'#b91c1c',pbg:'#fef2f2',name:'Residente de Proyectos',area:'Área Técnica · MP06',tipo:'Agente',q:'Q2→Q3'},
+    {p:'P·A',pc:'#b91c1c',pbg:'#fef2f2',name:'Reclutamiento',area:'Talento Humano · MP09',tipo:'Agente',q:'Q1'},
+    {p:'P·A',pc:'#b91c1c',pbg:'#fef2f2',name:'Comunicación Interna',area:'Talento Humano · MP09',tipo:'Agente',q:'Q1'},
+    {p:'P·A',pc:'#b91c1c',pbg:'#fef2f2',name:'Descriptores de Puesto',area:'Talento Humano · MP09',tipo:'Agente',q:'Q1'},
+    {p:'P·A',pc:'#b91c1c',pbg:'#fef2f2',name:'Soporte de Tecnología',area:'Tecnología · MP08',tipo:'Agente',q:'Q2'},
+    {p:'P·B',pc:'#d97706',pbg:'#fffbeb',name:'Cartas de Incremento',area:'Finanzas · MP05',tipo:'Flujo',q:'Q2'},
+    {p:'P·B',pc:'#d97706',pbg:'#fffbeb',name:'Consultas de Pagos',area:'Finanzas · MP05',tipo:'Flujo',q:'Q2'},
+    {p:'P·B',pc:'#d97706',pbg:'#fffbeb',name:'Planes de Desarrollo',area:'Talento Humano · MP09',tipo:'Agente',q:'Q2'},
+    {p:'P·B',pc:'#d97706',pbg:'#fffbeb',name:'Seguimiento Renovaciones',area:'Activos Rentistas · MP06',tipo:'Flujo',q:'Q3'},
+    {p:'P·B',pc:'#d97706',pbg:'#fffbeb',name:'Resguardo de Facturas',area:'Área Técnica · MP05',tipo:'Flujo',q:'Q3'},
+    {p:'P·C',pc:'#374151',pbg:'#f3f4f6',name:'Mesa de Ayuda IT',area:'Tecnología · MP08',tipo:'Flujo',q:'Q1'},
+    {p:'P·C',pc:'#374151',pbg:'#f3f4f6',name:'Cierre Contable Mensual',area:'Finanzas · MP08',tipo:'Flujo',q:'Q1'},
+    {p:'P·C',pc:'#374151',pbg:'#f3f4f6',name:'Solicitud de Mensajería',area:'Finanzas · MP08',tipo:'Flujo',q:'Q4'},
+    {p:'P·C',pc:'#374151',pbg:'#f3f4f6',name:'Gestión de Procesos',area:'Nuevos Negocios · MP04',tipo:'Agente',q:'Q2'},
+    {p:'P·C',pc:'#374151',pbg:'#f3f4f6',name:'Mesa de Ayuda Comunicaciones',area:'Comercial · MP07',tipo:'Agente',q:'Q3'},
+    {p:'P·C',pc:'#374151',pbg:'#f3f4f6',name:'Formulario Tarjetas Crédito',area:'Nuevos Negocios · MP08',tipo:'Flujo',q:'Q1'},
+    {p:'P·C',pc:'#374151',pbg:'#f3f4f6',name:'Flujo de Adquisiciones',area:'Área Técnica · MP08',tipo:'Flujo',q:'Q4'},
+  ];
+  const tipo_colors = {Agente:'#dbeafe|#0d5e80', Flujo:'#dcfce7|#15803d'};
+  el.innerHTML = auts.map(a => {
+    const [tbg,tc] = tipo_colors[a.tipo].split('|');
+    return `<div style="display:flex;align-items:center;gap:7px;padding:5px 8px;border-radius:6px;background:${a.pbg};border-left:3px solid ${a.pc};margin-bottom:4px">
+      <span style="font-family:var(--fh);font-size:9px;font-weight:800;color:${a.pc};min-width:28px">${a.p}</span>
+      <div style="flex:1">
+        <div style="font-size:11px;font-weight:700;color:#111827">${a.name}</div>
+        <div style="font-size:9.5px;color:#6b7280">${a.area}</div>
+      </div>
+      <span style="font-size:8.5px;font-weight:700;padding:2px 7px;border-radius:8px;background:${tbg};color:${tc}">${a.tipo}</span>
+      <span style="font-size:9px;color:#9ca3af;min-width:28px;text-align:right">${a.q}</span>
+    </div>`;
+  }).join('');
+}
+renderProcBars();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════
+     ROADMAPS POR PILAR
+═══════════════════════════════════════════════════════ -->
+<style>
+.pilars-section-title{font-family:var(--fh);font-size:clamp(16px,2vw,22px);font-weight:800;letter-spacing:-.02em;margin:40px 0 6px;padding-top:32px;border-top:2px solid var(--border)}
+.pilars-section-title em{font-style:normal;color:var(--cap)}
+.pilars-section-sub{font-size:12px;color:var(--muted);margin-bottom:24px}
+/* PILAR DETAIL CARD */
+.pd-card{margin-bottom:32px;border-radius:14px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,0.08);border:1px solid var(--border)}
+.pd-head{display:flex;align-items:center;gap:12px;padding:14px 20px;cursor:pointer;user-select:none;transition:filter .15s}
+.pd-head:hover{filter:brightness(.97)}
+.pd-head-ico{font-size:22px;flex-shrink:0}
+.pd-head-title{font-family:var(--fh);font-size:15px;font-weight:800;line-height:1.2}
+.pd-head-tag{font-size:10px;color:var(--muted);margin-top:2px}
+.pd-head-arrow{margin-left:auto;font-size:13px;color:rgba(255,255,255,0.6);transition:transform .25s}
+.pd-head.open .pd-head-arrow{transform:rotate(180deg)}
+.pd-body{display:none;background:var(--surface)}
+.pd-head.open+.pd-body{display:block}
+/* colors per pilar */
+.pd-op .pd-head{background:linear-gradient(135deg,#1a6e40,#2d9c5e);color:#fff}
+.pd-inn .pd-head{background:linear-gradient(135deg,#0d5e80,#1a8ab5);color:#fff}
+.pd-plat .pd-head{background:linear-gradient(135deg,#3d5e10,#6a9e1f);color:#fff}
+.pd-risk .pd-head{background:linear-gradient(135deg,#4a1e7a,#7b3cbf);color:#fff}
+.pd-cap .pd-head{background:linear-gradient(135deg,#7a3d00,#b85e00);color:#fff}
+/* MINI TIMELINE */
+.pd-timeline{padding:18px 20px 0;border-bottom:1px solid var(--border)}
+.pd-tl-title{font-family:var(--fh);font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.pd-tl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:16px}
+.pd-tl-q{border-radius:8px;padding:10px 12px;border:1px solid var(--border)}
+.pd-tl-q.now{border-color:rgba(224,123,0,0.4);background:rgba(224,123,0,0.04)}
+.pd-tl-qlbl{font-family:var(--fh);font-size:8.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid var(--border);color:var(--muted)}
+.pd-tl-q.now .pd-tl-qlbl{color:var(--cap)}
+.pd-tl-item{display:flex;align-items:flex-start;gap:5px;font-size:10px;line-height:1.4;margin-bottom:4px;color:var(--text);cursor:default}
+.pd-tl-item:last-child{margin-bottom:0}
+.pd-tl-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.pd-tl-item.done .pd-tl-dot{background:#3ec87a}.pd-tl-item.inprog .pd-tl-dot{background:#2eb8e6}.pd-tl-item.next .pd-tl-dot{background:rgba(141,198,63,0.6)}.pd-tl-item.future .pd-tl-dot{background:#d1d5db}.pd-tl-item.blocked .pd-tl-dot{background:#ef4444}
+/* THREE CARDS */
+.pd-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.pd-info-card{padding:18px 20px;border-right:1px solid var(--border)}
+.pd-info-card:last-child{border-right:none}
+.pd-info-head{display:flex;align-items:center;gap:7px;margin-bottom:12px}
+.pd-info-ico{font-size:16px}
+.pd-info-title{font-family:var(--fh);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.pd-info-title.done-t{color:#1a7a45}.pd-info-title.next-t{color:#0d5e80}.pd-info-title.need-t{color:#4a1e7a}
+.pd-item{display:flex;align-items:flex-start;gap:7px;margin-bottom:7px;font-size:11px;line-height:1.45;color:var(--text)}
+.pd-item:last-child{margin-bottom:0}
+.pd-item-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.pd-item-dot.done-d{background:#3ec87a}.pd-item-dot.next-d{background:#2eb8e6}.pd-item-dot.need-d{background:#9b59d0}
+.pd-item-txt{flex:1}
+.pd-item-txt strong{display:block;font-weight:600;color:var(--text)}
+.pd-item-txt span{font-size:10px;color:var(--muted);line-height:1.4}
+@media(max-width:680px){.pd-cards{grid-template-columns:1fr}.pd-info-card{border-right:none;border-bottom:1px solid var(--border)}.pd-info-card:last-child{border-bottom:none}.pd-tl-grid{grid-template-columns:1fr 1fr}}
+</style>
+
+<div style="padding:0 0 40px">
+  <div class="pilars-section-title">Detalle por <em>Pilar</em></div>
+  <p class="pilars-section-sub">Progreso individual · próximos pasos · y qué necesitamos de los líderes para avanzar</p>
+
+  <!-- ─── PILAR 1: OPERACIONES ─────────────────────────── -->
+  <div class="pd-card pd-op">
+    <div class="pd-head" onclick="this.classList.toggle('open')">
+      <span class="pd-head-ico">⚙️</span>
+      <div><div class="pd-head-title">Operaciones y Continuidad</div><div class="pd-head-tag">Pilar 1 · Operacional · 7 proyectos</div></div>
+      <span class="pd-head-arrow">▾</span>
+    </div>
+    <div class="pd-body">
+      <div class="pd-timeline">
+        <div class="pd-tl-title">🗓️ Cronograma del Pilar</div>
+        <div class="pd-tl-grid">
+          <div class="pd-tl-q now">
+            <div class="pd-tl-qlbl">🟠 Q1 — En Curso</div>
+            <div class="pd-tl-item done"><div class="pd-tl-dot"></div>Seguridad y saneamiento de red ✓</div>
+            <div class="pd-tl-item done"><div class="pd-tl-dot"></div>Backups corporativos 9.05 TB ✓</div>
+            <div class="pd-tl-item done"><div class="pd-tl-dot"></div>Renovación impresoras Ricoh ✓</div>
+            <div class="pd-tl-item inprog"><div class="pd-tl-dot"></div>Reordenamiento de equipos →</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🔵 Q2</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Nueva infraestructura de internet</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Optimización salas de reuniones</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Cierre del reordenamiento</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Backup mensual (recurrente)</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🟢 Q3</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Mantenimiento preventivo de equipos</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Backup mensual (recurrente)</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🟣 Q4</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Mantenimiento correctivo de equipos</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Backup mensual (recurrente)</div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-cards">
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">✅</span><div class="pd-info-title done-t">Lo que ya finalizamos</div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>Seguridad y saneamiento de red</strong><span>Revisión completa de infraestructura, accesos y firmware.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>Backups corporativos 9.05 TB</strong><span>Resguardo activo de servidores, SharePoint y sistemas críticos.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>Renovación impresoras Ricoh</strong><span>Sustitución con gestión centralizada y menor costo operativo.</span></div></div>
+        </div>
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">🔜</span><div class="pd-info-title next-t">Próximos pasos — Q2</div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>Nueva infraestructura de internet</strong><span>Mayor ancho de banda y redundancia para videoconferencias y cloud.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>Optimización salas de reuniones</strong><span>Pantallas, cámaras y micrófonos para reuniones híbridas con Teams.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>Cierre del reordenamiento</strong><span>Inventario final y baja oficial de equipos obsoletos.</span></div></div>
+        </div>
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">🤝</span><div class="pd-info-title need-t">Necesitamos de los líderes</div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Aprobación del presupuesto de internet</strong><span>Definir proveedor y monto a invertir para nueva infraestructura.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Identificar salas prioritarias</strong><span>Indicar qué salas deben equiparse primero según uso gerencial.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Autorizar baja de equipos</strong><span>Firmar listado de equipos a retirar del inventario activo.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── PILAR 2: INNOVACIÓN ──────────────────────────── -->
+  <div class="pd-card pd-inn">
+    <div class="pd-head" onclick="this.classList.toggle('open')">
+      <span class="pd-head-ico">🚀</span>
+      <div><div class="pd-head-title">Innovación y Experiencia Digital</div><div class="pd-head-tag">Pilar 2 · Estratégico · 4 proyectos</div></div>
+      <span class="pd-head-arrow">▾</span>
+    </div>
+    <div class="pd-body">
+      <div class="pd-timeline">
+        <div class="pd-tl-title">🗓️ Cronograma del Pilar</div>
+        <div class="pd-tl-grid">
+          <div class="pd-tl-q now">
+            <div class="pd-tl-qlbl">🟠 Q1 — En Curso</div>
+            <div class="pd-tl-item done"><div class="pd-tl-dot"></div>Sitio SharePoint Socios ✓</div>
+            <div class="pd-tl-item done"><div class="pd-tl-dot"></div>Mesa de Ayuda Tecnología ✓</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🔵 Q2</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Inicio Azure Cloud + AI</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🟢 Q3</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Continuación Azure Cloud + AI</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🟣 Q4</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Cierre Azure + Copilot Studio</div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-cards">
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">✅</span><div class="pd-info-title done-t">Lo que ya finalizamos</div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>Sitio SharePoint Socios</strong><span>Portal de información y documentación para socios activo.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>Mesa de Ayuda Tecnología</strong><span>Sistema de tickets operativo y visible para todos los colaboradores.</span></div></div>
+        </div>
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">🔜</span><div class="pd-info-title next-t">Próximos pasos — Q2</div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>Arranque de Azure Cloud + AI</strong><span>Configuración del entorno, licenciamiento y primeros servicios cloud.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>Definición de casos de uso de IA</strong><span>Priorizar con la organización qué procesos se potenciarán con IA primero.</span></div></div>
+        </div>
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">🤝</span><div class="pd-info-title need-t">Necesitamos de los líderes</div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Aprobación del presupuesto Azure</strong><span>Definir el tier de licenciamiento y servicios cloud a contratar.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Asignar un sponsor ejecutivo</strong><span>La migración cloud requiere un líder que respalde decisiones de adopción.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Validar casos de uso de IA por área</strong><span>Cada líder debe identificar al menos 1 proceso que quiera automatizar o potenciar con IA.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── PILAR 3: PLATAFORMAS ─────────────────────────── -->
+  <div class="pd-card pd-plat">
+    <div class="pd-head" onclick="this.classList.toggle('open')">
+      <span class="pd-head-ico">🔗</span>
+      <div><div class="pd-head-title">Plataformas y Procesos Internos</div><div class="pd-head-tag">Pilar 3 · Operacional · 20 automatizaciones · 69 procesos</div></div>
+      <span class="pd-head-arrow">▾</span>
+    </div>
+    <div class="pd-body">
+
+      <!-- ── SUBSECCIÓN A: PROCESOS DE NEGOCIO ─────────── -->
+      <div style="padding:16px 20px 0">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <div style="width:3px;height:22px;background:#9b59d0;border-radius:2px;flex-shrink:0"></div>
+          <div>
+            <div style="font-family:var(--fh);font-size:12px;font-weight:800;color:#4a1e7a">📋 Procesos de Negocio</div>
+            <div style="font-size:10px;color:var(--muted)">69 procesos · 10 macroprocesos · Levantamiento durante todo el año</div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-timeline" style="padding-top:0">
+        <div class="pd-tl-title">🗓️ Cronograma — Procesos</div>
+        <div class="pd-tl-grid">
+          <div class="pd-tl-q now">
+            <div class="pd-tl-qlbl">🟠 Q1 — 11 procesos</div>
+            <div class="pd-tl-item done"><div class="pd-tl-dot"></div>MP08 Gestión de Cobros ✓</div>
+            <div class="pd-tl-item done"><div class="pd-tl-dot"></div>MP09 Onboarding e Integración ✓</div>
+            <div class="pd-tl-item done"><div class="pd-tl-dot"></div>MP09 Atracción y Reclutamiento ✓</div>
+            <div class="pd-tl-item done"><div class="pd-tl-dot"></div>MP10 Conocimiento documentado ✓</div>
+            <div class="pd-tl-item done"><div class="pd-tl-dot"></div>MP10 Indicadores de desempeño ✓</div>
+            <div class="pd-tl-item inprog"><div class="pd-tl-dot"></div>MP08 Gestión financiera →</div>
+            <div class="pd-tl-item inprog"><div class="pd-tl-dot"></div>MP04 Investigación de mercado →</div>
+            <div class="pd-tl-item inprog"><div class="pd-tl-dot"></div>MP07 Preventa →</div>
+            <div class="pd-tl-item inprog"><div class="pd-tl-dot"></div>MP06 Supervisión técnica →</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🔵 Q2 — 29 procesos</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP01 Planificación Estratégica</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP02 Sostenibilidad (ESG)</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP04 Desarrollo de producto</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP05 Estructuración financiera</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP06 Proyectos (7 procesos)</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP07 Experiencia cliente (6)</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP08 Eficiencia operativa (4)</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP09 Talento Humano (5)</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🟢 Q3 — 20 procesos</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP03 Cultura organizacional</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP04 Desarrollo de marca</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP06 Adquisiciones y pipeline</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP07 Prospección y cliente</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP08 Operativos (8 procesos)</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP10 Mejora continua</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🟣 Q4 — 9 procesos</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP01 Planificación 2027</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP03 Diseño organizacional</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP06 Monitoreo de proyecto</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP07 Evaluación final</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>MP08 Seguimiento proveedores</div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-cards">
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">✅</span><div class="pd-info-title done-t">Lo que ya finalizamos</div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>Mapa completo de 69 procesos</strong><span>Identificados, numerados y distribuidos trimestralmente con responsable por macroproceso.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>11 procesos levantados en Q1</strong><span>MP08, MP09, MP10, MP04, MP06, MP07 documentados con responsable y encargado.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>Priorización de procesos completada</strong><span>Orden de levantamiento definido por impacto estratégico y dependencias.</span></div></div>
+        </div>
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">🔜</span><div class="pd-info-title next-t">Próximos pasos — Q2</div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>29 procesos a documentar</strong><span>El trimestre más intenso: incluye MP05, MP06, MP07, MP08 y MP09 con múltiples responsables.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>Sesiones de levantamiento por área</strong><span>Coordinación con responsables de MP06 Carlos Flores, MP07 Hector Delgado y MP09 Cecilia de Jovel.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>Validación y firma de procesos Q1</strong><span>Revisión formal de los 11 procesos levantados para cerrar el ciclo de Q1.</span></div></div>
+        </div>
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">🤝</span><div class="pd-info-title need-t">Necesitamos de los líderes</div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Disponibilidad para sesiones de documentación</strong><span>Cada responsable de macroproceso debe reservar sesiones de 1–2 horas durante abril y mayo.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Revisar y validar los procesos levantados</strong><span>El proceso documentado debe ser aprobado por el responsable antes de cerrarse oficialmente.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Designar encargados de levantamiento Q2</strong><span>Confirmar quiénes acompañarán a Brenda Argueta y Edwin Torres en las sesiones.</span></div></div>
+        </div>
+      </div>
+
+      <!-- SEPARADOR -->
+      <div style="border-top:2px dashed rgba(141,198,63,0.25);margin:0 20px"></div>
+
+      <!-- ── SUBSECCIÓN B: AUTOMATIZACIONES Y AGENTES ──── -->
+      <div style="padding:16px 20px 0">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <div style="width:3px;height:22px;background:#2eb8e6;border-radius:2px;flex-shrink:0"></div>
+          <div>
+            <div style="font-family:var(--fh);font-size:12px;font-weight:800;color:#0d5e80">⚡ Automatizaciones, Flujos y Agentes</div>
+            <div style="font-size:10px;color:var(--muted)">20 automatizaciones · 12 agentes Copilot Studio · 8 flujos Power Automate</div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-timeline" style="padding-top:0">
+        <div class="pd-tl-title">🗓️ Cronograma — Automatizaciones</div>
+        <div class="pd-tl-grid">
+          <div class="pd-tl-q now">
+            <div class="pd-tl-qlbl">🟠 Q1 — 6 activas</div>
+            <div class="pd-tl-item done"><div class="pd-tl-dot"></div>Solicitud de Mensajería ✓ (2025)</div>
+            <div class="pd-tl-item inprog"><div class="pd-tl-dot"></div>Mesa de Ayuda IT →</div>
+            <div class="pd-tl-item inprog"><div class="pd-tl-dot"></div>Formulario Tarjetas de Crédito →</div>
+            <div class="pd-tl-item inprog"><div class="pd-tl-dot"></div>Cierre Contable Mensual →</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Reclutamiento</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Comunicación Interna</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Descriptores de Puesto</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🔵 Q2 — 8 nuevas</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Cartas de Incremento</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Consultas de Pagos Realizados</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Planes de Desarrollo</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Gestión de Procesos</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Soporte de Tecnología</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Ventas Habitacionales</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Tramitología Institucional</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Residente de Proyectos</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🟢 Q3 — 5 nuevas</div>
+            <div class="pd-tl-item blocked"><div class="pd-tl-dot"></div>Gestión de RRHH ⛔ bloqueado</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Seguimiento Renovaciones Contractuales</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Mesa de Ayuda Comunicaciones</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Residente de Proyectos (fase 2)</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Resguardo de Facturas de Proveedores</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🟣 Q4 — 2 nuevas</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Flujo de Adquisiciones</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Buffer: emergentes</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Mantenimiento flujos activos</div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-cards" style="border-top:1px solid var(--border)">
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">✅</span><div class="pd-info-title done-t">Lo que ya finalizamos</div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>Solicitud de Mensajería — completada Nov 2025</strong><span>Flujo en producción desde noviembre 2025.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>Mesa Ayuda IT · Tarjetas · Cierre Contable en monitoreo</strong><span>3 flujos corriendo y siendo validados activamente.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>Priorización de las 20 automatizaciones</strong><span>Roadmap de desarrollo definido con prioridades A, B y C para el año.</span></div></div>
+        </div>
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">🔜</span><div class="pd-info-title next-t">Próximos pasos — Q2</div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>Reclutamiento · Comunicación Interna · Descriptores — Cierre Marzo</strong><span>3 agentes listos para activarse antes de cerrar Q1.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>8 automatizaciones nuevas en Q2</strong><span>Incluye el Chatbot de Ventas Habitacionales (AUT-017) y Agente de Tramitología (AUT-019), ambos prioritarios.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>Integración Planner y Dataverse</strong><span>Avance del Agente Residente de Proyectos (AUT-020) con conexión a herramientas de gestión.</span></div></div>
+        </div>
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">🤝</span><div class="pd-info-title need-t">Necesitamos de los líderes</div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Validar y aprobar flujos antes de publicar</strong><span>Cada automatización debe ser revisada por el líder del área antes de ponerse en producción.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Promover adopción activa con sus equipos</strong><span>Los agentes solo generan valor si los colaboradores los usan. El ejemplo viene del líder.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Desbloquear Gestión de RRHH</strong><span>Talento Humano debe definir el alcance y los accesos necesarios para desbloquearlo en Q3.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Proporcionar datos y accesos para los agentes</strong><span>Tramitología Institucional y Residente de Proyectos requieren acceso a fuentes de datos específicas por área.</span></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─── PILAR 4: RIESGO Y GOBERNANZA ─────────────────── -->
+  <div class="pd-card pd-risk">
+    <div class="pd-head" onclick="this.classList.toggle('open')">
+      <span class="pd-head-ico">🛡️</span>
+      <div><div class="pd-head-title">Riesgo y Gobernanza</div><div class="pd-head-tag">Pilar 4 · Estratégico · 9 iniciativas</div></div>
+      <span class="pd-head-arrow">▾</span>
+    </div>
+    <div class="pd-body">
+      <div class="pd-timeline">
+        <div class="pd-tl-title">🗓️ Cronograma del Pilar</div>
+        <div class="pd-tl-grid">
+          <div class="pd-tl-q now">
+            <div class="pd-tl-qlbl">🟠 Q1 — En Curso</div>
+            <div class="pd-tl-item inprog"><div class="pd-tl-dot"></div>Políticas de Impresoras →</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🔵 Q2 — 5 iniciativas</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Gobernanza Microsoft 365</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Gobernanza ERP</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Adquisición de Proveedores</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Gestión de Contraseñas 🆕</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>SLA IT Internos 🆕</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🟢 Q3 — 3 iniciativas</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Estrategia Ciberseguridad</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Retención y Eliminación de Datos</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Gobierno de Datos ERP</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🟣 Q4 — Cierre</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Consolidación Gobernanza</div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-cards">
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">✅</span><div class="pd-info-title done-t">Lo que ya finalizamos</div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>Políticas de Impresoras (en proceso)</strong><span>Cuotas por usuario, impresión B&N por defecto y reportes de consumo definidos.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>Levantamiento de brechas de gobernanza</strong><span>Identificadas las áreas críticas: M365, ERP, contraseñas, datos y proveedores.</span></div></div>
+        </div>
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">🔜</span><div class="pd-info-title next-t">Próximos pasos — Q2</div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>Gobernanza Microsoft 365 y ERP</strong><span>Definir roles, permisos y políticas de acceso corporativo.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>Política de contraseñas e identidades</strong><span>Implementar MFA y protocolo de revocación al cese de colaboradores.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>SLA de TI Internos</strong><span>Definir tiempos de respuesta: Crítico 2h, Normal 8h, Solicitud 48h.</span></div></div>
+        </div>
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">🤝</span><div class="pd-info-title need-t">Necesitamos de los líderes</div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Validar y firmar las políticas</strong><span>Cada política requiere aprobación formal de la dirección para entrar en vigor.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Comunicar a sus equipos</strong><span>Los líderes deben reforzar el cumplimiento de las nuevas políticas con sus áreas.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Identificar dueños de datos por módulo ERP</strong><span>Cada área debe designar un responsable de la calidad de sus datos en el sistema.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── PILAR 5: CAPACITACIONES ──────────────────────── -->
+  <div class="pd-card pd-cap">
+    <div class="pd-head" onclick="this.classList.toggle('open')">
+      <span class="pd-head-ico">📚</span>
+      <div><div class="pd-head-title">Capacitaciones Digitales</div><div class="pd-head-tag">Pilar 5 · Transversal · 9 capacitaciones</div></div>
+      <span class="pd-head-arrow">▾</span>
+    </div>
+    <div class="pd-body">
+      <div class="pd-timeline">
+        <div class="pd-tl-title">🗓️ Cronograma del Pilar</div>
+        <div class="pd-tl-grid">
+          <div class="pd-tl-q now">
+            <div class="pd-tl-qlbl">🟠 Q1 — Completado</div>
+            <div class="pd-tl-item done"><div class="pd-tl-dot"></div>SharePoint Básico ✓</div>
+            <div class="pd-tl-item done"><div class="pd-tl-dot"></div>Teams y OneDrive ✓</div>
+            <div class="pd-tl-item done"><div class="pd-tl-dot"></div>Uso de Mesa de Ayuda ✓</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🔵 Q2</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Outlook Productivo</div>
+            <div class="pd-tl-item next"><div class="pd-tl-dot"></div>Ciberseguridad para Colaboradores</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🟢 Q3</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Microsoft Planner</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Tipos y Usos de IA</div>
+          </div>
+          <div class="pd-tl-q">
+            <div class="pd-tl-qlbl">🟣 Q4</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Prompting Efectivo</div>
+            <div class="pd-tl-item future"><div class="pd-tl-dot"></div>Copilot en Office 365</div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-cards">
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">✅</span><div class="pd-info-title done-t">Lo que ya finalizamos</div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>SharePoint Básico</strong><span>Colaboradores ya saben centralizar y compartir documentos correctamente.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>Teams y OneDrive</strong><span>Comunicación y respaldo de archivos en la nube adoptados.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot done-d"></div><div class="pd-item-txt"><strong>Uso de Mesa de Ayuda</strong><span>Los colaboradores ya saben cómo registrar incidencias correctamente.</span></div></div>
+        </div>
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">🔜</span><div class="pd-info-title next-t">Próximos pasos — Q2</div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>Outlook Productivo</strong><span>Reglas, calendarios compartidos y organización de bandeja para ganar eficiencia diaria.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot next-d"></div><div class="pd-item-txt"><strong>Ciberseguridad para Colaboradores</strong><span>Phishing, contraseñas seguras y buenas prácticas digitales — toda la organización.</span></div></div>
+        </div>
+        <div class="pd-info-card">
+          <div class="pd-info-head"><span class="pd-info-ico">🤝</span><div class="pd-info-title need-t">Necesitamos de los líderes</div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Liberar tiempo de sus equipos</strong><span>Cada capacitación requiere 1–2 horas del colaborador. Los líderes deben facilitar ese espacio.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Reforzar el uso de herramientas</strong><span>La capacitación pierde impacto si el líder no exige y modela el uso de las herramientas en el día a día.</span></div></div>
+          <div class="pd-item"><div class="pd-item-dot need-d"></div><div class="pd-item-txt"><strong>Participar en las capacitaciones de IA</strong><span>En Q3 y Q4 las capacitaciones de IA y Copilot son estratégicas. Se recomienda asistencia de líderes como ejemplo de adopción.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- MODAL PRIORIZACIÓN -->
+<div class="modal-overlay" id="modal-prio-overlay" onclick="if(event.target===this)closeModalPrio()">
+  <div class="modal" style="max-width:900px">
+    <div class="modal-head">
+      <div class="modal-title" style="color:#0d5e80">🎯 Criterios de Priorización — Proyectos de IA y Automatizaciones</div>
+      <button class="modal-close" onclick="closeModalPrio()">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- Banner principio rector -->
+      <div style="background:#0d5e80;border-radius:8px;padding:10px 16px;margin-bottom:14px">
+        <div style="font-family:var(--fh);font-size:9px;font-weight:800;letter-spacing:1.5px;color:rgba(255,255,255,0.6);margin-bottom:3px">PRINCIPIO RECTOR</div>
+        <div style="font-size:12px;color:white;font-weight:600;line-height:1.5">Los procesos misionales generan el resultado de negocio directo — automatizarlos primero multiplica el impacto estratégico de la organización</div>
+      </div>
+
+      <!-- Tres columnas: Naturaleza | Criterio | Automatizaciones -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:12px;margin-bottom:14px">
+
+        <!-- Col 1: Naturaleza -->
+        <div>
+          <div style="font-family:var(--fh);font-size:9px;font-weight:800;letter-spacing:.8px;color:var(--muted);margin-bottom:8px">NATURALEZA DE PROCESOS</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="border-radius:8px;padding:10px 12px;background:#faf5ff;border:1.5px solid #9b59d0">
+              <div style="font-family:var(--fh);font-size:11px;font-weight:800;color:#9b59d0">⚙️ ESTRATÉGICO</div>
+              <div style="font-size:10px;color:#374151;margin-top:3px">Planificación · Cultura · Sostenibilidad</div>
+              <div style="font-size:9px;color:#9ca3af;margin-top:2px">MP01 · MP02 · MP03</div>
+            </div>
+            <div style="border-radius:8px;padding:10px 12px;background:#eff6ff;border:2.5px solid #2eb8e6;box-shadow:0 0 0 3px rgba(46,184,230,0.1)">
+              <div style="font-family:var(--fh);font-size:11px;font-weight:800;color:#2eb8e6">⭐ MISIONAL <span style="font-size:9px;background:#2eb8e6;color:white;padding:1px 6px;border-radius:8px;font-weight:700">PRIORIDAD</span></div>
+              <div style="font-size:10px;color:#374151;margin-top:3px">Mercado · Finanzas · Proyectos · Cliente</div>
+              <div style="font-size:9px;color:#9ca3af;margin-top:2px">MP04 · MP05 · MP06 · MP07</div>
+              <div style="font-size:10px;color:#0d5e80;font-weight:600;margin-top:4px">Generan el resultado de negocio directo</div>
+            </div>
+            <div style="border-radius:8px;padding:10px 12px;background:#f0fdf4;border:1.5px solid #3ec87a">
+              <div style="font-family:var(--fh);font-size:11px;font-weight:800;color:#3ec87a">🔧 APOYO</div>
+              <div style="font-size:10px;color:#374151;margin-top:3px">Operaciones · Talento · Desempeño</div>
+              <div style="font-size:9px;color:#9ca3af;margin-top:2px">MP08 · MP09 · MP10</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Criterio y escala -->
+        <div>
+          <div style="font-family:var(--fh);font-size:9px;font-weight:800;letter-spacing:.8px;color:var(--muted);margin-bottom:8px">CRITERIO DE DECISIÓN</div>
+          <div style="border-radius:8px;padding:12px;background:#fff8f0;border:2px solid #e07b00;text-align:center;margin-bottom:10px">
+            <div style="font-size:18px;margin-bottom:4px">🎯</div>
+            <div style="font-family:var(--fh);font-size:12px;font-weight:800;color:#e07b00">¿Conecta con un proceso<br>misional?</div>
+          </div>
+          <div style="display:flex;gap:8px;margin-bottom:10px">
+            <div style="flex:1;background:#f0fdf4;border:1.5px solid #3ec87a;border-radius:8px;padding:8px;text-align:center">
+              <div style="font-family:var(--fh);font-size:11px;font-weight:800;color:#15803d">✓ SÍ</div>
+              <div style="font-size:10px;color:#6b7280;margin-top:2px">Prioridad Alta</div>
+            </div>
+            <div style="flex:1;background:#fef2f2;border:1.5px solid #ef4444;border-radius:8px;padding:8px;text-align:center;opacity:0.7">
+              <div style="font-family:var(--fh);font-size:11px;font-weight:800;color:#b91c1c">✗ NO</div>
+              <div style="font-size:10px;color:#6b7280;margin-top:2px">Prioridad Baja</div>
+            </div>
+          </div>
+          <div style="font-family:var(--fh);font-size:9px;font-weight:800;letter-spacing:.8px;color:var(--muted);margin-bottom:6px">ESCALA</div>
+          <div style="display:flex;gap:6px">
+            <div style="flex:1;border:2px solid #b91c1c;border-radius:8px;padding:7px;text-align:center">
+              <div style="font-family:var(--fh);font-size:13px;font-weight:800;color:#b91c1c">P·A</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:2px">Misional<br>directo</div>
+            </div>
+            <div style="flex:1;border:2px solid #d97706;border-radius:8px;padding:7px;text-align:center">
+              <div style="font-family:var(--fh);font-size:13px;font-weight:800;color:#d97706">P·B</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:2px">Misional<br>indirecto</div>
+            </div>
+            <div style="flex:1;border:2px solid #374151;border-radius:8px;padding:7px;text-align:center">
+              <div style="font-family:var(--fh);font-size:13px;font-weight:800;color:#374151">P·C</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:2px">Apoyo /<br>Estratégico</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 3: Automatizaciones misionales -->
+        <div>
+          <div style="font-family:var(--fh);font-size:9px;font-weight:800;letter-spacing:.8px;color:var(--muted);margin-bottom:8px">AUTOMATIZACIONES CON IMPACTO MISIONAL</div>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div id="prio-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div style="background:#111827;border-radius:8px;padding:10px 16px;text-align:center">
+        <div style="font-size:11.5px;color:white;font-weight:600">Automatizar procesos misionales primero = mayor retorno estratégico · Los procesos de apoyo se atienden según capacidad del equipo</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     HITOS Q1 2026
+═══════════════════════════════════════════════════════ -->
+<style>
+.hitos-section{margin:48px 0 0;padding:32px 0 60px}
+.hitos-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;padding-top:32px;border-top:2px solid var(--border)}
+.hitos-title{font-family:var(--fh);font-size:clamp(16px,2vw,22px);font-weight:800;letter-spacing:-.02em;color:#111827}
+.hitos-title em{font-style:normal;color:#e07b00}
+.hitos-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#15803d;background:#f0fdf4;border:1px solid #3ec87a;padding:4px 12px;border-radius:20px}
+.hitos-badge::before{content:'';width:7px;height:7px;background:#3ec87a;border-radius:50%;animation:blink 2s infinite}
+.hitos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.hito-card{border-radius:14px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,0.07);border:1px solid var(--border);transition:transform .2s,box-shadow .2s}
+.hito-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.12)}
+.hito-card.featured{grid-column:span 2}
+.hito-head{padding:14px 18px 12px;display:flex;align-items:flex-start;gap:12px}
+.hito-ico{font-size:28px;flex-shrink:0;margin-top:2px}
+.hito-meta{flex:1}
+.hito-meta .htitle{font-family:var(--fh);font-size:13px;font-weight:800;line-height:1.3;margin-bottom:3px}
+.hito-meta .hsub{font-size:11px;color:var(--muted);line-height:1.4}
+.hito-stamp{display:inline-flex;align-items:center;gap:4px;font-family:var(--fh);font-size:9px;font-weight:700;padding:3px 8px;border-radius:10px;margin-top:5px}
+.hito-body{padding:0 18px 14px}
+.hito-body p{font-size:11.5px;color:#374151;line-height:1.6}
+.hito-stat{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.hito-stat-item{padding:6px 12px;border-radius:8px;text-align:center}
+.hito-stat-item .sn{font-family:var(--fh);font-size:18px;font-weight:800;line-height:1}
+.hito-stat-item .sl{font-size:9px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.hito-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.hito-tag{font-size:10px;padding:3px 9px;border-radius:10px;font-weight:600}
+@media(max-width:680px){.hito-card.featured{grid-column:span 1}}
+</style>
+
+<div class="hitos-section">
+  <div class="hitos-header">
+    <div>
+      <div class="hitos-title">Principales <em>Hitos</em> del Área de Tecnología</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px">Primer Trimestre 2026 · Ene — Mar · Inversiones Bolívar</div>
+    </div>
+    <div class="hitos-badge">✓ Q1 2026 Completado</div>
+  </div>
+
+  <div class="hitos-grid">
+
+    <!-- HITO PRINCIPAL: MESA DE AYUDA -->
+    <div class="hito-card featured" style="background:linear-gradient(135deg,#0d5e80 0%,#1a8ab5 100%)">
+      <div class="hito-head">
+        <span class="hito-ico">🎯</span>
+        <div class="hito-meta">
+          <div class="htitle" style="color:white;font-size:16px">Mesa de Ayuda Tecnología</div>
+          <div class="hsub" style="color:rgba(255,255,255,0.75)">Sistema centralizado de tickets · Pilar de Innovación y Experiencia Digital</div>
+          <span class="hito-stamp" style="background:rgba(255,255,255,0.2);color:white">⭐ Hito Principal del Trimestre</span>
+        </div>
+      </div>
+      <div class="hito-body">
+        <p style="color:rgba(255,255,255,0.85)">Por primera vez, todos los colaboradores de Inversiones Bolívar cuentan con un canal oficial y estructurado para reportar incidencias tecnológicas. Elimina solicitudes por WhatsApp, prioriza por criticidad y da visibilidad total al equipo de TI sobre la carga de trabajo.</p>
+        <div class="hito-stat">
+          <div class="hito-stat-item" style="background:rgba(255,255,255,0.15)"><div class="sn" style="color:white">100%</div><div class="sl" style="color:rgba(255,255,255,0.7)">Colaboradores</div></div>
+          <div class="hito-stat-item" style="background:rgba(255,255,255,0.15)"><div class="sn" style="color:#3ec87a">186</div><div class="sl" style="color:rgba(255,255,255,0.7)">Tickets en 2 semanas</div></div>
+          <div class="hito-stat-item" style="background:rgba(255,255,255,0.15)"><div class="sn" style="color:white">1er</div><div class="sl" style="color:rgba(255,255,255,0.7)">Sistema Formal IT</div></div>
+          <div class="hito-stat-item" style="background:rgba(255,255,255,0.15)"><div class="sn" style="color:#3ec87a">✓</div><div class="sl" style="color:rgba(255,255,255,0.7)">En Producción</div></div>
+        </div>
+        <div class="hito-tags">
+          <span class="hito-tag" style="background:rgba(255,255,255,0.2);color:white">Copilot Studio</span>
+          <span class="hito-tag" style="background:rgba(255,255,255,0.2);color:white">Power Automate</span>
+          <span class="hito-tag" style="background:rgba(255,255,255,0.2);color:white">SharePoint</span>
+          <span class="hito-tag" style="background:rgba(255,255,255,0.2);color:white">Teams</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seguridad -->
+    <div class="hito-card" style="background:var(--surface)">
+      <div class="hito-head" style="background:#f0fdf4">
+        <span class="hito-ico">🔐</span>
+        <div class="hito-meta">
+          <div class="htitle" style="color:#15803d">Seguridad y Saneamiento de Red</div>
+          <div class="hsub">Revisión completa de infraestructura, accesos y firmware</div>
+          <span class="hito-stamp" style="background:#dcfce7;color:#15803d">✓ Completado</span>
+        </div>
+      </div>
+      <div class="hito-body" style="padding-top:12px">
+        <p>Segmentación de red, actualización de firmware, revisión de accesos y cierre de vulnerabilidades. La organización opera sobre una infraestructura más segura y documentada.</p>
+        <div class="hito-tags"><span class="hito-tag" style="background:#dcfce7;color:#15803d">Operaciones</span><span class="hito-tag" style="background:#dcfce7;color:#15803d">Infraestructura</span></div>
+      </div>
+    </div>
+
+    <!-- Backups -->
+    <div class="hito-card" style="background:var(--surface)">
+      <div class="hito-head" style="background:#f0fdf4">
+        <span class="hito-ico">💾</span>
+        <div class="hito-meta">
+          <div class="htitle" style="color:#15803d">Backups Corporativos 9.05 TB</div>
+          <div class="hsub">Resguardo mensual de servidores, SharePoint y sistemas críticos</div>
+          <span class="hito-stamp" style="background:#dcfce7;color:#15803d">✓ Activo Mensual</span>
+        </div>
+      </div>
+      <div class="hito-body" style="padding-top:12px">
+        <p>9.05 TB de información crítica respaldados mensualmente. Garantiza la continuidad del negocio ante cualquier falla o pérdida de datos.</p>
+        <div class="hito-stat"><div class="hito-stat-item" style="background:#f0fdf4;border:1px solid #3ec87a"><div class="sn" style="color:#15803d">9.05</div><div class="sl" style="color:#6b7280">TB respaldados</div></div></div>
+      </div>
+    </div>
+
+    <!-- Renovación impresoras -->
+    <div class="hito-card" style="background:var(--surface)">
+      <div class="hito-head" style="background:#fff8f0">
+        <span class="hito-ico">🖨️</span>
+        <div class="hito-meta">
+          <div class="htitle" style="color:#7a3d00">Renovación Impresoras Ricoh</div>
+          <div class="hsub">Gestión centralizada y políticas de uso definidas</div>
+          <span class="hito-stamp" style="background:#fed7aa;color:#7a3d00">✓ Completado</span>
+        </div>
+      </div>
+      <div class="hito-body" style="padding-top:12px">
+        <p>Nueva flota con cuotas por usuario, impresión B&N por defecto y reportes de consumo. Reducción de costos y control corporativo sobre el uso de impresoras.</p>
+        <div class="hito-tags"><span class="hito-tag" style="background:#fed7aa;color:#7a3d00">Operaciones</span><span class="hito-tag" style="background:#fed7aa;color:#7a3d00">Gobernanza</span></div>
+      </div>
+    </div>
+
+    <!-- Capacitaciones -->
+    <div class="hito-card" style="background:var(--surface)">
+      <div class="hito-head" style="background:#fff8f0">
+        <span class="hito-ico">📚</span>
+        <div class="hito-meta">
+          <div class="htitle" style="color:#7a3d00">Capacitaciones Digitales Q1</div>
+          <div class="hsub">SharePoint · Teams · OneDrive · Mesa de Ayuda</div>
+          <span class="hito-stamp" style="background:#fed7aa;color:#7a3d00">✓ 3 Completadas</span>
+        </div>
+      </div>
+      <div class="hito-body" style="padding-top:12px">
+        <p>Tres capacitaciones completadas para toda la organización. Los colaboradores ya saben centralizar documentos, colaborar en Teams y registrar incidencias correctamente.</p>
+        <div class="hito-stat"><div class="hito-stat-item" style="background:#fff8f0;border:1px solid #e07b00"><div class="sn" style="color:#7a3d00">3</div><div class="sl" style="color:#6b7280">Capacitaciones</div></div></div>
+      </div>
+    </div>
+
+    <!-- Priorización -->
+    <div class="hito-card" style="background:var(--surface)">
+      <div class="hito-head" style="background:#faf5ff">
+        <span class="hito-ico">🗺️</span>
+        <div class="hito-meta">
+          <div class="htitle" style="color:#4a1e7a">Priorización de Procesos y Automatizaciones</div>
+          <div class="hsub">Roadmap definido con criterios estratégicos para todo 2026</div>
+          <span class="hito-stamp" style="background:#f3e8ff;color:#4a1e7a">✓ Completado</span>
+        </div>
+      </div>
+      <div class="hito-body" style="padding-top:12px">
+        <p>87 procesos y 20 automatizaciones priorizados por impacto misional. El equipo tiene claridad total sobre qué construir primero y por qué, alineado con los resultados de negocio.</p>
+        <div class="hito-tags"><span class="hito-tag" style="background:#f3e8ff;color:#4a1e7a">Estratégico</span><span class="hito-tag" style="background:#f3e8ff;color:#4a1e7a">Plataformas</span></div>
+      </div>
+    </div>
+
+    <!-- Agentes Q1 -->
+    <div class="hito-card" style="background:var(--surface)">
+      <div class="hito-head" style="background:#eff6ff">
+        <span class="hito-ico">🤖</span>
+        <div class="hito-meta">
+          <div class="htitle" style="color:#0d5e80">3 Agentes de IA en desarrollo</div>
+          <div class="hsub">Reclutamiento · Comunicación Interna · Descriptores de Puesto</div>
+          <span class="hito-stamp" style="background:#dbeafe;color:#0d5e80">→ Cierre Marzo</span>
+        </div>
+      </div>
+      <div class="hito-body" style="padding-top:12px">
+        <p>Tres agentes Copilot Studio en fase final de desarrollo para Talento Humano. Automatizan procesos misionales de reclutamiento, comunicación y gestión de descriptores de puestos.</p>
+        <div class="hito-tags"><span class="hito-tag" style="background:#dbeafe;color:#0d5e80">Copilot Studio</span><span class="hito-tag" style="background:#f3f4f6;color:#374151">P·C Apoyo</span><span class="hito-tag" style="background:#dbeafe;color:#0d5e80">Talento Humano</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL SISTEMA DE GESTIÓN DE PROCESOS -->
+<div class="modal-overlay" id="modal-sgp-overlay" onclick="if(event.target===this)closeModalSGP()">
+  <div class="modal" style="max-width:980px">
+    <div class="modal-head">
+      <div class="modal-title" style="color:#4a1e7a;flex-direction:column;align-items:flex-start;gap:2px">
+        <span style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#9b59d0;text-transform:uppercase">Métrica de Iniciativa</span>
+        Sistema de Gestión del Proceso por Madurez del Negocio
+      </div>
+      <button class="modal-close" onclick="closeModalSGP()">✕</button>
+    </div>
+    <div class="modal-body" style="padding:16px 18px">
+      <p style="font-size:11.5px;color:var(--muted);text-align:center;margin-bottom:16px">La métrica evoluciona conforme madura la organización · Inversiones Bolívar 2026+</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+
+        <!-- NIVEL 1 -->
+        <div style="border-radius:12px;overflow:hidden;border:2px solid #3ec87a;background:#f0fdf4">
+          <div style="background:#3ec87a;padding:12px 14px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <div style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:13px;font-weight:800;color:white;flex-shrink:0">1</div>
+              <div style="font-family:var(--fh);font-size:14px;font-weight:800;color:white">Diseñar y Documentar</div>
+              <span style="font-size:16px;margin-left:auto">📋</span>
+            </div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.85);margin-left:34px">As-Is · Levantamiento de procesos</div>
+          </div>
+          <div style="padding:12px 14px">
+            <div style="display:inline-flex;align-items:center;gap:5px;background:#dcfce7;border:1px solid #3ec87a;border-radius:10px;padding:3px 10px;font-family:var(--fh);font-size:9.5px;font-weight:700;color:#15803d;margin-bottom:10px">
+              <span style="width:6px;height:6px;background:#3ec87a;border-radius:50%;display:inline-block"></span> EN PROGRESO 2026
+            </div>
+            <div style="font-family:var(--fh);font-size:8.5px;font-weight:800;letter-spacing:.08em;color:var(--muted);margin-bottom:4px">MÉTRICA DE LA INICIATIVA</div>
+            <div style="background:rgba(62,200,122,0.12);border:1px solid #3ec87a;border-radius:6px;padding:8px 10px;text-align:center;margin-bottom:10px">
+              <div style="font-size:11px;font-weight:700;color:#15803d">% de procesos creados y documentados</div>
+              <div style="font-size:10px;color:var(--muted);margin-top:2px">Avance: 25 de 87 completados = 29%</div>
+            </div>
+            <div style="font-family:var(--fh);font-size:8.5px;font-weight:800;letter-spacing:.08em;color:var(--muted);margin-bottom:6px">QUÉ HACEMOS</div>
+            <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:10px">
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#3ec87a;flex-shrink:0;margin-top:4px"></span>Identificar y mapear procesos de negocio</div>
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#3ec87a;flex-shrink:0;margin-top:4px"></span>Documentar el flujo actual (As-Is)</div>
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#3ec87a;flex-shrink:0;margin-top:4px"></span>Asignar responsables por macroproceso</div>
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#3ec87a;flex-shrink:0;margin-top:4px"></span>Validar con líderes de área</div>
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#3ec87a;flex-shrink:0;margin-top:4px"></span>Centralizar en repositorio SharePoint</div>
+            </div>
+            <div style="font-family:var(--fh);font-size:8.5px;font-weight:800;letter-spacing:.08em;color:var(--muted);margin-bottom:6px">ELEMENTOS QUE SE EXTRAEN POR PROCESO</div>
+            <div style="display:flex;align-items:flex-start;gap:6px;margin-bottom:6px"><span style="font-size:13px">📌</span><div><div style="font-size:11px;font-weight:700;color:#15803d">Indicadores identificados</div><div style="font-size:10px;color:var(--muted)">Todo proceso documenta sus KPIs</div></div></div>
+            <div style="display:flex;align-items:flex-start;gap:6px;margin-bottom:6px"><span style="font-size:13px">🔧</span><div><div style="font-size:11px;font-weight:700;color:#15803d">Herramientas involucradas</div><div style="font-size:10px;color:var(--muted)">Plataformas y sistemas relacionados</div></div></div>
+            <div style="display:flex;align-items:flex-start;gap:6px;margin-bottom:6px"><span style="font-size:13px">⚠️</span><div><div style="font-size:11px;font-weight:700;color:#15803d">Riesgos operativos relacionados</div><div style="font-size:10px;color:var(--muted)">Riesgos asociados al proceso</div></div></div>
+          </div>
+        </div>
+
+        <!-- NIVEL 2 -->
+        <div style="border-radius:12px;overflow:hidden;border:2px solid #2eb8e6;background:#f0f9fe">
+          <div style="background:#2eb8e6;padding:12px 14px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <div style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:13px;font-weight:800;color:white;flex-shrink:0">2</div>
+              <div style="font-family:var(--fh);font-size:14px;font-weight:800;color:white">Monitorear y Medir</div>
+              <span style="font-size:16px;margin-left:auto">📊</span>
+            </div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.85);margin-left:34px">To-Be · KPIs e indicadores</div>
+          </div>
+          <div style="padding:12px 14px">
+            <div style="display:inline-flex;align-items:center;background:#dbeafe;border:1px solid #2eb8e6;border-radius:10px;padding:3px 10px;font-family:var(--fh);font-size:9.5px;font-weight:700;color:#0d5e80;margin-bottom:10px">FASE SIGUIENTE</div>
+            <div style="font-family:var(--fh);font-size:8.5px;font-weight:800;letter-spacing:.08em;color:var(--muted);margin-bottom:4px">MÉTRICA DE LA INICIATIVA</div>
+            <div style="background:rgba(46,184,230,0.1);border:1px solid #2eb8e6;border-radius:6px;padding:8px 10px;text-align:center;margin-bottom:10px">
+              <div style="font-size:11px;font-weight:700;color:#0d5e80">% de eficiencia de los procesos</div>
+              <div style="font-size:10px;color:var(--muted);margin-top:2px">Medición de KPIs por proceso activo</div>
+            </div>
+            <div style="font-family:var(--fh);font-size:8.5px;font-weight:800;letter-spacing:.08em;color:var(--muted);margin-bottom:6px">QUÉ HAREMOS</div>
+            <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:10px">
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#2eb8e6;flex-shrink:0;margin-top:4px"></span>Diseñar el estado deseado (To-Be)</div>
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#2eb8e6;flex-shrink:0;margin-top:4px"></span>Activar y medir los KPIs ya definidos</div>
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#2eb8e6;flex-shrink:0;margin-top:4px"></span>Tableros de seguimiento en Power BI</div>
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#2eb8e6;flex-shrink:0;margin-top:4px"></span>Automatizar alertas de desviación</div>
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#2eb8e6;flex-shrink:0;margin-top:4px"></span>Reportes periódicos a líderes</div>
+            </div>
+            <div style="font-family:var(--fh);font-size:8.5px;font-weight:800;letter-spacing:.08em;color:var(--muted);margin-bottom:6px">HERRAMIENTAS</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+              <span style="font-size:10px;padding:3px 9px;border-radius:10px;background:#dbeafe;color:#0d5e80;font-weight:600">📊 Power BI</span>
+              <span style="font-size:10px;padding:3px 9px;border-radius:10px;background:#dbeafe;color:#0d5e80;font-weight:600">📁 SharePoint</span>
+              <span style="font-size:10px;padding:3px 9px;border-radius:10px;background:#dbeafe;color:#0d5e80;font-weight:600">🤖 Copilot</span>
+            </div>
+            <div style="background:rgba(46,184,230,0.07);border-radius:6px;padding:8px 10px;text-align:center">
+              <div style="font-size:10.5px;font-weight:600;color:#0d5e80">Requiere: Nivel 1 completado</div>
+              <div style="font-size:10px;color:var(--muted);margin-top:2px">Procesos validados por líderes</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NIVEL 3 -->
+        <div style="border-radius:12px;overflow:hidden;border:2px solid #9b59d0;background:#faf5ff">
+          <div style="background:#9b59d0;padding:12px 14px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <div style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:13px;font-weight:800;color:white;flex-shrink:0">3</div>
+              <div style="font-family:var(--fh);font-size:14px;font-weight:800;color:white">Mejora Continua</div>
+              <span style="font-size:16px;margin-left:auto">🔄</span>
+            </div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.85);margin-left:34px">Ciclo PDCA · Optimización</div>
+          </div>
+          <div style="padding:12px 14px">
+            <div style="display:inline-flex;align-items:center;background:#f3e8ff;border:1px solid #9b59d0;border-radius:10px;padding:3px 10px;font-family:var(--fh);font-size:9.5px;font-weight:700;color:#6b21a8;margin-bottom:10px">VISIÓN LARGO PLAZO</div>
+            <div style="font-family:var(--fh);font-size:8.5px;font-weight:800;letter-spacing:.08em;color:var(--muted);margin-bottom:4px">MÉTRICA DE LA INICIATIVA</div>
+            <div style="background:rgba(155,89,208,0.08);border:1px solid #9b59d0;border-radius:6px;padding:8px 10px;text-align:center;margin-bottom:10px">
+              <div style="font-size:11px;font-weight:700;color:#6b21a8">Índice de mejora continua</div>
+              <div style="font-size:10px;color:var(--muted);margin-top:2px">Ciclos PDCA ejecutados por proceso</div>
+            </div>
+            <div style="font-family:var(--fh);font-size:8.5px;font-weight:800;letter-spacing:.08em;color:var(--muted);margin-bottom:6px">QUÉ LOGRAREMOS</div>
+            <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:10px">
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#9b59d0;flex-shrink:0;margin-top:4px"></span>Ciclo PDCA activo por proceso</div>
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#9b59d0;flex-shrink:0;margin-top:4px"></span>Identificar cuellos de botella</div>
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#9b59d0;flex-shrink:0;margin-top:4px"></span>Rediseñar procesos ineficientes</div>
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#9b59d0;flex-shrink:0;margin-top:4px"></span>Cultura de eficiencia operativa</div>
+              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#374151"><span style="width:6px;height:6px;border-radius:50%;background:#9b59d0;flex-shrink:0;margin-top:4px"></span>Benchmarking vs industria</div>
+            </div>
+            <div style="font-family:var(--fh);font-size:8.5px;font-weight:800;letter-spacing:.08em;color:var(--muted);margin-bottom:6px">HERRAMIENTAS</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+              <span style="font-size:10px;padding:3px 9px;border-radius:10px;background:#f3e8ff;color:#6b21a8;font-weight:600">📊 Power BI</span>
+              <span style="font-size:10px;padding:3px 9px;border-radius:10px;background:#f3e8ff;color:#6b21a8;font-weight:600">⚡ Power Auto.</span>
+              <span style="font-size:10px;padding:3px 9px;border-radius:10px;background:#f3e8ff;color:#6b21a8;font-weight:600">🤖 Copilot</span>
+            </div>
+            <div style="background:rgba(155,89,208,0.07);border-radius:6px;padding:8px 10px;text-align:center">
+              <div style="font-size:10.5px;font-weight:600;color:#6b21a8">Resultado: procesos ágiles y autogestionados</div>
+              <div style="font-size:10px;color:var(--muted);margin-top:2px">Organización orientada a la eficiencia</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Timeline -->
+      <div style="display:flex;align-items:center;justify-content:space-around;margin-top:16px;padding-top:12px;border-top:1px solid var(--border)">
+        <div style="text-align:center"><div style="width:14px;height:14px;border-radius:50%;background:#3ec87a;margin:0 auto 4px"></div><div style="font-family:var(--fh);font-size:10px;font-weight:700;color:#15803d">Ahora · 2026</div><div style="font-size:9px;color:var(--muted)">creación</div></div>
+        <div style="flex:1;height:1px;background:#e5e7eb;margin:0 12px"></div>
+        <div style="text-align:center"><div style="width:14px;height:14px;border-radius:50%;background:#e5e7eb;border:2px solid #2eb8e6;margin:0 auto 4px"></div><div style="font-family:var(--fh);font-size:10px;font-weight:600;color:#0d5e80">2026 – 2027</div><div style="font-size:9px;color:var(--muted)">eficiencia</div></div>
+        <div style="flex:1;height:1px;background:#e5e7eb;margin:0 12px"></div>
+        <div style="text-align:center"><div style="width:14px;height:14px;border-radius:50%;background:#e5e7eb;border:2px solid #9b59d0;margin:0 auto 4px"></div><div style="font-family:var(--fh);font-size:10px;font-weight:600;color:#6b21a8">2027+</div><div style="font-size:9px;color:var(--muted)">mejora continua</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModalSGP(){document.getElementById('modal-sgp-overlay').classList.add('open');}
+function closeModalSGP(){document.getElementById('modal-sgp-overlay').classList.remove('open');}
+</script>
+</body>
+</html>
